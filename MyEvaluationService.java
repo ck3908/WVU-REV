@@ -33,15 +33,81 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		RotationalCipher rc = new RotationalCipher(13);
-		String resultRC = rc.rotate("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.");
-		String answer = "The quick brown fox jumps over the lazy dog.";
-		if (answer.equals(resultRC)) {
-			System.out.println("they are equal");
-		}
-		System.out.println("rotated string is "+resultRC);
-
+		int primeAt = 10001;
+		int primeNumber = m.calculateNthPrime(primeAt);
+		System.out.println("the "+primeAt+ "th prime number is "+primeNumber);
+				
 	}
+	
+	/**
+	 * 12. Given a number n, determine what the nth prime is.
+	 * 
+	 * By listing the first six prime numbers: 2, 3, 5, 7, 11, and 13, we can see
+	 * that the 6th prime is 13.
+	 * 
+	 * If your language provides methods in the standard library to deal with prime
+	 * numbers, pretend they don't exist and implement them yourself.
+	 * 
+	 * @param i
+	 * @return
+	 */
+	
+	
+	public int calculateNthPrime(int i) {
+		// TODO Write an implementation for this method declaration
+		if (i == 0) { // no prime at position 0 - for test case
+			throw new IllegalArgumentException();
+		}
+		int nthPrime = 0;
+		int g = 1;
+		while (nthPrime < i) {
+			int flag = 1;
+			if ((g > 2) && (g % 2 == 0)) {
+				flag = 0; // not a prime
+			}
+			else {
+				for (int k = 3; k < (g/2); k=k+2) {
+					if (g % k == 0 ) {
+						flag = 0; //not a prime
+						break;
+					}
+
+				}
+			}
+			if ((flag == 1) & (g >= 2)) {
+				nthPrime = nthPrime+1;
+				//System.out.println("prime found is "+i);
+			}
+			++g;
+		}
+		return g-1;
+	}
+	/**
+	 * 11. Create an implementation of the rotational cipher, also sometimes called
+	 * the Caesar cipher.
+	 * 
+	 * The Caesar cipher is a simple shift cipher that relies on transposing all the
+	 * letters in the alphabet using an integer key between 0 and 26. Using a key of
+	 * 0 or 26 will always yield the same output due to modular arithmetic. The
+	 * letter is shifted for as many values as the value of the key.
+	 * 
+	 * The general notation for rotational ciphers is ROT + <key>. The most commonly
+	 * used rotational cipher is ROT13.
+	 * 
+	 * A ROT13 on the Latin alphabet would be as follows:
+	 * 
+	 * Plain: abcdefghijklmnopqrstuvwxyz Cipher: nopqrstuvwxyzabcdefghijklm It is
+	 * stronger than the Atbash cipher because it has 27 possible keys, and 25
+	 * usable keys.
+	 * 
+	 * Ciphertext is written our in the same formatting as the input including
+	 * spaces and punctuation.
+	 * 
+	 * Examples: ROT5 omg gives trl ROT0 c gives c ROT26 Cool gives Cool ROT13 The
+	 * quick brown fox jumps over the lazy dog. gives Gur dhvpx oebja sbk whzcf bire
+	 * gur ynml qbt. ROT13 Gur dhvpx oebja sbk whzcf bire gur ynml qbt. gives The
+	 * quick brown fox jumps over the lazy dog.
+	 */
 
 	static class RotationalCipher {
 		private int key;
@@ -72,6 +138,7 @@ public class MyEvaluationService {
 					cipher = cipher+c;
 				}
 			}
+
 			return cipher.trim();
 		}
 
@@ -638,7 +705,7 @@ public class MyEvaluationService {
 		public boolean isEquilateral() {
 			// TODO Write an implementation for this method declaration
 			System.out.println("side 1 is "+this.getSideOne()+" side 2 is "+this.getSideTwo()+" side 3 is "+this.getSideThree());
-			if (this.getSideOne() == this.getSideTwo() && this.getSideTwo() == this.getSideThree()) {
+			if ((Math.abs(this.getSideOne() - this.getSideTwo()) <= 0.0001) && (Math.abs(this.getSideTwo() - this.getSideThree()) <= 0.0001)) {
 				return true;
 			} else {
 				return false;
@@ -647,7 +714,7 @@ public class MyEvaluationService {
 
 		public boolean isIsosceles() {
 			// TODO Write an implementation for this method declaration
-			if (this.getSideOne() == this.getSideTwo() || this.getSideTwo() == this.getSideThree() || this.getSideOne() == this.getSideThree()) {
+			if ((Math.abs(this.getSideOne() - this.getSideTwo()) <= 0.0001) || (Math.abs(this.getSideTwo() - this.getSideThree()) <= 0.0001) || (Math.abs(this.getSideOne() - this.getSideThree()) <= 0.0001)) {
 				return true;
 			} else {
 				return false;
@@ -656,7 +723,7 @@ public class MyEvaluationService {
 
 		public boolean isScalene() {
 			// TODO Write an implementation for this method declaration
-			if (this.getSideOne() != this.getSideTwo() & this.getSideTwo() != this.getSideThree() & this.getSideOne() != this.getSideThree()) {
+			if (!(Math.abs(this.getSideOne() - this.getSideTwo()) <= 0.0001) & !(Math.abs(this.getSideTwo() - this.getSideThree()) <= 0.0001) & !(Math.abs(this.getSideOne() - this.getSideThree()) <= 0.0001)) {
 				return true;
 			} else {
 				return false;
