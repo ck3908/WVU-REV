@@ -33,10 +33,103 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		int primeAt = 10001;
-		int primeNumber = m.calculateNthPrime(primeAt);
-		System.out.println("the "+primeAt+ "th prime number is "+primeNumber);
+		AtbashCipher ac = new AtbashCipher();
+		String testStr = ac.encode("The quick brown fox jumps over the lazy dog.");
+		System.out.println("the encoded of a is "+testStr);
+		
+		String testme = " ";
+		String gettest = "hello";
+		String first = "first";
+		System.out.println("length of hello is "+gettest.length());
+		String combine = first+testme+gettest;
+		System.out.println("combined expression is "+combine);
+		System.out.println("length of expression is "+combine.length());
 				
+	
+	}
+	
+	static class AtbashCipher {
+
+		/**
+		 * Question 13
+		 * 
+		 * @param string
+		 * @return
+		 */
+		public static String encode(String string) {
+			// TODO Write an implementation for this method declaration
+			String encodeStr = " ";
+			String lowerCaseStr = string.replaceAll("[^a-zA-Z0-9]","").toLowerCase(); //turn string to lower case and get rid of special characters
+			System.out.println("the clean string is "+lowerCaseStr);
+			String alphabetKey = "abcdefghijklmnopqrstuvwxyz1234567890";
+			String alphabetValue = "zyxwvutsrqponmlkjihgfedcba1234567890";
+			HashMap<String,String> encodeMap = new HashMap<String,String>();
+			// build the hashmap key value set to match each character to their code
+			for (int i = 0; i < alphabetKey.length();++i) {
+				encodeMap.put(alphabetKey.substring(i, i+1), alphabetValue.substring(i, i+1));
+			}
+
+			//			for (String key : encodeMap.keySet()) {
+			//			    System.out.println(key + " " + encodeMap.get(key));
+			//			}
+
+			for (int j = 0; j<lowerCaseStr.length(); ++j) {
+				String keyString = lowerCaseStr.substring(j, j+1);
+				System.out.println(" keyString is "+keyString);
+				String mapChar = encodeMap.get(keyString);
+				encodeStr = encodeStr+mapChar;
+			}
+			String noSpaces = encodeStr.trim();
+			String strEncode = " ";
+			if (noSpaces.length() <= 4) {
+				return noSpaces;
+			}
+			else {
+				int charBlocks = 5;
+				
+				if (noSpaces.length() <= charBlocks) {  // word is less than block of 5 char
+				}
+				else {
+					int remainder = noSpaces.length() % charBlocks;  // remainder block of characters
+					int loops = 0;
+					if (remainder == 0) {
+						loops = noSpaces.length()/charBlocks;  // loop number of multiple of 5 block characters
+					}
+					else {
+						loops = noSpaces.length()/charBlocks+1; // need the last loop to capture last few characters not in a 5 block of characters
+					}
+					int n = 1;
+					int p = 0;
+					String blank = " ";
+					while (n <= loops) {
+
+						if ( (loops == n) && (remainder != 0)) {
+							// last loop check remainder
+							strEncode = strEncode +blank+ noSpaces.substring(p,p+remainder);
+						}
+						else {
+							strEncode = strEncode +blank+ noSpaces.substring(p,p+charBlocks);
+							p = p+charBlocks;
+						}
+						++n;
+
+					}
+				}
+			}
+
+			return strEncode.trim();
+		}
+
+		/**
+		 * Question 14
+		 * 
+		 * @param string
+		 * @return
+		 */
+		public static String decode(String string) {
+			// TODO Write an implementation for this method declaration
+			return null;
+		}
 	}
 	
 	/**
@@ -80,7 +173,7 @@ public class MyEvaluationService {
 			}
 			++g;
 		}
-		return g-1;
+		return g-1; //because g was incremented at the end in order to check while loop so answer is g-1
 	}
 	/**
 	 * 11. Create an implementation of the rotational cipher, also sometimes called
