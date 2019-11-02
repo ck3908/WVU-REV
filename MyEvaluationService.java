@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,41 +15,145 @@ public class MyEvaluationService {
 		// TODO Auto-generated method stub
 
 
-//		List<Integer> testList = new ArrayList<Integer>();
-//		testList.add(1);
-//		testList.add(3);
-//		testList.add(5);
-//		testList.add(7);
-//		testList.add(9);
-//		
-//		int position = MyEvaluationService.BinarySearch<T>.IndexOf(testList); 
+		List<Integer> testList = new ArrayList<Integer>();
+		testList.add(1);
+		testList.add(3);
+		testList.add(5);
+		testList.add(7);
+		testList.add(9);
+		
+		MyEvaluationService m = new MyEvaluationService();
+		BinarySearch<Integer> bs = new BinarySearch<>(testList);
+		Integer k = 0;
+		int getpos = bs.indexOf(k);
+		System.out.println(" get pos is "+getpos);
+	//	int getpos = bs.indexOf();
+		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
+		
 		
 		/**
-		 * 9. An Armstrong number is a number that is the sum of its own digits each
-		 * raised to the power of the number of digits.
+		 * 10. Compute the prime factors of a given natural number.
 		 * 
-		 * For example:
+		 * A prime number is only evenly divisible by itself and 1.
 		 * 
-		 * 9 is an Armstrong number, because 9 = 9^1 = 9 10 is not an Armstrong number,
-		 * because 10 != 1^2 + 0^2 = 2 153 is an Armstrong number, because: 153 = 1^3 +
-		 * 5^3 + 3^3 = 1 + 125 + 27 = 153 154 is not an Armstrong number, because: 154
-		 * != 1^3 + 5^3 + 4^3 = 1 + 125 + 64 = 190 Write some code to determine whether
-		 * a number is an Armstrong number.
+		 * Note that 1 is not a prime number.
 		 * 
-		 * @param input
+		 * @param l
 		 * @return
 		 */
+	MyEvaluationService getPrimeFactors = new MyEvaluationService();
+	Long testFactors = 12L;
+	Long x = 7L/2L;
+	System.out.println("x is "+x);
+	List<Long> factorArrays = new ArrayList<Long>();
+	factorArrays = getPrimeFactors.calculatePrimeFactorsOf(testFactors);
 	
 
 		
-		
-		
 	}	
 	
+	public List<Long> calculatePrimeFactorsOf(long l) {
+		// TODO Write an implementation for this method declaration
+		long n = l;  // easier to see n instead l in statements
+		List<Integer> pList = new ArrayList<Integer>();
+		List<Long> factorList = new ArrayList<Long>();
+		MyEvaluationService getListPrimes = new MyEvaluationService();
+		pList = getListPrimes.getPrimes();
+		
+		while ((n % 2 == 0) && (n/2 > 0)){ // still even
+			factorList.add(2l);//2 long
+			n = n/2;
+		}
+		boolean primeFlag = false;
+		if (n % 2 > 0) { // is an odd number - check if it is prime
+			if (pList.contains(n)) { // check against prime pool
+				factorList.add(n);
+				primeFlag = true;  // if prime then set true
+			}
+		}
+		
+		if (!primeFlag) { // still odd number but prime not found - find the divisors and check those
+			Long midPoint = n/2; 
+			for (Long i = 3L; i < midPoint ;i=i+2) { // divide only by odd numbers since odd number to begin with
+				if (n % i == 0) { // two potential prime factors found
+					Long maybePrime1 = i;  // check if odd numbers are prime
+					Long maybePrime2 = n/i;					
+				}
+			}
+		}
+		
+		
+		return factorList;
+	}
+	
+	public List<Integer> getPrimes(){
+		List<Integer> primeList = new ArrayList<Integer>();
+		for (int i = 2; i<1000; ++i) {
+			int flag = 1;
+			if (i % 2 == 0) {
+				flag = 0; // not a prime
+			}
+			else {
+				for (int k = 3; k < (int)(i/2); k=k+2) {
+					if (i % k == 0 ) {
+						flag = 0; //not a prime
+					}
+					
+				}
+			}
+			if (flag == 1) {
+				primeList.add(i);
+				System.out.println("prime found is "+i);
+			}
+		}
+		return primeList;
+	}
+	   
+	
+	
+	/**
+	 * 9. An Armstrong number is a number that is the sum of its own digits each
+	 * raised to the power of the number of digits.
+	 * 
+	 * For example:
+	 * 
+	 * 9 is an Armstrong number, because 9 = 9^1 = 9 10 is not an Armstrong number,
+	 * because 10 != 1^2 + 0^2 = 2 153 is an Armstrong number, because: 153 = 1^3 +
+	 * 5^3 + 3^3 = 1 + 125 + 27 = 153 154 is not an Armstrong number, because: 154
+	 * != 1^3 + 5^3 + 4^3 = 1 + 125 + 64 = 190 Write some code to determine whether
+	 * a number is an Armstrong number.
+	 * 
+	 * @param input
+	 * @return
+	 */
 	
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
-		return false;
+		int countDigits = 0;
+		int copyInput = input;
+		while (copyInput != 0) {
+			copyInput = copyInput/10;
+			++countDigits;
+		}
+		//System.out.println("count digits is "+countDigits);
+		
+		int sum = 0;
+		int extractDigits = 0;
+		int copyInputAgain = input;
+		for (int i = 1; i <= countDigits; ++i) {
+			extractDigits = input % 10;
+		//System.out.println("the extracted digits are "+extractDigits);
+			sum = sum + (int)(Math.pow(extractDigits,countDigits));
+			//System.out.println("the sum is "+sum);
+			input = input/10;
+		}
+		if (sum == copyInputAgain ) {
+			return true;
+		}
+		else {
+			return false;
+		}
+				
 	}
 	/**
 	 * 8. Implement a program that translates from English to Pig Latin.
@@ -101,14 +204,14 @@ public class MyEvaluationService {
 
 
 		int index = firstVolwel;
-		System.out.println("index of first volwel is "+index);
+		//System.out.println("index of first volwel is "+index);
 		int lastIndex = string.length();
 		if (index == 0) {
-			System.out.println("in index 0");
+		//	System.out.println("in index 0");
 			pigLatin = string+"ay";
 		}
 		else if (index == 1) {
-			System.out.println("in index 1");
+		//	System.out.println("in index 1");
 			if (string.charAt(0) == 'q') { //check special condition where q follows the u
 				pigLatin = string.substring(index+1, lastIndex)+firstChar+"uay";
 			}
@@ -117,7 +220,7 @@ public class MyEvaluationService {
 			}
 		}
 		else if (index > 1) {
-			System.out.println("in index "+index);
+		//	System.out.println("in index "+index);
 			pigLatin = string.substring(index, lastIndex)+string.substring(0, index)+"ay";
 		}
 
@@ -130,7 +233,7 @@ public class MyEvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			return 5;
 		}
 
 		public BinarySearch(List<T> sortedList) {
@@ -232,7 +335,7 @@ public class MyEvaluationService {
 	public  String cleanPhoneNumber(String string)  {
 		// TODO Write an implementation for this method declaration
 		String s = string.replaceAll("[^a-zA-Z0-9@!]","");
-		System.out.println("s is "+s);
+		//System.out.println("s is "+s);
 		if (s.length() > 10 || s.length() < 7) {
 			throw new IllegalArgumentException();
 		}
