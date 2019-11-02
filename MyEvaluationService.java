@@ -1,6 +1,7 @@
 package com.revature.eval.java.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,16 +22,17 @@ public class MyEvaluationService {
 		testList.add(5);
 		testList.add(7);
 		testList.add(9);
-		
+
 		MyEvaluationService m = new MyEvaluationService();
+		//	MyEvaluationService.BinarySearch<Integer> bs = new MyEvaluationService.BinarySearch<>(testList);
 		BinarySearch<Integer> bs = new BinarySearch<>(testList);
 		Integer k = 0;
 		int getpos = bs.indexOf(k);
 		System.out.println(" get pos is "+getpos);
-	//	int getpos = bs.indexOf();
+		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		
-		
+
+
 		/**
 		 * 10. Compute the prime factors of a given natural number.
 		 * 
@@ -41,16 +43,21 @@ public class MyEvaluationService {
 		 * @param l
 		 * @return
 		 */
-	MyEvaluationService getPrimeFactors = new MyEvaluationService();
-	Long testFactors = 12L;
-	Long x = 7L/2L;
-	System.out.println("x is "+x);
-	List<Long> factorArrays = new ArrayList<Long>();
-	factorArrays = getPrimeFactors.calculatePrimeFactorsOf(testFactors);
-	
+		MyEvaluationService getPrimeFactors = new MyEvaluationService();
+		Long testFactors = 12L;
+		Long x = 7L/2L;
+		System.out.println("x is "+x);
+		List<Long> factorArrays = new ArrayList<Long>();
+		factorArrays = getPrimeFactors.calculatePrimeFactorsOf(testFactors);
+		//System.out.println(Arrays.toString(factorArrays.toArray()));
+		for (int p = 0; p < factorArrays.size(); ++p) {
+			System.out.println("factors are: "+factorArrays.get(p));
+		}
+	}
+
 
 		
-	}	
+		
 	
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
@@ -60,31 +67,55 @@ public class MyEvaluationService {
 		MyEvaluationService getListPrimes = new MyEvaluationService();
 		pList = getListPrimes.getPrimes();
 		
-		while ((n % 2 == 0) && (n/2 > 0)){ // still even
-			factorList.add(2l);//2 long
+		while ((n % 2 == 0) && (n/2 > 0)){ // for even numbers start this first in order to get an odd factor
+			factorList.add(2l);// keeping pushing 2s into the prime factor list until an odd number emerges
 			n = n/2;
-		}
+			System.out.println("pushed 2 in");
+		} // outside the loop then an odd number emerges - check it
 		boolean primeFlag = false;
-		if (n % 2 > 0) { // is an odd number - check if it is prime
-			if (pList.contains(n)) { // check against prime pool
-				factorList.add(n);
+		
+		
+		if (pList.contains(n)) { // check if odd factor to prime pool
+				factorList.add(n);  //add it to the prime factor list
 				primeFlag = true;  // if prime then set true
-			}
 		}
 		
+		
 		if (!primeFlag) { // still odd number but prime not found - find the divisors and check those
-			Long midPoint = n/2; 
-			for (Long i = 3L; i < midPoint ;i=i+2) { // divide only by odd numbers since odd number to begin with
-				if (n % i == 0) { // two potential prime factors found
-					Long maybePrime1 = i;  // check if odd numbers are prime
-					Long maybePrime2 = n/i;					
+			boolean foundOne = false;
+			boolean foundTwo = false;
+			while (!foundTwo) { // stop when the last two remaining prime factors are found
+				Long midPoint = n/2; 
+				Long maybePrime1 = 0L;
+				Long maybePrime2 = 0L;
+				for (Long i = 3L; i < midPoint ;i=i+2) { // divide only by odd numbers since odd number to begin with
+					if (n % i == 0) { // two potential prime factors found
+						maybePrime1 = i;  // check if odd numbers are prime
+						maybePrime2 = n/i;					
+					}
+				}
+				if (pList.contains(maybePrime1) & pList.contains(maybePrime2)) { // found last 2 odd factor primes
+					factorList.add(maybePrime1);
+					factorList.add(maybePrime2);
+					foundOne = true;
+					foundTwo = true;
+				}
+				else if (pList.contains(maybePrime1)) { // found only one, the higher odd number is not a prime
+					factorList.add(maybePrime1);
+					foundOne = true;
 				}
 			}
 		}
 		
-		
+		for (int j = 0; j < factorList.size(); ++j) {
+			System.out.println("factors are: "+factorList.get(j));
+		}
 		return factorList;
 	}
+	
+//	public boolean checkIfPrime(Long factor, List<Integer> primeList) {
+//		return primeList.contains(factor) ? true : false;	// test ternary operator
+//	}
 	
 	public List<Integer> getPrimes(){
 		List<Integer> primeList = new ArrayList<Integer>();
@@ -103,7 +134,7 @@ public class MyEvaluationService {
 			}
 			if (flag == 1) {
 				primeList.add(i);
-				System.out.println("prime found is "+i);
+				//System.out.println("prime found is "+i);
 			}
 		}
 		return primeList;
