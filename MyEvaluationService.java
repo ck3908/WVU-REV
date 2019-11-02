@@ -1,13 +1,14 @@
 package com.revature.eval.java.core;
 
+import java.lang.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 
 public class MyEvaluationService {
 
@@ -25,36 +26,130 @@ public class MyEvaluationService {
 
 		MyEvaluationService m = new MyEvaluationService();
 		//	MyEvaluationService.BinarySearch<Integer> bs = new MyEvaluationService.BinarySearch<>(testList);
-		BinarySearch<Integer> bs = new BinarySearch<>(testList);
-		Integer k = 0;
-		int getpos = bs.indexOf(k);
-	//System.out.println(" get pos is "+getpos);
+		//		BinarySearch<Integer> bs = new BinarySearch<>(testList);
+		//		Integer k = 0;
+		//		int getpos = bs.indexOf(9);
+		//		System.out.println(" get pos is "+getpos);
+
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-
-
-		/**
-		 * 10. Compute the prime factors of a given natural number.
-		 * 
-		 * A prime number is only evenly divisible by itself and 1.
-		 * 
-		 * Note that 1 is not a prime number.
-		 * 
-		 * @param l
-		 * @return
-		 */
-		MyEvaluationService getPrimeFactors = new MyEvaluationService();
-		Long testFactors = 901255L;
-		List<Long> factorArrays = new ArrayList<Long>();
-		factorArrays = getPrimeFactors.calculatePrimeFactorsOf(testFactors);
-		//System.out.println(Arrays.toString(factorArrays.toArray()));
-		System.out.println("enter for loop");
-		for (int p = 0; p < factorArrays.size(); ++p) {
-			System.out.println("factors are: "+factorArrays.get(p));
+		RotationalCipher rc = new RotationalCipher(13);
+		String resultRC = rc.rotate("Gur dhvpx oebja sbk whzcf bire gur ynml qbt.");
+		String answer = "The quick brown fox jumps over the lazy dog.";
+		if (answer.equals(resultRC)) {
+			System.out.println("they are equal");
 		}
+		System.out.println("rotated string is "+resultRC);
+
 	}
 
+	static class RotationalCipher {
+		private int key;
 
+		public RotationalCipher(int key) {
+			super();
+			this.key = key;
+		}
+
+		public String rotate(String string) {
+			// TODO Write an implementation for this method declaration
+			String alphaLet = "abcdefghijklmnopqrstuvwxyz";
+			String upperLet = alphaLet.toUpperCase();
+	//		System.out.println("upper case alphabet is "+upperLet);
+//			char[] lowerAlpha = new String(alphaLet).toCharArray();
+//			char[] upperAlpha = new String(alphaLet.toUpperCase()).toCharArray();
+			String cipher = " ";
+			System.out.println("key is "+key+" length of alphabet "+alphaLet.length());
+
+			for (char c : string.toCharArray()) {
+				if (Character.isUpperCase(c)) {
+					cipher = cipher+cipheredLetter(upperLet,key,c);
+				}
+				else if (Character.isLowerCase(c)) {
+					cipher = cipher+cipheredLetter(alphaLet,key,c);
+				}
+				else {
+					cipher = cipher+c;
+				}
+			}
+			return cipher.trim();
+		}
+
+
+	}
+	
+	public static String cipheredLetter(String alphabet, int k, char ch) {
+		int index = alphabet.indexOf(ch)+1;
+		int shiftedTo = index+k;
+		if (shiftedTo > 26) {
+			shiftedTo = (shiftedTo % 26)-1;
+			System.out.println("shifted key is "+shiftedTo);
+		}
+		else {
+			shiftedTo = shiftedTo-1;
+		}
+		String extractedString = alphabet.substring(shiftedTo,shiftedTo+1);
+		return extractedString;
+	}
+		
+
+//	static class BinarySearch<T> {
+//		interface Comparable<T>{
+//			public int compareTo(T o);
+//		}
+//		private List<T> sortedList;
+//
+//		public int indexOf(T t) {
+//			// TODO Write an implementation for this method declaration
+////			int located = sortedList.indexOf(t);
+////			System.out.println("located index is "+located);
+//			
+//			 int l = 0, r = sortedList.size() - 1; 
+//		        while (l <= r) { 
+//		            int m = l + (r - l) / 2; 
+//		  
+//		            // Check if x is present at mid 
+//		            if (sortedList.get(m) == t) {
+//		            	return m;
+//		            }	  
+//		            // If x greater, ignore left half 
+//		            if ((sortedList.get(m)).compareTo(t)> 0) {
+//		            	l = m + 1; 
+//		            }
+//
+//		            else
+//		                r = m - 1; 
+//		        } 
+//		 
+//		        return -1; 
+//			
+//		}
+//
+//		public BinarySearch(List<T> sortedList) {
+//			super();
+//			this.sortedList = sortedList;
+//		}
+//
+//		public List<T> getSortedList() {
+//			return sortedList;
+//		}
+//
+//		public void setSortedList(List<T> sortedList) {
+//			this.sortedList = sortedList;
+//		}
+//
+//	}
+
+	/**
+	 * 10. Compute the prime factors of a given natural number.
+	 * 
+	 * A prime number is only evenly divisible by itself and 1.
+	 * 
+	 * Note that 1 is not a prime number.
+	 * 
+	 * @param l
+	 * @return
+	 */
 		
 		
 	
@@ -265,28 +360,7 @@ public class MyEvaluationService {
 	}
 	
 	
-	static class BinarySearch<T> {
-		private List<T> sortedList;
 
-		public int indexOf(T t) {
-			// TODO Write an implementation for this method declaration
-			return 5;
-		}
-
-		public BinarySearch(List<T> sortedList) {
-			super();
-			this.sortedList = sortedList;
-		}
-
-		public List<T> getSortedList() {
-			return sortedList;
-		}
-
-		public void setSortedList(List<T> sortedList) {
-			this.sortedList = sortedList;
-		}
-
-	}
 	
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
