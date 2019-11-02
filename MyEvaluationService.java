@@ -28,7 +28,7 @@ public class MyEvaluationService {
 		BinarySearch<Integer> bs = new BinarySearch<>(testList);
 		Integer k = 0;
 		int getpos = bs.indexOf(k);
-		System.out.println(" get pos is "+getpos);
+	//System.out.println(" get pos is "+getpos);
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
 
@@ -44,12 +44,11 @@ public class MyEvaluationService {
 		 * @return
 		 */
 		MyEvaluationService getPrimeFactors = new MyEvaluationService();
-		Long testFactors = 12L;
-		Long x = 7L/2L;
-		System.out.println("x is "+x);
+		Long testFactors = 901255L;
 		List<Long> factorArrays = new ArrayList<Long>();
 		factorArrays = getPrimeFactors.calculatePrimeFactorsOf(testFactors);
 		//System.out.println(Arrays.toString(factorArrays.toArray()));
+		System.out.println("enter for loop");
 		for (int p = 0; p < factorArrays.size(); ++p) {
 			System.out.println("factors are: "+factorArrays.get(p));
 		}
@@ -62,17 +61,22 @@ public class MyEvaluationService {
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
 		long n = l;  // easier to see n instead l in statements
-		List<Integer> pList = new ArrayList<Integer>();
+		List<Long> pList = new ArrayList<Long>();
 		List<Long> factorList = new ArrayList<Long>();
 		MyEvaluationService getListPrimes = new MyEvaluationService();
 		pList = getListPrimes.getPrimes();
 		
+		boolean primeFlag = false;
+		
 		while ((n % 2 == 0) && (n/2 > 0)){ // for even numbers start this first in order to get an odd factor
 			factorList.add(2l);// keeping pushing 2s into the prime factor list until an odd number emerges
 			n = n/2;
-			System.out.println("pushed 2 in");
+			if (n == 1l) { //case where last "2" factor was found
+				primeFlag = true; 
+			}
+//			System.out.println("n is "+n);
+//			System.out.println("pushed 2 in");
 		} // outside the loop then an odd number emerges - check it
-		boolean primeFlag = false;
 		
 		
 		if (pList.contains(n)) { // check if odd factor to prime pool
@@ -91,7 +95,8 @@ public class MyEvaluationService {
 				for (Long i = 3L; i < midPoint ;i=i+2) { // divide only by odd numbers since odd number to begin with
 					if (n % i == 0) { // two potential prime factors found
 						maybePrime1 = i;  // check if odd numbers are prime
-						maybePrime2 = n/i;					
+						maybePrime2 = n/i;
+						break; // stop loop to check the odd numbers
 					}
 				}
 				if (pList.contains(maybePrime1) & pList.contains(maybePrime2)) { // found last 2 odd factor primes
@@ -102,14 +107,15 @@ public class MyEvaluationService {
 				}
 				else if (pList.contains(maybePrime1)) { // found only one, the higher odd number is not a prime
 					factorList.add(maybePrime1);
+					n = maybePrime2;  // set n to the higher odd number that isn't a prime
 					foundOne = true;
 				}
 			}
 		}
 		
-		for (int j = 0; j < factorList.size(); ++j) {
-			System.out.println("factors are: "+factorList.get(j));
-		}
+//		for (int j = 0; j < factorList.size(); ++j) {
+//			System.out.println("factors are: "+factorList.get(j));
+//		}
 		return factorList;
 	}
 	
@@ -117,15 +123,15 @@ public class MyEvaluationService {
 //		return primeList.contains(factor) ? true : false;	// test ternary operator
 //	}
 	
-	public List<Integer> getPrimes(){
-		List<Integer> primeList = new ArrayList<Integer>();
-		for (int i = 2; i<1000; ++i) {
+	public List<Long> getPrimes(){
+		List<Long> primeList = new ArrayList<Long>();
+		for (Long i = 2L; i<1000; ++i) {
 			int flag = 1;
 			if (i % 2 == 0) {
 				flag = 0; // not a prime
 			}
 			else {
-				for (int k = 3; k < (int)(i/2); k=k+2) {
+				for (Long k = 3L; k < (i/2); k=k+2) {
 					if (i % k == 0 ) {
 						flag = 0; //not a prime
 					}
