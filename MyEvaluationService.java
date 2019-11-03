@@ -35,17 +35,38 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		
-		boolean testISBN = false;
-		String teststr = "3-598-21508-8";
-		testISBN = m.isValidIsbn(teststr);
-		if (testISBN ) {
-			System.out.println("the number testr "+teststr+" is "+testISBN);
-		}
-		else {
-			System.out.println("the number testr "+teststr+" is "+testISBN);
-		}
+		String testStr = "five boxing wizards jump quickly at it";
+		boolean p = m.isPangram(testStr);
+		System.out.println("the string "+testStr+" is pangram? "+p);	
+	}
 	
+	/**
+	 * 16. Determine if a sentence is a pangram. A pangram (Greek: , pan
+	 * gramma, "every letter") is a sentence using every letter of the alphabet at
+	 * least once. The best known English pangram is:
+	 * 
+	 * The quick brown fox jumps over the lazy dog.
+	 * 
+	 * The alphabet used consists of ASCII letters a to z, inclusive, and is case
+	 * insensitive. Input will not contain non-ASCII symbols.
+	 * 
+	 * @param string
+	 * @return 
+	 */
+	
+	
+	public boolean isPangram(String string) {
+		// TODO Write an implementation for this method declaration
+		String alphabet = "abcdefghijklmnopqurstuvwxyz";
+		boolean pangram = true;
+		for (int i = 0; i < alphabet.length(); i++) { //loop through characters of the word
+			char c = alphabet.charAt(i);  //go through the alphabet
+			String cString = string.valueOf(c);
+			if (!string.contains(cString)){
+				pangram = false;			
+			}
+		}
+		return pangram;
 	}
 	
 	/**
