@@ -1,8 +1,11 @@
 package com.revature.eval.java.core;
 
+import java.time.Duration;
+import java.time.LocalDate;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -164,7 +167,15 @@ public class EvaluationService {
 	
 	public Temporal getGigasecondDate(Temporal given) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		Duration gSec = Duration.ofSeconds(1_000_000_000);
+		
+		if(given instanceof LocalDate) {
+			Temporal dateTime = ((LocalDate) given).atStartOfDay();
+			return dateTime.plus(gSec);
+		}
+		
+		return given.plus(gSec);
+
 	}
 	/**
 	 * 16. Determine if a sentence is a pangram. A pangram (Greek: , pan
@@ -494,10 +505,11 @@ public class EvaluationService {
 	}
 		
 
-	static class BinarySearch<T> {
-		interface Comparable<T>{
-			public int compareTo(T o);
-		}
+	static class BinarySearch<T> implements Comparator<T>{
+		
+//		interface Comparable<T>{
+//			public int compareTo(T o);
+//		}
 		private List<T> sortedList;
 
 		public int indexOf(T t) {
@@ -505,24 +517,26 @@ public class EvaluationService {
 //			int located = sortedList.indexOf(t);
 //			System.out.println("located index is "+located);
 			
-			 int l = 0, r = sortedList.size() - 1; 
-		        while (l <= r) { 
-		            int m = l + (r - l) / 2; 
-		  
-		            // Check if x is present at mid 
-		            if (sortedList.get(m) == t) {
-		            	return m;
-		            }	  
-		            // If x greater, ignore left half 
-//		            if ((( sortedList.get(m)).compareTo(t)> 0) {
-//		            	l = m + 1; 
-//		            }
-
-		            else
-		                r = m - 1; 
-		        } 
-		 
-		        return -1; 
+			int start = 0;
+			int mid = 0;
+			int end = sortedList.size() - 1;
+			
+			while (start <= end) {
+				mid = (start + end) / 2;
+				
+				if (compare(t,sortedList.get(mid)) == 0) {
+					return mid;
+				}
+				else if (compare(t,sortedList.get(mid)) == 1) {
+					start = mid + 1;
+				}
+				else {
+					end = mid - 1;
+				}				
+				
+			}
+			
+			return -1;
 			
 		}
 
@@ -537,6 +551,37 @@ public class EvaluationService {
 
 		public void setSortedList(List<T> sortedList) {
 			this.sortedList = sortedList;
+		}
+		
+		@Override
+		
+		public int compare(T t, T listElem) {
+			// if T is Integer
+			int result = 0;
+			if(t instanceof Integer) {
+				// if T is Integer
+				if((int)t < (int)listElem){
+					result = -1;
+				}
+				else if((int)t > (int)listElem) {
+					result = 1;
+				}
+				else
+					result =  0;
+			}
+			else { // instance of String
+
+				if(Integer.parseInt((String) t) < Integer.parseInt((String)listElem) ) {
+					result = -1;
+				}
+				if(Integer.parseInt((String) t) > Integer.parseInt((String)listElem) ) {
+					result = 1;
+				}
+				else
+					result = 0;
+			}
+			return result;
+
 		}
 
 	}
@@ -559,7 +604,7 @@ public class EvaluationService {
 		long n = l;  // easier to see n instead l in statements
 		List<Long> pList = new ArrayList<Long>();
 		List<Long> factorList = new ArrayList<Long>();
-		MyEvaluationService getListPrimes = new MyEvaluationService();
+		EvaluationService getListPrimes = new EvaluationService();
 		pList = getListPrimes.getPrimes();
 		
 		boolean primeFlag = false;
