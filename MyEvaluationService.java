@@ -37,20 +37,61 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		
-		String tt = "check long";
-		String ss = "check         long";
-		System.out.println("the lenght of tt is "+tt.length());
-		System.out.println("the lenght of tt is "+ss.length());
-		
-		boolean testLuhn = false;
-		String testStr = "046 454 286";
-	
-
-		testLuhn = m.isLuhnValid(testStr);
-		System.out.println("this credit card number is "+testLuhn);
 
 
+		String expression = "What is 33 divided by -3?";
+//		if(expression.matches(".*\\d.*")) {
+//			System.out.println("the number is "+expression);
+//		}
+		int answer = m.solveWordProblem(expression);
+		System.out.println("the answer is "+answer);
+		//		if (expression.matches("\\d+")) {  //regex only to check if the string is a number
+		//			System.out.println("yes tehre is a number");
+		//		}
+		// to find more than one numbers in the expression
+		//		if (expression.matches(".*\\d.*")) {
+		//			System.out.println("yes tehre is a number");
+		//		}
+
+
+
+	}
+
+	public int solveWordProblem(String string) {
+		// TODO Write an implementation for this method declaration
+		String cleanExpression = string.replace("?",""); //remove question mark
+		String [] exp = cleanExpression.split(" ");
+		//String [] operators = {"plus","minus","multiplied","divided"};
+		int answer = 0;
+
+		int factor1 = Integer.parseInt(exp[exp.length -1]); //last element is always a number
+		int factor2 = 0;
+
+		for (int i = 0; i< exp.length; ++i) { //find the second number
+			String tt = exp[i];
+			if (exp[i].matches(".*\\d.*")) { //check if the array string element is a number
+				factor2 = Integer.parseInt(exp[i]);
+				String op = exp[i+1];  //next is the operator always
+				switch (op) {
+				case "plus":
+					answer = factor2 + factor1;
+					break;
+				case "minus": 
+					answer = factor2 - factor1;
+					break;
+				case "multiplied":
+					answer = factor2 * factor1;
+					break;
+				case "divided":
+					answer = factor2 / factor1;
+					break;
+				}
+				break;
+			}
+		}	
+
+		//		System.out.println(Arrays.toString(splitExpression));
+		return answer;
 	}
 	
 	/**
