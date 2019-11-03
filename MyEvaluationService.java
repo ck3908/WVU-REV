@@ -37,13 +37,47 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
+		boolean testLuhn = false;
+		String testStr = "046a 454 286";
+		testLuhn = m.isLuhnValid(testStr);
+		System.out.println("this credit card number is "+testLuhn);
 
-		int sum = 0;
-		int[] mySet = {1 };
-		int limit = 100;
-		sum = m.getSumOfMultiples(limit, mySet);
-		System.out.println("the natural sum is "+sum);
 
+	}
+	
+	public boolean isLuhnValid(String string) {
+		// TODO Write an implementation for this method declaration
+		List<Integer> intArray = new ArrayList<Integer>();
+		for (int i = 0; i < string.length(); ++i) { //build the digits pool
+			char p = string.charAt(i);
+			if (Character.isDigit(p)) {
+				intArray.add((Character.getNumericValue(p)));
+			}			
+		}
+		System.out.println(intArray);
+		int sumTotal = 0;
+		for (int k = 0; k < intArray.size(); ++k) {
+			if ((k+1) % 2 == 0) { // index of 0 is 1 for modulo calculations
+				int testNum = intArray.get(k)*2;
+				if (testNum > 9) {
+					sumTotal = sumTotal + testNum - 9;
+				}
+				else {
+					sumTotal = sumTotal + testNum;
+				}
+			}
+			else {
+				sumTotal = sumTotal + intArray.get(k);
+			}
+		}
+		
+		if (sumTotal % 10 == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
 
 	/**
