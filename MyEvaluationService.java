@@ -1,11 +1,13 @@
 package com.revature.eval.java.core;
 
 import java.lang.*;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -35,11 +37,54 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		String testStr = "five boxing wizards jump quickly at it";
-		boolean p = m.isPangram(testStr);
-		System.out.println("the string "+testStr+" is pangram? "+p);	
+
+		int sum = 0;
+		int[] mySet = {1 };
+		int limit = 100;
+		sum = m.getSumOfMultiples(limit, mySet);
+		System.out.println("the natural sum is "+sum);
+
+	}
+
+	/**
+	 * 18. Given a number, find the sum of all the unique multiples of particular
+	 * numbers up to but not including that number.
+	 * 
+	 * If we list all the natural numbers below 20 that are multiples of 3 or 5, we
+	 * get 3, 5, 6, 9, 10, 12, 15, and 18.
+	 * 
+	 * The sum of these multiples is 78.
+	 * 
+	 * @param i
+	 * @param set
+	 * @return
+	 */
+	
+	public int getSumOfMultiples(int i, int[] set) {
+		// TODO Write an implementation for this method declaration
+		int ceiling = i;
+		Set<Integer> setMultiples = new HashSet<>();  // will store all multiples - unique
+		for (int s : set) {
+		    for (int k = 1; k <10000; ++k) { // make k limit arbitrarily big
+		    	if (s*k < ceiling) {
+		    		setMultiples.add(s*k);  // only unique members added
+		    	}
+		    }
+		}
+		int memberSetSum = 0;  // start with member
+		int totalSum = 0;
+		
+		// loop through new Set of multiples and add
+		for (Integer getMult: setMultiples) {
+			totalSum = totalSum + getMult;
+		}
+		return totalSum;
 	}
 	
+	public Temporal getGigasecondDate(Temporal given) {
+		// TODO Write an implementation for this method declaration
+		return null;
+	}
 	/**
 	 * 16. Determine if a sentence is a pangram. A pangram (Greek: , pan
 	 * gramma, "every letter") is a sentence using every letter of the alphabet at
