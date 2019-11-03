@@ -37,22 +37,73 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
+		
+		String tt = "check long";
+		String ss = "check         long";
+		System.out.println("the lenght of tt is "+tt.length());
+		System.out.println("the lenght of tt is "+ss.length());
+		
 		boolean testLuhn = false;
-		String testStr = "046a 454 286";
+		String testStr = "046 454 286";
+	
+
 		testLuhn = m.isLuhnValid(testStr);
 		System.out.println("this credit card number is "+testLuhn);
 
 
 	}
 	
+	/**
+	 * 19. Given a number determine whether or not it is valid per the Luhn formula.
+	 * 
+	 * The Luhn algorithm is a simple checksum formula used to validate a variety of
+	 * identification numbers, such as credit card numbers and Canadian Social
+	 * Insurance Numbers.
+	 * 
+	 * The task is to check if a given string is valid.
+	 * 
+	 * Validating a Number Strings of length 1 or less are not valid. Spaces are
+	 * allowed in the input, but they should be stripped before checking. All other
+	 * non-digit characters are disallowed.
+	 * 
+	 * Example 1: valid credit card number 1 4539 1488 0343 6467 The first step of
+	 * the Luhn algorithm is to double every second digit, starting from the right.
+	 * We will be doubling
+	 * 
+	 * 4_3_ 1_8_ 0_4_ 6_6_ If doubling the number results in a number greater than 9
+	 * then subtract 9 from the product. The results of our doubling:
+	 * 
+	 * 8569 2478 0383 3437 Then sum all of the digits:
+	 * 
+	 * 8+5+6+9+2+4+7+8+0+3+8+3+3+4+3+7 = 80 If the sum is evenly divisible by 10,
+	 * then the number is valid. This number is valid!
+	 * 
+	 * Example 2: invalid credit card number 1 8273 1232 7352 0569 Double the second
+	 * digits, starting from the right
+	 * 
+	 * 7253 2262 5312 0539 Sum the digits
+	 * 
+	 * 7+2+5+3+2+2+6+2+5+3+1+2+0+5+3+9 = 57 57 is not evenly divisible by 10, so
+	 * this number is not valid.
+	 * 
+	 * @param string
+	 * @return
+	 */
+	
 	public boolean isLuhnValid(String string) {
 		// TODO Write an implementation for this method declaration
 		List<Integer> intArray = new ArrayList<Integer>();
+		
+		if (string.matches(".*[a-z-].*")) { //check is valid string before continuing
+		    //System.out.println("this string contains a alphabet or - ");
+		    return false;
+		}
+		
 		for (int i = 0; i < string.length(); ++i) { //build the digits pool
 			char p = string.charAt(i);
 			if (Character.isDigit(p)) {
 				intArray.add((Character.getNumericValue(p)));
-			}			
+			}
 		}
 		System.out.println(intArray);
 		int sumTotal = 0;
