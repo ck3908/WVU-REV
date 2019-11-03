@@ -33,20 +33,37 @@ public class MyEvaluationService {
 
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
-		AtbashCipher ac = new AtbashCipher();
-		String testStr = ac.encode("The quick brown fox jumps over the lazy dog.");
-		System.out.println("the encoded of a is "+testStr);
 		
-		String testme = " ";
-		String gettest = "hello";
-		String first = "first";
-		System.out.println("length of hello is "+gettest.length());
-		String combine = first+testme+gettest;
-		System.out.println("combined expression is "+combine);
-		System.out.println("length of expression is "+combine.length());
-				
+		AtbashCipher ac = new AtbashCipher();
+		String testStr = ac.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
+		System.out.println("the encoded of a is "+testStr);				
 	
 	}
+	
+	/**
+	 * 13 & 14. Create an implementation of the atbash cipher, an ancient encryption
+	 * system created in the Middle East.
+	 * 
+	 * The Atbash cipher is a simple substitution cipher that relies on transposing
+	 * all the letters in the alphabet such that the resulting alphabet is
+	 * backwards. The first letter is replaced with the last letter, the second with
+	 * the second-last, and so on.
+	 * 
+	 * An Atbash cipher for the Latin alphabet would be as follows:
+	 * 
+	 * Plain: abcdefghijklmnopqrstuvwxyz Cipher: zyxwvutsrqponmlkjihgfedcba It is a
+	 * very weak cipher because it only has one possible key, and it is a simple
+	 * monoalphabetic substitution cipher. However, this may not have been an issue
+	 * in the cipher's time.
+	 * 
+	 * Ciphertext is written out in groups of fixed length, the traditional group
+	 * size being 5 letters, and punctuation is excluded. This is to make it harder
+	 * to guess things based on word boundaries.
+	 * 
+	 * Examples Encoding test gives gvhg Decoding gvhg gives test Decoding gsvjf
+	 * rxpyi ldmul cqfnk hlevi gsvoz abwlt gives thequickbrownfoxjumpsoverthelazydog
+	 *
+	 */
 	
 	static class AtbashCipher {
 
@@ -68,10 +85,6 @@ public class MyEvaluationService {
 			for (int i = 0; i < alphabetKey.length();++i) {
 				encodeMap.put(alphabetKey.substring(i, i+1), alphabetValue.substring(i, i+1));
 			}
-
-			//			for (String key : encodeMap.keySet()) {
-			//			    System.out.println(key + " " + encodeMap.get(key));
-			//			}
 
 			for (int j = 0; j<lowerCaseStr.length(); ++j) {
 				String keyString = lowerCaseStr.substring(j, j+1);
@@ -128,7 +141,24 @@ public class MyEvaluationService {
 		 */
 		public static String decode(String string) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			String encodeStr = " ";
+			String lowerCaseStr = string.replaceAll("[^a-zA-Z0-9]","").toLowerCase(); //turn string to lower case and get rid of special characters
+			System.out.println("the clean string is "+lowerCaseStr);
+			String alphabetKey = "abcdefghijklmnopqrstuvwxyz1234567890";
+			String alphabetValue = "zyxwvutsrqponmlkjihgfedcba1234567890";
+			HashMap<String,String> encodeMap = new HashMap<String,String>();
+			// build the hashmap key value set to match each character to their code
+			for (int i = 0; i < alphabetKey.length();++i) {
+				encodeMap.put(alphabetKey.substring(i, i+1), alphabetValue.substring(i, i+1));
+			}
+
+			for (int j = 0; j<lowerCaseStr.length(); ++j) {
+				String keyString = lowerCaseStr.substring(j, j+1);
+				System.out.println(" keyString is "+keyString);
+				String mapChar = encodeMap.get(keyString);
+				encodeStr = encodeStr+mapChar;
+			}
+			return encodeStr.trim();
 		}
 	}
 	
