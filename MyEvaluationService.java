@@ -2,10 +2,12 @@ package com.revature.eval.java.core;
 
 import java.lang.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,10 +36,72 @@ public class MyEvaluationService {
 		//	int getpos = bs.indexOf();
 		//int position = MyEvaluationService.BinarySearch<List>().indexOf(testList);
 		
-		AtbashCipher ac = new AtbashCipher();
-		String testStr = ac.decode("gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt");
-		System.out.println("the encoded of a is "+testStr);				
+		boolean testISBN = false;
+		String teststr = "3-598-21508-8";
+		testISBN = m.isValidIsbn(teststr);
+		if (testISBN ) {
+			System.out.println("the number testr "+teststr+" is "+testISBN);
+		}
+		else {
+			System.out.println("the number testr "+teststr+" is "+testISBN);
+		}
 	
+	}
+	
+	/**
+	 * 15. The ISBN-10 verification process is used to validate book identification
+	 * numbers. These normally contain dashes and look like: 3-598-21508-8
+	 * 
+	 * ISBN The ISBN-10 format is 9 digits (0 to 9) plus one check character (either
+	 * a digit or an X only). In the case the check character is an X, this
+	 * represents the value '10'. These may be communicated with or without hyphens,
+	 * and can be checked for their validity by the following formula:
+	 * 
+	 * (x1 * 10 + x2 * 9 + x3 * 8 + x4 * 7 + x5 * 6 + x6 * 5 + x7 * 4 + x8 * 3 + x9
+	 * * 2 + x10 * 1) mod 11 == 0 If the result is 0, then it is a valid ISBN-10,
+	 * otherwise it is invalid.
+	 * 
+	 * Example Let's take the ISBN-10 3-598-21508-8. We plug it in to the formula,
+	 * and get:
+	 * 
+	 * (3 * 10 + 5 * 9 + 9 * 8 + 8 * 7 + 2 * 6 + 1 * 5 + 5 * 4 + 0 * 3 + 8 * 2 + 8 *
+	 * 1) mod 11 == 0 Since the result is 0, this proves that our ISBN is valid.
+	 * 
+	 * @param string
+	 * @return
+	 */
+	
+	public boolean isValidIsbn(String string) {
+		// TODO Write an implementation for this method declaration
+		List<Integer> isDigit = new ArrayList<Integer>();
+		
+		for (int i = 0; i < string.length(); ++i) { //build the digits pool
+			char p = string.charAt(i);
+			if (Character.isDigit(p)) {
+				isDigit.add((Character.getNumericValue(p)));
+			}			
+		}
+//		 isDigit.forEach(n ->{
+//        System.out.println(isDigit);
+//    });
+//System.out.println(isDigit);
+		
+		if (string.contains("X")) { //assuming X always in last spot 
+			isDigit.add(10);
+		}
+		
+		int sum = 0;
+		int factor = 1;
+		ListIterator<Integer> listIterator = isDigit.listIterator(isDigit.size());  //ListIterator to traverse backwards
+		while (listIterator.hasPrevious()) {
+			sum = sum+listIterator.previous()*factor++;
+		}
+		if (sum % 11 == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	/**
