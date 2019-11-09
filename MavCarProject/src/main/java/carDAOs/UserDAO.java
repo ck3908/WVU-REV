@@ -1,10 +1,10 @@
 package carDAOs;
 
-import entities.Users;
+import entities.User;
 
 public interface UserDAO {
 	
-	Users getUserByName (String name);
-	Users validateUser(String name, String passToValidate, String passStored, String code);
+	User getUserByName (String name);
+	User validateUser(String name, String passToValidate);
 	
 }

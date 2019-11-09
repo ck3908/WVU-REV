@@ -7,8 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import carDAOs.UserInfoOracle;
 import carUtils.LogUtil;
-import entities.Users;
+import entities.User;
 import carUtils.ConnectionUtil;
 
 //import com.revature.beans.User;
@@ -41,17 +42,17 @@ public class CarDriver {
 		if (answer == 1) {  //get login credentials
 			System.out.println("Please enter user name");
 			String userName = input.nextLine();
-			System.out.println("Please enter your passord");
+			System.out.println("Please enter your password");
 			String passWord = input.nextLine();
 			System.out.println("print we got your details "+userName+ " "+passWord);
+			UserInfoOracle checkUser = new UserInfoOracle();
 			
-			Users u = getUser2(userName, passWord);
+			User u = checkUser.validateUser(userName, passWord);
 			if(u != null) {
 				System.out.println("We logged in!");
-
 				System.out.println(u.getName());
 			} else {
-				System.out.println("FAILURE");
+				System.out.println("Sorry, login name or password is invalid");
 			}
 						
 			
@@ -59,8 +60,10 @@ public class CarDriver {
 
 	}
 	
-	public static Users getUser2(String username, String password) {
-		Users u = null;
+	
+	// keep bottom for referencing codes
+	public static User getUser2(String username, String password) {
+		User u = null;
 		String sql = "select name, code"
 				+" from userinfo where name = ? and password = ?";
 		try(Connection conn = cu.getConnection()){
@@ -69,7 +72,7 @@ public class CarDriver {
 			stmt.setString(2, password);
 			ResultSet rs = stmt.executeQuery();
 			if(rs.next()) {
-				u = new Users();
+				u = new User();
 		
 				u.setName((rs.getString("name")));
 				u.setUser_code((rs.getString("code")));

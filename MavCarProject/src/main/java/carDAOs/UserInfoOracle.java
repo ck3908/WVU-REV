@@ -10,11 +10,12 @@ import org.apache.log4j.Logger;
 import carUtils.LogUtil;
 
 import carUtils.ConnectionUtil;
+import entities.Manager;
 
 //import com.revature.data.AddressOracle;
 //import com.revature.utils.ConnectionUtil;
 
-import entities.Users;
+import entities.User;
 
 
 
@@ -23,31 +24,33 @@ public class UserInfoOracle implements UserDAO {
 	private Logger log = Logger.getLogger(UserInfoOracle.class);
 	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	
-	Users getUserInfo = new Users();
+	User getUserInfo = new User();
+	Manager manager = new Manager();
+	
 
 	@Override
-	public Users getUserByName(String name) {
+	public User getUserByName(String name) {
 
 
 		return getUserInfo;
 	}; 
 
 	@Override
-	public Users validateUser(String name, String passToValidate, String passStored, String dbCode) {
-		Users u = null;
+	public User validateUser(String name, String passToValidate) {
+		User u = null;
 		log.trace("Retrieve user from database.");
 		try(Connection conn = cu.getConnection()){
 			String sql = "select name, password, code "
 					+ "from userinfo where name=? and password = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setString(1, u.getName());
-			pstm.setString(2, u.getPass());
-			ResultSet rs = pstm.executeQuery();
+			pstm.setString(1, name);
+			pstm.setString(2, passToValidate);
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
 			//username is unique, this query can only ever return a single result, so if is ok.
 			if(rs.next())
 			{
 				log.trace("User found.");
-				u = new Users();
+				u = new User();
 				u.setName(rs.getString("name"));
 				u.setPass(rs.getString("password"));
 				u.setUser_code(rs.getString("code"));
