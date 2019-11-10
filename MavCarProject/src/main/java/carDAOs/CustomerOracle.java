@@ -23,7 +23,7 @@ public class CustomerOracle implements CustomerDAO {
 		// TODO Auto-generated method stub
 		log.trace("Retrieve my cars from database.");
 		try(Connection conn = cu.getConnection()){
-			String sql = "select * from cardetails where plate in (select carplate from usercars where username = ?";
+			String sql = "select * from cardetails where plate in (select carplate from usercars where username = ?)";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, username);
 			ResultSet rs = pstm.executeQuery();  // this implies password matches here
@@ -34,7 +34,7 @@ public class CustomerOracle implements CustomerDAO {
 				CarDetail c = new CarDetail();
 				c.setCarName(rs.getString("carname"));
 				c.setPlate((rs.getInt("plate")));
-				//c.setSelling_price((rs.getFloat("offersold")));
+				c.setPrinBal((rs.getFloat("principalbal")));  //set in order to see balance in one of the menu options
 				myCars.add(c);  //add into list of cars
 			}
 		}
@@ -58,7 +58,6 @@ public class CustomerOracle implements CustomerDAO {
 			pstm.setString(1, "false");
 			ResultSet rs = pstm.executeQuery();  // this implies password matches here
 			//username is unique, this query can only ever return a single result, so if is ok.
-			int count = 0;
 			while (rs.next())
 			{
 				log.trace("availabe cars found.");

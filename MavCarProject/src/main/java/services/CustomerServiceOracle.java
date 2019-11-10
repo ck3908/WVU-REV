@@ -21,7 +21,11 @@ public class CustomerServiceOracle implements CustomerService {
 	@Override
 	public List<CarDetail> getMyCars(String username) {
 		// TODO Auto-generated method stub
-		return null;
+		List<CarDetail> carsMine = new ArrayList<CarDetail>();
+		carsMine = cd.viewMyCars(username);
+		return carsMine;
+
+		
 	}
 
 

@@ -62,12 +62,13 @@ public class CarDriver {
 				System.out.println("user code is " +u.getUser_code());
 				if (u.getUser_code().equals("cust")){
 					boolean keepSession = true;
+					List<CarDetail> carCount = new ArrayList<>();  // use this later
 					while (keepSession) {  // customer session
 						System.out.println("please select from following options");
 						System.out.println("1. View the cars on the lot");
 						System.out.println("2. Make an offer for a car");
 						System.out.println("3. View cars you own");
-						System.out.println("4. View remaining payments");
+						System.out.println("4. View remaining payments for a car");
 						System.out.println("5. Logout");
 						int selection = Integer.parseInt(input.nextLine());
 						if (selection == 5) {
@@ -75,7 +76,7 @@ public class CarDriver {
 							keepSession = false;
 							break;
 						}
-						else if (selection == 1) {
+						else if (selection == 1) {  // view available cars on the lot
 							CustomerService carsToSee = new CustomerServiceOracle();
 							List<CarDetail> cs = new ArrayList<>();
 							cs = carsToSee.getCarsAvail();
@@ -84,17 +85,28 @@ public class CarDriver {
 								System.out.println(i+1+ "  "+cs.get(i).getCarName()+"  "+cs.get(i).getSelling_price() );
 							}							
 						}
-						else if (selection == 3) {
-							CustomerService seeMyCars = new CustomerServiceOracle();
-							List<CarDetail> gmc = new ArrayList<>();
-							gmc = seeMyCars.getMyCars(userName);
-							System.out.println("  car    plate");  //took out plate number
-							for (int i =0; i< gmc.size(); ++i) {
-								System.out.println(i+1+ "  "+gmc.get(i).getCarName()+"  "+gmc.get(i).getPlate() );
+						else if (selection == 3) { // view cars you own
+							myListCarHelper(userName); // mainly for option 4  keep track of items returned mainly to help with selection 4
+						}
+						else if (selection == 4) { // view cars you own and then select which one to see payments for
+							carCount = myListCarHelper(userName);  //return list of car objects
+							int count = carCount.size();
+							System.out.println("select the number of the car you like to view payments for");
+							int n = Integer.parseInt(input.nextLine());
+							if (n > count) {
+								System.out.println("sorry invalid selection"); //if more time can handle this better
 							}
+							else {
+								System.out.println(" the remaining balance due on your "+carCount.get(n-1).getCarName()
+										+ " is "+carCount.get(n-1).getPrinBal());
+							}
+					
+								
+							}
+							
 						}
 					}
-				;
+				
 					
 					
 				}
@@ -105,8 +117,19 @@ public class CarDriver {
 			
 		}
 
-	}
 	
+	// this is used in a few places in main
+	public static List<CarDetail> myListCarHelper(String userN) {
+		CustomerService seeMyCars = new CustomerServiceOracle();
+		// past object initiation
+		List<CarDetail> gmc = new ArrayList<>();
+		gmc = seeMyCars.getMyCars(userN);
+		System.out.println("  car    plate");  
+		for (int i =0; i< gmc.size(); ++i) {
+			System.out.println(i+1+ "  "+gmc.get(i).getCarName()+"  "+gmc.get(i).getPlate());
+		}
+		return gmc;
+	}
 	
 	// keep bottom for referencing codes
 	public static User getUser2(String username, String password) {

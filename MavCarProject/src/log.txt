@@ -83,3 +83,130 @@
 2019-11-09 17:38:38 TRACE UserInfoOracle:34 - availabe cars found.
 2019-11-09 17:38:38 TRACE UserInfoOracle:34 - availabe cars found.
 2019-11-09 17:38:38 TRACE UserInfoOracle:34 - availabe cars found.
+2019-11-09 19:11:43 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:11:44 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:16:44 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:16:44 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:16:51 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:16:51 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:16:51 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:16:51 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:16:51 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:19 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:23:20 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:23:25 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:23:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:45 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:23:45 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:45 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:45 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:45 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:52 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:23:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:23:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:26:15 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:26:16 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:26:18 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:26:18 ERROR UserInfoOracle:14 - class java.sql.SQLSyntaxErrorException: ORA-00907: missing right parenthesis
+
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 450: oracle.jdbc.driver.T4CTTIoer
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 399: oracle.jdbc.driver.T4CTTIoer
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 1017: oracle.jdbc.driver.T4C8Oall
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 655: oracle.jdbc.driver.T4CTTIfun
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 249: oracle.jdbc.driver.T4CTTIfun
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 566: oracle.jdbc.driver.T4C8Oall
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 215: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 58: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 776: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 897: oracle.jdbc.driver.OracleStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 1034: oracle.jdbc.driver.OracleStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 3820: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 3867: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 1502: oracle.jdbc.driver.OraclePreparedStatementWrapper
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 29: carDAOs.CustomerOracle
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 25: services.CustomerServiceOracle
+2019-11-09 19:26:18 WARN  UserInfoOracle:16 - 91: driver.CarDriver
+2019-11-09 19:27:41 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:27:42 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:27:44 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:27:44 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:27:44 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:27:52 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:27:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:27:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:27:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:27:52 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-09 19:53:38 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:53:39 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:53:45 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:53:45 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:53:45 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:55:55 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:55:56 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:55:58 TRACE UserInfoOracle:54 - Retrieve available cars from database.
+2019-11-09 19:55:58 TRACE UserInfoOracle:63 - availabe cars found.
+2019-11-09 19:55:58 TRACE UserInfoOracle:63 - availabe cars found.
+2019-11-09 19:55:58 TRACE UserInfoOracle:63 - availabe cars found.
+2019-11-09 19:55:58 TRACE UserInfoOracle:63 - availabe cars found.
+2019-11-09 19:56:03 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:56:03 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:03 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:06 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:56:06 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:06 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:09 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:56:09 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:09 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:43 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:56:44 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:56:48 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:56:48 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:56:48 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:57:12 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:57:13 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:57:17 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:57:18 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:57:18 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:58:15 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 19:58:16 TRACE UserInfoOracle:49 - User found.
+2019-11-09 19:58:18 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 19:58:18 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 19:58:18 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:10:50 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:10:51 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:11:25 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:11:25 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:12:04 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:12:05 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:13:31 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:13:32 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:13:33 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:13:33 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:33 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:36 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:13:36 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:36 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:39 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:13:39 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:39 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:42 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:13:42 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:13:42 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:15:07 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:15:08 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:15:12 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:15:12 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:15:12 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:33:44 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-09 20:33:45 TRACE UserInfoOracle:49 - User found.
+2019-11-09 20:33:49 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:33:49 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:33:49 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:34:09 TRACE UserInfoOracle:24 - Retrieve my cars from database.
+2019-11-09 20:34:09 TRACE UserInfoOracle:33 - availabe cars found.
+2019-11-09 20:34:09 TRACE UserInfoOracle:33 - availabe cars found.
