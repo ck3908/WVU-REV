@@ -3,14 +3,15 @@ package carDAOs;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-
 import carUtils.ConnectionUtil;
 import carUtils.LogUtil;
 import entities.CarDetail;
+import entities.CarOffer;
 import entities.User;
 
 public class CustomerOracle implements CustomerDAO {
@@ -77,5 +78,54 @@ public class CustomerOracle implements CustomerDAO {
 		
 	}
 
+	@Override
+	public int enterBid(CarOffer custBid) {
+		// TODO Auto-generated method stub
+		int key = 0;
+		log.trace("adding a car bid into the database "+custBid);
+		log.trace(custBid);
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "insert into caroffer (platenum,nameperson,offerprice,status,downpayment,findeal) values(?,?,?,?,?,?)";
+			String[] keys = {"id"};
+			PreparedStatement pstm = conn.prepareStatement(sql, keys);
+			pstm.setInt(1, custBid.getPlateNum());
+			pstm.setString(2, custBid.getBuyer());
+			pstm.setFloat(3, custBid.getOfferPrice());
+			pstm.setString(4, custBid.getStatus());
+			pstm.setFloat(5, custBid.getDownPmt());
+			pstm.setInt(6, custBid.getTermFinance());
+			
+			pstm.executeUpdate();
+			ResultSet rs = pstm.getGeneratedKeys();
+			
+			if(rs.next())
+			{
+				log.trace("offer created.");
+				key = rs.getInt(1);
+				custBid.setId(key);
+				conn.commit();
+			}
+			else
+			{
+				log.trace("author not created.");
+				conn.rollback();
+			}
+		}
+		catch(SQLException e)
+		{
+			LogUtil.rollback(e,conn,CustomerOracle.class);
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e,CustomerOracle.class);
+			}
+		}
+		
+		return key;
+	}
 
 }

@@ -6,6 +6,7 @@ import java.util.List;
 import carDAOs.CustomerDAO;
 import carDAOs.CustomerOracle;
 import entities.CarDetail;
+import entities.CarOffer;
 
 public class CustomerServiceOracle implements CustomerService {
 	private CustomerDAO cd = new CustomerOracle();
@@ -24,8 +25,13 @@ public class CustomerServiceOracle implements CustomerService {
 		List<CarDetail> carsMine = new ArrayList<CarDetail>();
 		carsMine = cd.viewMyCars(username);
 		return carsMine;
+	
+	}
 
-		
+	@Override
+	public int putBid(CarOffer myBid) {
+		// TODO Auto-generated method stub
+		return cd.enterBid(myBid);
 	}
 
 

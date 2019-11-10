@@ -1,7 +1,8 @@
 package entities;
 
 public class CarOffer {
-
+	
+	private int id;
 	private int plateNum;  //unique key to identify the car
 	private String buyer;  // name matches user name on user table, assume unique names
 	private float offerPrice; // buyer's offer price
@@ -11,6 +12,7 @@ public class CarOffer {
 	
 	public CarOffer() {
 		super();
+		this.id = 0;
 		this.plateNum = 0;
 		this.buyer = " ";
 		this.offerPrice = 0;
@@ -28,6 +30,16 @@ public class CarOffer {
 		this.downPmt = downPmt;
 		this.termFinance = termFinance;
 	}
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getPlateNum() {
 		return plateNum;
 	}
