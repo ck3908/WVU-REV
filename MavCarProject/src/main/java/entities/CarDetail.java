@@ -102,4 +102,12 @@ public class CarDetail {
 		this.prinBal = prinBal;
 	}
 	
+	@Override
+	public String toString() {
+		return "Car Details [name =" + carName + ", plate=" + plate + ", availability =" + owned
+				+ ", selling price =" + selling_price + ", down payment =" + downpayment + 
+				", total payments =" + totalPayments +", financing deal package =" + financingDeal + 
+				", monthly payments =" + monthlyPmt + ", principal balance remaining =" + prinBal + "]";
+	}
+	
 }

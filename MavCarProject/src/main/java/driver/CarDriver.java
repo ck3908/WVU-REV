@@ -5,11 +5,16 @@ import java.sql.Driver;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import carDAOs.UserInfoOracle;
 import carUtils.LogUtil;
+import entities.CarDetail;
 import entities.User;
+import services.CustomerService;
+import services.CustomerServiceOracle;
 import carUtils.ConnectionUtil;
 
 //import com.revature.beans.User;
@@ -51,9 +56,48 @@ public class CarDriver {
 			if(u != null) {
 				System.out.println("We logged in!");
 				System.out.println(u.getName());
-				
-				
-				
+				// check if customer, employee or manager
+//				switch(u.getUser_code()) {
+//				case "cust":
+				System.out.println("user code is " +u.getUser_code());
+				if (u.getUser_code().equals("cust")){
+					boolean keepSession = true;
+					while (keepSession) {  // customer session
+						System.out.println("please select from following options");
+						System.out.println("1. View the cars on the lot");
+						System.out.println("2. Make an offer for a car");
+						System.out.println("3. View cars you own");
+						System.out.println("4. View remaining payments");
+						System.out.println("5. Logout");
+						int selection = Integer.parseInt(input.nextLine());
+						if (selection == 5) {
+							System.out.println("good bye");
+							keepSession = false;
+							break;
+						}
+						else if (selection == 1) {
+							CustomerService carsToSee = new CustomerServiceOracle();
+							List<CarDetail> cs = new ArrayList<>();
+							cs = carsToSee.getCarsAvail();
+							System.out.println("  car    asking price");  //took out plate number
+							for (int i =0; i< cs.size(); ++i) {
+								System.out.println(i+1+ "  "+cs.get(i).getCarName()+"  "+cs.get(i).getSelling_price() );
+							}							
+						}
+						else if (selection == 3) {
+							CustomerService seeMyCars = new CustomerServiceOracle();
+							List<CarDetail> gmc = new ArrayList<>();
+							gmc = seeMyCars.getMyCars(userName);
+							System.out.println("  car    plate");  //took out plate number
+							for (int i =0; i< gmc.size(); ++i) {
+								System.out.println(i+1+ "  "+gmc.get(i).getCarName()+"  "+gmc.get(i).getPlate() );
+							}
+						}
+					}
+				;
+					
+					
+				}
 			} else {
 				System.out.println("Sorry, login name or password is invalid");
 			}

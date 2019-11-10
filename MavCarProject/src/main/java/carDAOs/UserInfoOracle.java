@@ -10,7 +10,6 @@ import org.apache.log4j.Logger;
 import carUtils.LogUtil;
 
 import carUtils.ConnectionUtil;
-import entities.Manager;
 
 //import com.revature.data.AddressOracle;
 //import com.revature.utils.ConnectionUtil;
@@ -25,12 +24,10 @@ public class UserInfoOracle implements UserDAO {
 	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	
 	User getUserInfo = new User();
-	Manager manager = new Manager();
 	
 
 	@Override
 	public User getUserByName(String name) {
-
 
 		return getUserInfo;
 	}; 

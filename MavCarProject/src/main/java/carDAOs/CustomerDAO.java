@@ -1,0 +1,11 @@
+package carDAOs;
+
+import java.util.List;
+
+import entities.CarDetail;
+
+public interface CustomerDAO {
+	
+	public List<CarDetail> viewCarLot();  //user can view cars available
+	public List<CarDetail> viewMyCars(String username);
+}
