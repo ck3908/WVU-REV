@@ -7,6 +7,7 @@
    
   drop sequence userinfo_seq;
   drop sequence caroffer_seq;
+  drop sequence cardetails_seq;
    
   create table userinfo (
 	id number(20)  primary key,  -- so we can use in the many to many table
@@ -16,8 +17,8 @@
 	);
   
   create table caroffer (
-	id number(20),		
-	platenum number(20) primary key,  -- referenced as foreign key from the many to many table
+	id number(20) primary key,		
+	platenum number(20),  -- referenced as foreign key from the many to many table
 	nameperson varchar2(20) not null, --- so we can use in the many to many table
 	offerprice number(20),
 	status varchar2(10),
@@ -26,7 +27,7 @@
 	);
 	
   create table cardetails (
---	id number(20) primary key,
+	id number(20) primary key,
 	plate number(20) unique not null,
 	carname varchar2(20) not null,
 	owned varchar2(10), -- easier to change to owner name if need to - for now it is T or F
@@ -40,17 +41,17 @@
 	);
     
 
-  create table usercars (
+  create table ownercars (
     username varchar2(20),
 	carplate number(20),
-	constraint pk_useroffer primary key (username,carplate),
-	constraint fk_useroffer_user foreign key (username) references userinfo(name),
-	constraint fk_useroffer_offer foreign key (carplate) references caroffer(platenum)
+	constraint pk_ownercars primary key (username,carplate),
+	constraint fk_ownercars_user foreign key (username) references userinfo(name),
+	constraint fk_ownercars_own foreign key (carplate) references cardetails(plate)
 	);
 	
 create sequence userinfo_seq;
 create sequence caroffer_seq;
--- create sequence cardetails_seq;
+create sequence cardetails_seq;
 -- create sequence usercar_seq;
 
 
@@ -82,6 +83,16 @@ begin
 end;
 /
 
-commit;
+create or replace trigger cardetails_pk_trig
+before insert or update on cardetails
+for each row
+begin
+    if INSERTING then
+        select cardetails_seq.nextVal into :new.id from dual;
+    elsif UPDATING then
+        select :old.id into :new.id from dual;
+    end if;
+end;
+/
 
-drop table usercars;
+commit;
