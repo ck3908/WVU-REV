@@ -2,9 +2,10 @@ package entities;
 
 public class CarDetail {
 
+	private int id;
 	private String carName;
 	private int plate; // unique key
-	private String owned; // flag say aaa if not owned and then owner name if it is
+	private String owned; // use as true or false, but could be used as owner name if owned
 	private float selling_price;  // if not currently owned, it is offer price. If owned, it is sold price
 	private float downpayment;  //may not need this
 	private float totalPayments;
@@ -14,13 +15,14 @@ public class CarDetail {
 	private float prinBal;
 	
 	public CarDetail() {
+		this.id = 0;
 		this.carName = " ";
 		this.plate = 0;
-		this.owned = "aaa";
+		this.owned = "false"; //assume false as initial setting
 		this.selling_price = 0;
 		this.downpayment = 0; 
 		this.totalPayments = 0;
-		this.financingDeal = 1;  //1 ,2 or 3
+		this.financingDeal = 0;  
 		this.monthlyPmt = 0;
 		this.termRemaining = 0;
 		this.prinBal = 0;
@@ -41,6 +43,19 @@ public class CarDetail {
 		this.termRemaining = termRemaining;
 		this.prinBal = prinBal;
 	}
+	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 	public String getCarName() {
 		return carName;
 	}

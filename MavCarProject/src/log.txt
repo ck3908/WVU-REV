@@ -331,3 +331,161 @@
 2019-11-10 15:03:03 TRACE UserInfoOracle:85 - adding a car bid into the database entities.CarOffer@16267862
 2019-11-10 15:03:03 TRACE UserInfoOracle:86 - entities.CarOffer@16267862
 2019-11-10 15:03:03 TRACE UserInfoOracle:105 - offer created.
+2019-11-10 15:23:18 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-10 15:23:19 TRACE UserInfoOracle:49 - User found.
+2019-11-10 15:23:24 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:23:24 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:23:24 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:23:24 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:23:24 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:14 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-10 15:42:15 TRACE UserInfoOracle:49 - User found.
+2019-11-10 15:42:18 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:42:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:58 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:42:58 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:58 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:58 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:42:58 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:45:15 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-10 15:45:16 TRACE UserInfoOracle:49 - User found.
+2019-11-10 15:45:18 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:45:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:45:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:45:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:45:18 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:46:34 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-10 15:46:34 TRACE UserInfoOracle:49 - User found.
+2019-11-10 15:46:37 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:46:37 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:46:37 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:46:37 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:46:37 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:47:01 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:47:01 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:47:01 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:47:01 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:47:01 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:57:20 TRACE UserInfoOracle:38 - Retrieve user from database.
+2019-11-10 15:57:20 TRACE UserInfoOracle:49 - User found.
+2019-11-10 15:57:23 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:57:23 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:57:23 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:57:23 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:57:23 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:58:25 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 15:58:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:58:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:58:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 15:58:25 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 17:46:39 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 17:47:27 TRACE UserInfoOracle:70 - adding a car bid into the database User Details [name =robin hood, password =pass, type =cust]
+2019-11-10 17:47:27 TRACE UserInfoOracle:71 - User Details [name =robin hood, password =pass, type =cust]
+2019-11-10 17:47:28 ERROR UserInfoOracle:14 - class java.sql.SQLSyntaxErrorException: ORA-00904: "CODE": invalid identifier
+
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 450: oracle.jdbc.driver.T4CTTIoer
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 399: oracle.jdbc.driver.T4CTTIoer
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 1017: oracle.jdbc.driver.T4C8Oall
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 655: oracle.jdbc.driver.T4CTTIfun
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 249: oracle.jdbc.driver.T4CTTIfun
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 566: oracle.jdbc.driver.T4C8Oall
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 215: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 58: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 943: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 1075: oracle.jdbc.driver.OracleStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 3820: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 3897: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 1361: oracle.jdbc.driver.OraclePreparedStatementWrapper
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 83: carDAOs.UserInfoOracle
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 25: services.UserServiceOracle
+2019-11-10 17:47:28 WARN  UserInfoOracle:16 - 200: driver.CarDriver
+2019-11-10 17:50:09 TRACE UserInfoOracle:70 - adding new user to db User Details [name =robin hood, password =pass, type =cust]
+2019-11-10 17:50:09 TRACE UserInfoOracle:71 - User Details [name =robin hood, password =pass, type =cust]
+2019-11-10 17:50:10 TRACE UserInfoOracle:88 - user created
+2019-11-10 18:17:27 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 18:17:28 TRACE UserInfoOracle:50 - User found.
+2019-11-10 18:21:14 TRACE UserInfoOracle:55 - Retrieve available cars from database.
+2019-11-10 18:21:15 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 18:21:15 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 18:21:15 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 18:21:15 TRACE UserInfoOracle:64 - availabe cars found.
+2019-11-10 19:59:57 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 19:59:58 TRACE UserInfoOracle:50 - User found.
+2019-11-10 20:00:48 TRACE EmpOracle:22 - adding a car into the database Car Details [name =nissan altima, plate=101, availability =false, selling price =33887.0, down payment =0.0, total payments =0.0, financing deal package =0, monthly payments =0.0, principal balance remaining =0.0]
+2019-11-10 20:00:48 TRACE EmpOracle:23 - Car Details [name =nissan altima, plate=101, availability =false, selling price =33887.0, down payment =0.0, total payments =0.0, financing deal package =0, monthly payments =0.0, principal balance remaining =0.0]
+2019-11-10 20:00:48 ERROR EmpOracle:14 - class java.sql.SQLIntegrityConstraintViolationException: Invalid argument(s) in call
+2019-11-10 20:00:48 WARN  EmpOracle:16 - 187: oracle.jdbc.driver.AutoKeyInfo
+2019-11-10 20:00:48 WARN  EmpOracle:16 - 7779: oracle.jdbc.driver.PhysicalConnection
+2019-11-10 20:00:48 WARN  EmpOracle:16 - 29: carDAOs.EmpOracle
+2019-11-10 20:00:48 WARN  EmpOracle:16 - 13: services.EmpServiceOracle
+2019-11-10 20:00:48 WARN  EmpOracle:16 - 201: driver.CarDriver
+2019-11-10 22:11:30 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 22:11:30 TRACE UserInfoOracle:50 - User found.
+2019-11-10 22:11:33 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 22:11:33 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:11:33 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:11:33 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:11:33 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:11:38 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-10 22:40:56 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 22:40:57 TRACE UserInfoOracle:50 - User found.
+2019-11-10 22:40:59 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-10 22:40:59 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-10 22:40:59 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-10 22:41:39 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 22:41:40 TRACE UserInfoOracle:50 - User found.
+2019-11-10 22:41:42 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 22:41:42 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:42 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:42 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:42 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:47 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 22:41:47 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:47 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:47 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:41:47 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:42:11 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@16267862
+2019-11-10 22:42:11 TRACE CustomerOracle:86 - entities.CarOffer@16267862
+2019-11-10 22:42:11 TRACE CustomerOracle:105 - offer created.
+2019-11-10 22:42:20 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-10 22:42:20 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-10 22:42:20 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-10 22:42:35 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 22:42:35 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:42:35 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:42:35 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:42:35 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:45:15 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 22:45:16 TRACE UserInfoOracle:50 - User found.
+2019-11-10 22:45:56 TRACE EmpOracle:22 - adding a car into the database Car Details [name =nissan altima, plate=72, availability =false, selling price =39117.0, down payment =0.0, total payments =0.0, financing deal package =0, monthly payments =0.0, principal balance remaining =0.0]
+2019-11-10 22:45:56 TRACE EmpOracle:23 - Car Details [name =nissan altima, plate=72, availability =false, selling price =39117.0, down payment =0.0, total payments =0.0, financing deal package =0, monthly payments =0.0, principal balance remaining =0.0]
+2019-11-10 22:45:56 TRACE EmpOracle:45 - new car successfully added to the lot
+2019-11-10 22:51:46 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 22:51:47 TRACE UserInfoOracle:50 - User found.
+2019-11-10 22:51:51 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 22:51:51 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:51:51 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:51:51 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:51:51 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 22:51:51 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:08:11 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 23:08:12 TRACE UserInfoOracle:50 - User found.
+2019-11-10 23:08:15 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 23:08:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:08:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:08:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:08:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:08:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:27 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-10 23:42:28 TRACE UserInfoOracle:50 - User found.
+2019-11-10 23:42:31 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-10 23:42:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-10 23:42:39 TRACE EmpOracle:75 - 72
+2019-11-10 23:42:39 TRACE EmpOracle:87 - Car deleted.

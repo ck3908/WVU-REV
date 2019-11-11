@@ -6,8 +6,9 @@ import entities.User;
 
 public interface UserDAO {
 	
-	User getUserByName (String name);
-	User validateUser(String name, String passToValidate);
+	public User getUserByName (String name);
+	public User validateUser(String name, String passToValidate);
+	public int setNewUser(User user);
 
 	
 }

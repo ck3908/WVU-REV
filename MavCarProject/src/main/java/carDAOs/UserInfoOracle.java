@@ -3,6 +3,7 @@ package carDAOs;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import org.apache.log4j.Logger;
 
@@ -60,6 +61,53 @@ public class UserInfoOracle implements UserDAO {
 		
 		return u;
 
+	}
+
+	@Override
+	public int setNewUser(User newU) {
+		
+		int key = 0;
+		log.trace("adding new user to db "+newU);
+		log.trace(newU);
+		Connection conn = cu.getConnection();
+		
+		try{
+			conn.setAutoCommit(false);
+			String sql = "insert into userinfo (name,password,code) values(?,?,?)";
+			String[] keys = {"id"};
+			PreparedStatement pstm = conn.prepareStatement(sql, keys);
+			pstm.setString(1, newU.getName());
+			pstm.setString(2, newU.getPass());
+			pstm.setString(3, newU.getUser_code());
+			
+			pstm.executeUpdate();
+			ResultSet rs = pstm.getGeneratedKeys();
+			
+			if(rs.next())
+			{
+				log.trace("user created");
+				key = rs.getInt(1);
+				newU.setId(key);
+				conn.commit();
+			}
+			else
+			{
+				log.trace("user not created.");
+				conn.rollback();
+			}
+		}
+		catch(SQLException e)
+		{
+			LogUtil.rollback(e,conn,UserInfoOracle.class);
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e,UserInfoOracle.class);
+			}
+		}
+		return key;
 	}
 
 }

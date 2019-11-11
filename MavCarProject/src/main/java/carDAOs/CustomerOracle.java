@@ -15,7 +15,7 @@ import entities.CarOffer;
 import entities.User;
 
 public class CustomerOracle implements CustomerDAO {
-	private Logger log = Logger.getLogger(UserInfoOracle.class);
+	private Logger log = Logger.getLogger(CustomerOracle.class);
 	private ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 
 	@Override
@@ -24,7 +24,7 @@ public class CustomerOracle implements CustomerDAO {
 		// TODO Auto-generated method stub
 		log.trace("Retrieve my cars from database.");
 		try(Connection conn = cu.getConnection()){
-			String sql = "select * from cardetails where plate in (select carplate from usercars where username = ?)";
+			String sql = "select * from cardetails where plate in (select carplate from ownercars where username = ?)";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, username);
 			ResultSet rs = pstm.executeQuery();  // this implies password matches here

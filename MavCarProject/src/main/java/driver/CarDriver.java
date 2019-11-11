@@ -18,6 +18,10 @@ import entities.CarOffer;
 import entities.User;
 import services.CustomerService;
 import services.CustomerServiceOracle;
+import services.EmpService;
+import services.EmpServiceOracle;
+import services.UserService;
+import services.UserServiceOracle;
 import carUtils.ConnectionUtil;
 
 //import com.revature.beans.User;
@@ -53,9 +57,9 @@ public class CarDriver {
 			System.out.println("Please enter your password");
 			String passWord = input.nextLine();
 			System.out.println("print we got your details "+userName+ " "+passWord);
-			UserInfoOracle checkUser = new UserInfoOracle();
+			UserService getU= new UserServiceOracle();
 
-			User u = checkUser.validateUser(userName, passWord);
+			User u = getU.checkUser(userName, passWord);
 			if(u != null) {
 				System.out.println("We logged in!");
 				System.out.println(u.getName());
@@ -129,15 +133,15 @@ public class CarDriver {
 									System.out.println(" sorry, you have selected an invalid entry");  //how to handle it more
 								}
 								else {  // calculate the monthly payments for the selection
-									int months = 48;  // set default
-									double monthlyDue = 0;
+									double netLoan = bid-downpmt;
 									
-									if (k == 1) {  //48 months chosen
-										System.out.println("On your loan of "+(bid-downpmt)+""
-												+ " term of loan 48 months and rate of "+loanTypes.get(months));
-										System.out.println("your monthly payment is "+getPmts.get(k-1));
-										System.out.println("please confirm your bid - enter 1 for yes, any other for no");
-										int s = Integer.parseInt(input.nextLine());
+									if ((k > 0) && (k <= 3)) {  // make sure valid selection
+										int tMonths = 48+(k-1)*12; //to get the key of hashmap
+										System.out.println("On your loan of "+netLoan+""
+												+ " term of loan "+tMonths+" months and rate of "+loanTypes.get(tMonths));
+										System.out.println("your monthly payment is "+getPmts.get(k-1));  //note getPmts.get(index) contains index of monthly payments already
+										System.out.println("please confirm your bid - enter 1 for yes, 0 for no");									 
+										int s = Integer.parseInt(input.nextLine());  
 										if (s == 1) {  //create the offer for the car
 											CarOffer cOffer = new CarOffer(carPlate, userName, (float) bid, "pending", (float) downpmt, k);
 											CustomerService addBid = new CustomerServiceOracle();
@@ -147,18 +151,11 @@ public class CarDriver {
 											}
 											else {
 												System.out.println("sorry, issue with bid");
-											}
-											
+											}											
 										}
 										else {
 											// repeat?
 										}
-									}
-									else if (k == 2) {
-										System.out.println("monthly due is "+getPmts.get(k-1));	
-									}
-									else if (k == 3) {
-										System.out.println("monthly due is "+getPmts.get(k-1));	
 									}
 									else {  //wrong selection
 										System.out.println("you have to pick a number 1, 2, or 3");
@@ -172,6 +169,69 @@ public class CarDriver {
 
 					}  //while user  logged in  session block
 				}  //if user code is customer
+				
+				else if(u.getUser_code().equals("emp")) {  //employee login
+					boolean empSession = true;
+					while (empSession) {
+						System.out.println("please select from following options");
+						System.out.println("1. Add a car to the lot");
+						System.out.println("2. View all cars in the lot");
+						System.out.println("3. Accept or reject a pending offer");
+						System.out.println("4. Remove a car from the lot");
+						System.out.println("5. View all payments");
+						System.out.println("6. Logout");
+						int sc = Integer.parseInt(input.nextLine());
+						if (sc == 6) {
+							System.out.println("good bye");
+							empSession = false;
+							break;
+						}
+						if (sc == 1) {  // add car to the lot
+							System.out.println("you like to add a car to the lot");
+							System.out.println("please input make of the car");
+							String make = input.nextLine();
+							System.out.println("please input license number - must be unqiue");
+							int lic = Integer.parseInt(input.nextLine());
+							System.out.println("please input offer price");
+							double carP = Double.parseDouble(input.nextLine());
+							CarDetail nCar = new CarDetail();  //car empty constructor to initialize variables to avoid nulls
+							nCar.setCarName(make);  //now specifically change fields to set
+							nCar.setPlate(lic);
+							nCar.setSelling_price((float) carP);
+							EmpService addVeh = new EmpServiceOracle();
+							int r = addVeh.addCar(nCar);							
+							
+						} // selection == 1
+						else if (sc == 2) {
+							carsToSeeHelper();
+						}
+						else if (sc == 3) {
+							
+						}
+						else if (sc == 4) {  // remove a car from lot
+							List<CarDetail> getVeh = new ArrayList<>();
+							getVeh = carsToSeeHelper();  // retrieve car from the lot
+							System.out.println("select the number of the car you like to delete");
+							int gs = Integer.parseInt(input.nextLine());
+							System.out.println("you have selected "+getVeh.get(gs-1).getCarName()+" plate num "+getVeh.get(gs-1).getPlate());
+							System.out.println("please confirm 1 for yes and  0 for no");
+							int ls = Integer.parseInt(input.nextLine());
+							if (ls == 1) {  //delete car from lot
+								int carPlate = getVeh.get(gs-1).getPlate();
+								EmpService deleteCar = new EmpServiceOracle();
+								deleteCar.delCar(carPlate);
+									// delete the car						
+							}
+							
+						}
+						
+					}  // while employee session
+					
+				
+				}
+				else {  // manager login 
+					
+				}
 
 			} // if user is validated
 			else {
@@ -181,10 +241,43 @@ public class CarDriver {
 		} // if selection was 1 to login
 
 		else if (answer == 3) {  // register account
+			System.out.println("please enter new username");
+			String newUser = input.nextLine();
+			System.out.println("Please enter a new password");
+			String newPass = input.nextLine();
+			System.out.println("please enter 1-customer, 2-employee");
+			String userType = input.nextLine();
+			boolean userInput = true;
+			if (Integer.parseInt(userType) == 1) {
+				userType = "cust";
+			}
+			else if (Integer.parseInt(userType) == 2) {
+				userType = "empl";
+			}
+			else {
+				System.out.println("sorry wrong type selected");
+				userInput = false;
+			}
+			if (userInput) {  // create a new customer user
+				User newU = new User(newUser,newPass,userType);
+				UserService u = new UserServiceOracle();
+				int ok = 0;
+				ok = u.inputUser(newU);
+				if (ok > 0) {
+					System.out.println("success new user registered");
+				}
+				else {
+					System.out.println("user not created");
+				}
+
+			}
+			
 
 		}
 		else if (answer == 2) {
 			//view cars as guest
+			carsToSeeHelper();  //need to get back to top
+			
 		}
 		else {
 			System.out.println(" goodbye, no option chosen or logging out");
@@ -192,6 +285,7 @@ public class CarDriver {
 		}
 
 	} // main program
+	
 	
 	// monthly payment calculator
 	public static double monthlyCalc(int months, double rate, double principal) {
@@ -257,40 +351,5 @@ public class CarDriver {
 		}
 		return gmc;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// keep bottom for referencing codes
-	public static User getUser2(String username, String password) {
-		User u = null;
-		String sql = "select name, code"
-				+" from userinfo where name = ? and password = ?";
-		try(Connection conn = cu.getConnection()){
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setString(1, username);
-			stmt.setString(2, password);
-			ResultSet rs = stmt.executeQuery();
-			if(rs.next()) {
-				u = new User();
-
-				u.setName((rs.getString("name")));
-				u.setUser_code((rs.getString("code")));
-			}
-		} catch (SQLException e) {
-			LogUtil.logException(e, Driver.class);
-		}
-		return u;
-	}
-
 
 }
