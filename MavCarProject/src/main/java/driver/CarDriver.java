@@ -46,7 +46,8 @@ public class CarDriver {
 		System.out.println("1. Login");
 		System.out.println("2. View Cars on the Lot as a guest");
 		System.out.println("3. Register into the System as Customer or Employee");
-		System.out.println("4. Logout");
+		System.out.println("4. Use the loan calculator");
+		System.out.println("5. Logout");
 
 		Scanner input = new Scanner(System.in);
 		int answer = Integer.parseInt(input.nextLine()); //Use nexLline so linefeed auto
@@ -77,9 +78,10 @@ public class CarDriver {
 						System.out.println("2. Make an offer for a car");
 						System.out.println("3. View cars you own");
 						System.out.println("4. View remaining payments for a car");
-						System.out.println("5. Logout");
+						System.out.println("5. Use the loan calculator");
+						System.out.println("6. Logout");
 						int selection = Integer.parseInt(input.nextLine());
-						if (selection == 5) {
+						if (selection == 6) {
 							System.out.println("good bye");
 							keepSession = false;
 							break;
@@ -103,6 +105,9 @@ public class CarDriver {
 										+ " is "+carCount.get(n-1).getPrinBal());
 							}
 
+						}
+						else if(selection == 5) {  //use loan calculator
+							useMonthlyCalc(input);  //pass in the Scanner input
 						}
 						else if (selection == 2) {  // make an offer for a car
 							carCount = carsToSeeHelper();
@@ -245,8 +250,20 @@ public class CarDriver {
 									double mDue = monthlyCalc(nMonths, aRate, balDue);
 									soldCar.setMonthlyPmt((float) mDue); 
 									int cc = statUpdate.carOwnedUpdate(soldCar);
-									if (cc > 0) {
-										System.out.println("successfully updated cardetail table");
+									if (cc > 0) {  // updated cardetail database, now update other bidders to reject in caroffer
+										//System.out.println("successfully updated cardetail table");
+										int acceptPlate = g.get(ac-1).getPlateNum(); // pick the offer that was accepted by owner and plate
+										String acceptName = g.get(ac-1).getBuyer();  // then reject all others
+										String rejStatus = "rejected";
+										EmpService rejUpdate = new EmpServiceOracle();
+										int rejResult = rejUpdate.rejOffers(acceptName, acceptPlate, rejStatus);  //update offers to rejected status
+										if (rejResult >= 0) {
+											System.out.println("successful update");
+										}
+										else {
+											System.out.println("update not done");
+										}
+										
 									}
 									// reject all other offers
 									
@@ -255,8 +272,24 @@ public class CarDriver {
 									System.out.println("something wrong updating");
 								}
 							}  // pc = 1 accept offer
-							else {
+							else if (pc == 2) {  // selection is 2
 								//reject offer
+								System.out.println("enter the number of the offer to reject ");
+								int rc = Integer.parseInt(input.nextLine());
+								g.get(rc-1).setStatus("rejected"); //change the status of the offer
+								CarOffer changeStatus = new CarOffer();
+								changeStatus = g.get(rc-1);  // save the updated object into a another object for clarity
+								EmpService statUpdate = new EmpServiceOracle();
+								int dc = statUpdate.updateStatus(changeStatus);
+								if (dc == 1) {
+									System.out.println("successfully updated an rejected offer");
+								}
+								else {
+									System.out.println("not successfully updated rejected offer");
+								}
+							}
+							else {  // could be selection = 3
+								// do anything? if nothing selected
 							}
 
 						}
@@ -342,13 +375,29 @@ public class CarDriver {
 			carsToSeeHelper();  //need to get back to top
 
 		}
-		else {
+		else if (answer == 4) {  //use the loan calculator
+			 useMonthlyCalc(input);  //pass in the Scanner input
+			
+		}
+		else {  //assume option chosen
 			System.out.println(" goodbye, no option chosen or logging out");
 			// anything else just exit -- assume logout
 		}
 
 	} // main program
 
+	public static void useMonthlyCalc(Scanner getInput) {
+		System.out.println("you like to use the loan calculator");
+		System.out.println("enter annual rate i.e. 0.05, 0.067 etc");
+		double inputRate = Double.parseDouble(getInput.nextLine());
+		System.out.println("enter the number of months in this loan i.e. 12, 24, etc");
+		int inputMonth = Integer.parseInt(getInput.nextLine());
+		System.out.println("enter the principal loan amount you want to take out");
+		double loanTaken = Double.parseDouble(getInput.nextLine());
+		double monPymt = monthlyCalc(inputMonth, inputRate, loanTaken);
+		System.out.println("based on your inputs, your monthly payment would be "+monPymt);
+		
+	}
 
 	// monthly payment calculator
 	public static double monthlyCalc(int months, double rate, double principal) {

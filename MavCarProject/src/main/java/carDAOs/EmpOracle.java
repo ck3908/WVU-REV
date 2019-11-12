@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
-
 import carUtils.ConnectionUtil;
 import carUtils.LogUtil;
 import entities.CarDetail;
@@ -240,10 +239,39 @@ public class EmpOracle implements EmpDAO {
 
 				return result;
 	}
+
+	@Override
+	public int rejOtherOffers(String accName, int platenum, String status) {
+		log.trace("update car offer table to reject other offers after a bid accepted");
+		int result = 0;
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "update caroffer set status =? where platenum =? and nameperson !=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1,status);  
+			pstm.setInt(2, platenum);
+			pstm.setString(3,accName); 
+			result = pstm.executeUpdate();
+			
+			if (result >= 1) {  // result returns depend on updated table results
+				log.trace("other offers rejected in caroffer table");
+			}
+		} catch (SQLException e) {
+			LogUtil.rollback(e, conn, EmpOracle.class);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e, EmpOracle.class);
+			}
+		}
+
+		return result;
 		
 }
 
-
+}
 
 
 

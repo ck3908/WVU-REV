@@ -796,3 +796,74 @@
 2019-11-12 02:18:07 TRACE EmpOracle:209 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
 2019-11-12 02:18:07 TRACE EmpOracle:210 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
 2019-11-12 02:18:07 TRACE EmpOracle:229 - Car Status updated in Cardetail table
+2019-11-12 11:21:40 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 11:21:40 TRACE UserInfoOracle:50 - User found.
+2019-11-12 11:21:49 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:21:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 11:22:18 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 11:22:19 TRACE UserInfoOracle:50 - User found.
+2019-11-12 11:22:23 TRACE EmpOracle:146 - Retrieve all offers from database where status is pending
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:23 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:40 TRACE EmpOracle:178 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 11:22:40 TRACE EmpOracle:179 - entities.CarOffer@6b67034
+2019-11-12 11:22:40 TRACE EmpOracle:192 - Car Status updated
+2019-11-12 11:22:40 TRACE EmpOracle:210 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 11:22:40 TRACE EmpOracle:211 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 11:22:40 TRACE EmpOracle:230 - Car Status updated in Cardetail table
+2019-11-12 11:22:52 TRACE EmpOracle:146 - Retrieve all offers from database where status is pending
+2019-11-12 11:22:52 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:52 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:52 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:52 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:22:52 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-12 11:29:07 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 11:29:08 TRACE UserInfoOracle:50 - User found.
+2019-11-12 11:29:16 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:16 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:36 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 11:29:36 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-12 11:29:36 TRACE EmpOracle:190 - Car Status updated
+2019-11-12 11:29:36 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 11:29:36 TRACE EmpOracle:209 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 11:29:36 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-12 11:29:36 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-12 11:29:36 TRACE EmpOracle:258 - other offers rejected in caroffer table
+2019-11-12 11:29:43 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-12 11:29:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:29:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:54:16 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 11:54:17 TRACE UserInfoOracle:50 - User found.
+2019-11-12 11:54:21 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-12 11:54:21 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:54:21 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:54:21 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 11:54:28 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 11:54:28 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-12 11:54:28 TRACE EmpOracle:190 - Car Status updated
+2019-11-12 12:22:07 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:22:08 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 12:30:08 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 12:30:08 TRACE UserInfoOracle:50 - User found.
