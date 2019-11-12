@@ -4,12 +4,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
+
 
 import carUtils.ConnectionUtil;
 import carUtils.LogUtil;
 import entities.CarDetail;
+import entities.CarOffer;
 
 public class EmpOracle implements EmpDAO {
 	private Logger log = Logger.getLogger(EmpOracle.class);
@@ -100,4 +104,120 @@ public class EmpOracle implements EmpDAO {
 			}
 		}
 	}
+
+	@Override
+	public List<CarDetail> seeAllPmts() {
+		List<CarDetail> allPmts = new ArrayList<CarDetail>();
+		// TODO Auto-generated method stub
+		log.trace("Retrieve all payments from database where customers are still paying loan.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select * from cardetails where owned = ? and loanterm > ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, "true");
+			pstm.setInt(2, 0);  // make sure loan term is still > 0 
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("payments from customers found.");
+				CarDetail c = new CarDetail();
+				c.setCarName(rs.getString("carname"));
+				c.setPlate((rs.getInt("plate")));
+				c.setTotalPayments(rs.getFloat(("totalpaid")));
+				c.setMonthlyPmt(rs.getFloat("monthlydue"));
+				c.setTermRemaining(rs.getInt("loanterm"));
+				c.setPrinBal((rs.getFloat("principalbal")));  //set in order to see balance in one of the menu options
+				allPmts.add(c);  //add into list of cars
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, EmpOracle.class);
+		}
+		
+		return allPmts; //return all cars available for viewing
+	}
+
+	@Override
+	public List<CarOffer> findAllOffers() {  // extract info from cardetails table, and update to own if approved, then need to update 
+		// TODO Auto-generated method stub    caroffer table if any changes to the status of the offer
+		List<CarOffer> vehOffers = new ArrayList<>();
+		log.trace("Retrieve all offers from database where status is pending");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select * from caroffer where status = ?"; 
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, "pending");
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("pending offers from customers found.");
+				CarOffer c = new CarOffer();
+				c.setPlateNum(rs.getInt("platenum"));
+				c.setBuyer(rs.getString("nameperson"));
+				c.setOfferPrice(rs.getFloat("offerprice"));
+				c.setStatus(rs.getString("status"));
+				c.setDownPmt(rs.getFloat("downpayment"));
+				c.setTermFinance(rs.getInt("findeal"));
+				c.setVehName(rs.getString("carname"));			
+				vehOffers.add(c);  //add into list of cars
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, EmpOracle.class);
+		}
+		
+		return vehOffers; //return all cars available for viewing
+	}
+
+	@Override
+	public int updateCarStatus(CarOffer cS) {
+		// TODO Auto-generated method stub
+		log.trace("update status of a car offer in the database "+cS);
+		log.trace(cS);
+		int result = 0;
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "update caroffer set status=? where platenum=? and nameperson=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, cS.getStatus());  //which should be accepted
+			pstm.setInt(2, cS.getPlateNum());
+			pstm.setString(3, cS.getBuyer());
+			result = pstm.executeUpdate();
+			
+			if (result == 1) {
+				log.trace("Car Status updated");
+			}
+		} catch (SQLException e) {
+			LogUtil.rollback(e, conn, EmpOracle.class);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e, EmpOracle.class);
+			}
+		}
+
+		return result;
+	}
+		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

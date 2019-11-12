@@ -3,6 +3,7 @@ package entities;
 public class CarOffer {
 	
 	private int id;
+	private String vehName;
 	private int plateNum;  //unique key to identify the car
 	private String buyer;  // name matches user name on user table, assume unique names
 	private float offerPrice; // buyer's offer price
@@ -13,16 +14,18 @@ public class CarOffer {
 	public CarOffer() {
 		super();
 		this.id = 0;
+		this.vehName = " ";
 		this.plateNum = 0;
 		this.buyer = " ";
 		this.offerPrice = 0;
 		this.status = " ";
 		this.downPmt = 0;
-		this.termFinance = 0;
+		this.termFinance = 0;	
 	}
 	
-	public CarOffer(int plateNum, String buyer, float offerPrice, String status, float downPmt, int termFinance) {
+	public CarOffer(String vehName, int plateNum, String buyer, float offerPrice, String status, float downPmt, int termFinance) {
 		super();
+		this.vehName = vehName;
 		this.plateNum = plateNum;
 		this.buyer = buyer;
 		this.offerPrice = offerPrice;
@@ -38,6 +41,15 @@ public class CarOffer {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+
+	public String getVehName() {
+		return vehName;
+	}
+
+	public void setVehName(String vehName) {
+		this.vehName = vehName;
 	}
 
 	public int getPlateNum() {

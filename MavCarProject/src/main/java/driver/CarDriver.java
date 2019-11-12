@@ -120,21 +120,21 @@ public class CarDriver {
 								System.out.println("enter your bid price");
 								double bid = Double.parseDouble(input.nextLine());
 								System.out.println("enter down payment -> enter zero if none");
-								int downpmt = Integer.parseInt(input.nextLine());
+								int downpmt = Integer.parseInt(input.nextLine());  //probably should make it a double 
 								System.out.println("we can offer you 3 financing packages - select a number or select 0 if you do not"
 										+ "want a financing package");
 								HashMap<Integer,Double> loanTypes = new HashMap<Integer,Double>();  // term and rates in hash map table
 								loanTypes = finDeals();
 								List<Double> getPmts = new ArrayList<>();
 								getPmts = getPayments(loanTypes,bid,downpmt);
-								
+
 								int k = Integer.parseInt(input.nextLine());
 								if (k > loanTypes.size()) {
 									System.out.println(" sorry, you have selected an invalid entry");  //how to handle it more
 								}
 								else {  // calculate the monthly payments for the selection
 									double netLoan = bid-downpmt;
-									
+
 									if ((k > 0) && (k <= 3)) {  // make sure valid selection
 										int tMonths = 48+(k-1)*12; //to get the key of hashmap
 										System.out.println("On your loan of "+netLoan+""
@@ -143,7 +143,7 @@ public class CarDriver {
 										System.out.println("please confirm your bid - enter 1 for yes, 0 for no");									 
 										int s = Integer.parseInt(input.nextLine());  
 										if (s == 1) {  //create the offer for the car
-											CarOffer cOffer = new CarOffer(carPlate, userName, (float) bid, "pending", (float) downpmt, k);
+											CarOffer cOffer = new CarOffer(carName, carPlate, userName, (float) bid, "pending", (float) downpmt, k);
 											CustomerService addBid = new CustomerServiceOracle();
 											int v = addBid.putBid(cOffer);  //update the database
 											if (v > 0 ) {
@@ -169,7 +169,7 @@ public class CarDriver {
 
 					}  //while user  logged in  session block
 				}  //if user code is customer
-				
+
 				else if(u.getUser_code().equals("emp")) {  //employee login
 					boolean empSession = true;
 					while (empSession) {
@@ -200,13 +200,39 @@ public class CarDriver {
 							nCar.setSelling_price((float) carP);
 							EmpService addVeh = new EmpServiceOracle();
 							int r = addVeh.addCar(nCar);							
-							
+
 						} // selection == 1
 						else if (sc == 2) {
 							carsToSeeHelper();
 						}
-						else if (sc == 3) {
-							
+						else if (sc == 3) { //accept or reject a pending offer
+							List <CarOffer> g = new ArrayList<>();
+							EmpService gOffers = new EmpServiceOracle();
+							g = gOffers.getAllOffers();
+							System.out.println("  car   plate   bidder   offer price    down payment  status  loan type");
+							for (int t =0; t < g.size(); ++t) {
+								System.out.println(t+1+ "   "+g.get(t).getVehName()+"   "+g.get(t).getPlateNum() +"   "+
+										g.get(t).getBuyer() +"   "+g.get(t).getOfferPrice()+ "   "+g.get(t).getDownPmt() +"   "+g.get(t).getStatus()
+										+"   "+g.get(t).getTermFinance());
+							}
+							System.out.println("what do you like to do? accept = 1, reject = 2, exit = 3");
+							int pc = Integer.parseInt(input.nextLine());
+							if (pc == 1) { // accept a car
+								System.out.println("enter the number of the offer to accept ");
+								int ac = Integer.parseInt(input.nextLine());
+								g.get(ac-1).setStatus("accepted"); //change the status of the offer
+								CarOffer changeStatus = new CarOffer();
+								changeStatus = g.get(ac-1);  // save the updated object into a another object for clarity
+								EmpService statUpdate = new EmpServiceOracle();
+								ac = statUpdate.updateStatus(changeStatus);
+								if (ac == 1) {
+									System.out.println("success holy moly");
+								}
+								else {
+									System.out.println("something wrong updating");
+								}
+							}	
+
 						}
 						else if (sc == 4) {  // remove a car from lot
 							List<CarDetail> getVeh = new ArrayList<>();
@@ -220,17 +246,28 @@ public class CarDriver {
 								int carPlate = getVeh.get(gs-1).getPlate();
 								EmpService deleteCar = new EmpServiceOracle();
 								deleteCar.delCar(carPlate);
-									// delete the car						
+								// delete the car						
 							}
-							
+
 						}
-						
+						else if (sc == 5) {  //view all payments
+							EmpService allCarPmts = new EmpServiceOracle();
+							List<CarDetail> cd = new ArrayList<>();
+							cd = allCarPmts.getAllPmt();
+							System.out.println("  car    plate      total paid     monthly due     term remaining     balance  ");  //took out plate number
+							for (int t =0; t < cd.size(); ++t) {
+								System.out.println(t+1+ "  "+cd.get(t).getCarName()+" "+cd.get(t).getPlate()+ " "+
+										cd.get(t).getTotalPayments()+"  "+cd.get(t).getMonthlyPmt()+ "  "+cd.get(t).getTermRemaining()+
+										"  "+cd.get(t).getPrinBal());
+							}
+						}
+
 					}  // while employee session
-					
-				
+
+
 				}
 				else {  // manager login 
-					
+
 				}
 
 			} // if user is validated
@@ -271,13 +308,13 @@ public class CarDriver {
 				}
 
 			}
-			
+
 
 		}
 		else if (answer == 2) {
 			//view cars as guest
 			carsToSeeHelper();  //need to get back to top
-			
+
 		}
 		else {
 			System.out.println(" goodbye, no option chosen or logging out");
@@ -285,8 +322,8 @@ public class CarDriver {
 		}
 
 	} // main program
-	
-	
+
+
 	// monthly payment calculator
 	public static double monthlyCalc(int months, double rate, double principal) {
 		double mRate = rate/12;
@@ -294,7 +331,7 @@ public class CarDriver {
 		payment = Math.round(payment);
 		return payment;
 	}
-	
+
 	//get all monthly payments in one go for all deal terms
 	public static List<Double> getPayments(HashMap<Integer,Double> dealTerms, double cBid, int dPymt) {
 		List<Double> p = new ArrayList<>();

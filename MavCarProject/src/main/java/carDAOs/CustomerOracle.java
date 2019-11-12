@@ -41,7 +41,7 @@ public class CustomerOracle implements CustomerDAO {
 		}
 		catch(Exception e)
 		{
-			LogUtil.logException(e, UserInfoOracle.class);
+			LogUtil.logException(e, CustomerOracle.class);
 		}
 		
 		return myCars; //return all cars available for viewing
@@ -71,7 +71,7 @@ public class CustomerOracle implements CustomerDAO {
 		}
 		catch(Exception e)
 		{
-			LogUtil.logException(e, UserInfoOracle.class);
+			LogUtil.logException(e, CustomerOracle.class);
 		}
 		
 		return carsAvail; //return all cars available for viewing
@@ -87,7 +87,7 @@ public class CustomerOracle implements CustomerDAO {
 		Connection conn = cu.getConnection();
 		try{
 			conn.setAutoCommit(false);
-			String sql = "insert into caroffer (platenum,nameperson,offerprice,status,downpayment,findeal) values(?,?,?,?,?,?)";
+			String sql = "insert into caroffer (platenum,nameperson,offerprice,status,downpayment,findeal,carname) values(?,?,?,?,?,?,?)";
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
 			pstm.setInt(1, custBid.getPlateNum());
@@ -96,7 +96,7 @@ public class CustomerOracle implements CustomerDAO {
 			pstm.setString(4, custBid.getStatus());
 			pstm.setFloat(5, custBid.getDownPmt());
 			pstm.setInt(6, custBid.getTermFinance());
-			
+			pstm.setString(7, custBid.getVehName());			
 			pstm.executeUpdate();
 			ResultSet rs = pstm.getGeneratedKeys();
 			
