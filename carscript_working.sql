@@ -17,7 +17,8 @@
 	);
   
   create table caroffer (
-	id number(20) primary key,		
+	id number(20) primary key,
+	carname varchar2(2),
 	platenum number(20),  -- referenced as foreign key from the many to many table
 	nameperson varchar2(20) not null, --- so we can use in the many to many table
 	offerprice number(20),
@@ -96,3 +97,7 @@ end;
 /
 
 commit;
+
+-- get all car offers and find name of person associated with the bid
+select b.carname, a.platenum,a.nameperson, a.offerprice,a.status, a.downpayment, a.findeal from caroffer a, cardetails b
+where a.platenum = b.plate and a.status = 'pending'; 

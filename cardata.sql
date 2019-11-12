@@ -22,12 +22,12 @@ insert into cardetails(id, plate, carname, owned, offersold, downpayment, totalp
                     (1, 99, 'subaru forrester', 'true', 21000, 4000, 19000, 3, 700, 35, 12000);
 
 
-insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal) values 
-                    (1, 88, 'tom hanks', 39000,'pending',5000,1);
-insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal) values 
-                    (1, 23, 'tom hanks', 25000,'pending',700,1);  
-insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal) values 
-                    (1, 88, 'robert gan', 39000,'pending',7000,1); 
+insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal, carname) values 
+                    (1, 88, 'tom hanks', 39000,'pending',5000,1,'ford mustang');
+insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal, carname) values 
+                    (1, 23, 'tom hanks', 25000,'pending',700,1,'ford fiesta');  
+insert into caroffer (id, platenum, nameperson, offerprice, status, downpayment, findeal, carname) values 
+                    (1, 88, 'robert gan', 39000,'pending',7000,1,'ford mustang'); 
 					
 insert into ownercars (username,carplate) values ('tom hanks',17);
 insert into ownercars (username,carplate) values ('tom hanks',33);
