@@ -625,3 +625,174 @@
 2019-11-12 00:16:05 TRACE EmpOracle:154 - pending offers from customers found.
 2019-11-12 00:16:05 TRACE EmpOracle:154 - pending offers from customers found.
 2019-11-12 00:16:05 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 00:29:57 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 00:29:57 TRACE UserInfoOracle:50 - User found.
+2019-11-12 00:30:03 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:03 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:30:43 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-12 00:30:43 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-12 00:30:43 TRACE CustomerOracle:105 - offer created.
+2019-11-12 00:31:25 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 00:31:25 TRACE UserInfoOracle:50 - User found.
+2019-11-12 00:31:30 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:30 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:31:54 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-12 00:31:54 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-12 00:31:54 TRACE CustomerOracle:105 - offer created.
+2019-11-12 00:32:39 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 00:32:40 TRACE UserInfoOracle:50 - User found.
+2019-11-12 00:36:25 TRACE UserInfoOracle:70 - adding new user to db User Details [name =jill joy, password =pass, type =cust]
+2019-11-12 00:36:25 TRACE UserInfoOracle:71 - User Details [name =jill joy, password =pass, type =cust]
+2019-11-12 00:36:26 TRACE UserInfoOracle:88 - user created
+2019-11-12 00:36:47 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 00:36:47 TRACE UserInfoOracle:50 - User found.
+2019-11-12 00:36:50 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:36:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 00:37:07 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-12 00:37:07 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-12 00:37:07 TRACE CustomerOracle:105 - offer created.
+2019-11-12 01:57:47 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 01:57:48 TRACE UserInfoOracle:50 - User found.
+2019-11-12 01:57:50 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:57:50 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:01 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 01:59:02 TRACE UserInfoOracle:50 - User found.
+2019-11-12 01:59:08 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:08 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 01:59:22 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 01:59:22 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 01:59:22 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:09:33 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 02:09:34 TRACE UserInfoOracle:50 - User found.
+2019-11-12 02:09:37 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:37 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:09:44 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 02:09:44 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 02:09:44 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:12:17 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 02:12:18 TRACE UserInfoOracle:50 - User found.
+2019-11-12 02:12:20 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:20 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:12:26 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 02:12:26 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 02:12:26 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:14:40 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 02:14:41 TRACE UserInfoOracle:50 - User found.
+2019-11-12 02:14:43 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:43 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:14:51 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 02:14:51 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 02:14:51 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:14:51 TRACE EmpOracle:209 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:14:51 TRACE EmpOracle:210 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:14:51 ERROR EmpOracle:14 - class java.sql.SQLSyntaxErrorException: ORA-00933: SQL command not properly ended
+
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 450: oracle.jdbc.driver.T4CTTIoer
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 399: oracle.jdbc.driver.T4CTTIoer
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 1017: oracle.jdbc.driver.T4C8Oall
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 655: oracle.jdbc.driver.T4CTTIfun
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 249: oracle.jdbc.driver.T4CTTIfun
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 566: oracle.jdbc.driver.T4C8Oall
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 215: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 58: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 943: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 1075: oracle.jdbc.driver.OracleStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 3820: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 3897: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 1361: oracle.jdbc.driver.OraclePreparedStatementWrapper
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 226: carDAOs.EmpOracle
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 46: services.EmpServiceOracle
+2019-11-12 02:14:51 WARN  EmpOracle:16 - 247: driver.CarDriver
+2019-11-12 02:16:50 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 02:16:51 TRACE UserInfoOracle:50 - User found.
+2019-11-12 02:16:54 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:16:54 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:17:02 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 02:17:02 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 02:17:02 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:17:02 TRACE EmpOracle:209 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:17:02 TRACE EmpOracle:210 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:17:02 ERROR EmpOracle:14 - class java.sql.SQLSyntaxErrorException: ORA-00904: "PLATENUM": invalid identifier
+
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 450: oracle.jdbc.driver.T4CTTIoer
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 399: oracle.jdbc.driver.T4CTTIoer
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 1017: oracle.jdbc.driver.T4C8Oall
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 655: oracle.jdbc.driver.T4CTTIfun
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 249: oracle.jdbc.driver.T4CTTIfun
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 566: oracle.jdbc.driver.T4C8Oall
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 215: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 58: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 943: oracle.jdbc.driver.T4CPreparedStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 1075: oracle.jdbc.driver.OracleStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 3820: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 3897: oracle.jdbc.driver.OraclePreparedStatement
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 1361: oracle.jdbc.driver.OraclePreparedStatementWrapper
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 226: carDAOs.EmpOracle
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 46: services.EmpServiceOracle
+2019-11-12 02:17:02 WARN  EmpOracle:16 - 247: driver.CarDriver
+2019-11-12 02:18:00 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 02:18:01 TRACE UserInfoOracle:50 - User found.
+2019-11-12 02:18:04 TRACE EmpOracle:145 - Retrieve all offers from database where status is pending
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:04 TRACE EmpOracle:154 - pending offers from customers found.
+2019-11-12 02:18:07 TRACE EmpOracle:177 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 02:18:07 TRACE EmpOracle:178 - entities.CarOffer@6b67034
+2019-11-12 02:18:07 TRACE EmpOracle:191 - Car Status updated
+2019-11-12 02:18:07 TRACE EmpOracle:209 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:18:07 TRACE EmpOracle:210 - Car Details [name = , plate=911, availability =true, selling price =87000.0, down payment =30000.0, total payments =30000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-12 02:18:07 TRACE EmpOracle:229 - Car Status updated in Cardetail table

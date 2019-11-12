@@ -40,4 +40,10 @@ public class EmpServiceOracle implements EmpService {
 		return ed.updateCarStatus(car);
 	}
 
+	@Override
+	public int carOwnedUpdate(CarDetail car) {
+		// TODO Auto-generated method stub
+		return ed.updateOwnStatus(car);
+	}
+
 }

@@ -101,7 +101,7 @@ public class EmpOracle implements EmpDAO {
 				conn.close();
 			} catch (SQLException e) {
 				LogUtil.logException(e, EmpOracle.class);
-			}
+			} 
 		}
 	}
 
@@ -201,6 +201,44 @@ public class EmpOracle implements EmpDAO {
 		}
 
 		return result;
+	}
+
+	@Override
+	public int updateOwnStatus(CarDetail car) {
+		// TODO Auto-generated method stub
+				log.trace("update table cardetail where an owner was just accepted on his or her offer "+car);
+				log.trace(car);
+				int result = 0;
+				Connection conn = cu.getConnection();
+				try{
+					conn.setAutoCommit(false);
+					String sql = "update cardetails set owned=?, offersold=?, downpayment=?, totalpaid=?, loantype=?, monthlydue=?, loanterm=?, principalbal=? where plate=?";
+					PreparedStatement pstm = conn.prepareStatement(sql);
+					pstm.setString(1,car.getOwned());  
+					pstm.setFloat(2,car.getSelling_price());
+					pstm.setFloat(3, car.getDownpayment());
+					pstm.setFloat(4, car.getTotalPayments());
+					pstm.setInt(5, car.getFinancingDeal());
+					pstm.setFloat(6, car.getMonthlyPmt());
+					pstm.setInt(7, car.getTermRemaining());
+					pstm.setFloat(8, car.getPrinBal());
+					pstm.setInt(9, car.getPlate());
+					result = pstm.executeUpdate();
+					
+					if (result == 1) {
+						log.trace("Car Status updated in Cardetail table");
+					}
+				} catch (SQLException e) {
+					LogUtil.rollback(e, conn, EmpOracle.class);
+				} finally {
+					try {
+						conn.close();
+					} catch (SQLException e) {
+						LogUtil.logException(e, EmpOracle.class);
+					}
+				}
+
+				return result;
 	}
 		
 }

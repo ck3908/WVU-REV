@@ -224,14 +224,40 @@ public class CarDriver {
 								CarOffer changeStatus = new CarOffer();
 								changeStatus = g.get(ac-1);  // save the updated object into a another object for clarity
 								EmpService statUpdate = new EmpServiceOracle();
-								ac = statUpdate.updateStatus(changeStatus);
-								if (ac == 1) {
-									System.out.println("success holy moly");
+								int bc = statUpdate.updateStatus(changeStatus);
+								System.out.println("bc here is "+bc);
+								if (bc == 1) { // update cardetails table to owned
+									//System.out.println("success holy moly");
+									CarDetail soldCar = new CarDetail(); //initialize object
+									soldCar.setPlate(g.get(ac-1).getPlateNum()); //get the plate number to search for unique record in the table
+									soldCar.setSelling_price(g.get(ac-1).getOfferPrice()); //set selling price to bidder's price
+									soldCar.setOwned("true"); //change field to true
+									soldCar.setDownpayment(g.get(ac-1).getDownPmt()); // get the downpayment info
+									soldCar.setTotalPayments(g.get(ac-1).getDownPmt()); //assume the first downpayment made so total payments = downpayments
+									soldCar.setFinancingDeal(g.get(ac-1).getTermFinance()); //set loan type
+									float balDue = g.get(ac-1).getOfferPrice() - g.get(ac-1).getDownPmt();
+									soldCar.setPrinBal(balDue); //balance is sold price less the downpayment
+									int nMonths = 48+(g.get(ac-1).getTermFinance()-1)*12; // get the financing terms if = 1 then 48 months, 2 then 60 months etc
+									soldCar.setTermRemaining(nMonths);  //set the months of the term loan
+									HashMap<Integer,Double> tLoan = new HashMap<Integer,Double>();  
+									tLoan = finDeals();  //get matrix of rates and months via hashmap table
+									double aRate = tLoan.get(nMonths);  //extract the rate from hash map table
+									double mDue = monthlyCalc(nMonths, aRate, balDue);
+									soldCar.setMonthlyPmt((float) mDue); 
+									int cc = statUpdate.carOwnedUpdate(soldCar);
+									if (cc > 0) {
+										System.out.println("successfully updated cardetail table");
+									}
+									// reject all other offers
+									
 								}
 								else {
 									System.out.println("something wrong updating");
 								}
-							}	
+							}  // pc = 1 accept offer
+							else {
+								//reject offer
+							}
 
 						}
 						else if (sc == 4) {  // remove a car from lot

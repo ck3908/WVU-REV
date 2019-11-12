@@ -11,5 +11,6 @@ public interface EmpService {
 	public List<CarDetail> getAllPmt();
 	public List<CarOffer> getAllOffers();
 	public int updateStatus(CarOffer car);
+	public int carOwnedUpdate(CarDetail car);
 
 }

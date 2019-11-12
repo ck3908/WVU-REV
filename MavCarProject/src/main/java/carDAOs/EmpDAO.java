@@ -11,4 +11,5 @@ public interface EmpDAO {
 	public List<CarDetail> seeAllPmts();
 	public List<CarOffer> findAllOffers();
 	public int updateCarStatus(CarOffer cS);
+	public int updateOwnStatus(CarDetail car);
 }
