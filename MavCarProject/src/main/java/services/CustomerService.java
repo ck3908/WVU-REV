@@ -14,4 +14,5 @@ public interface CustomerService {
 	public int putBid(CarOffer myBid);
 	public List<CarOffer> seeMyBids(String username);
 	
+	
 }

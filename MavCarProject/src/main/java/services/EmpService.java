@@ -14,6 +14,8 @@ public interface EmpService {
 	public int carOwnedUpdate(CarDetail car);
 	public int rejOffers(String acName, int platen, String status);
 	public List<CarDetail> seeAllCars();
+	public int upDateOwnT(String name, int plate);
+	
 	
 
 }

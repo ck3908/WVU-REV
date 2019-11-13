@@ -1170,3 +1170,650 @@
 2019-11-12 23:27:21 TRACE CustomerOracle:64 - availabe cars found.
 2019-11-12 23:27:21 TRACE CustomerOracle:64 - availabe cars found.
 2019-11-12 23:27:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:32 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:52:33 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:52:38 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:38 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:52:50 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:53:31 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6166e06f
+2019-11-12 23:53:31 TRACE CustomerOracle:86 - entities.CarOffer@6166e06f
+2019-11-12 23:53:31 TRACE CustomerOracle:105 - offer created.
+2019-11-12 23:53:39 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:53:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:54:04 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:54:05 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:54:17 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:54:38 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-12 23:54:38 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-12 23:54:38 TRACE CustomerOracle:105 - offer created.
+2019-11-12 23:54:51 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:54:52 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:54:54 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-12 23:54:54 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:54:54 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:54:54 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:55:28 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:55:29 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:55:32 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-12 23:55:32 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:55:32 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:55:32 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-12 23:55:45 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-12 23:55:45 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-12 23:55:45 TRACE EmpOracle:190 - Car Status updated
+2019-11-12 23:55:45 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=676, availability =true, selling price =33400.0, down payment =4000.0, total payments =4000.0, financing deal package =1, monthly payments =677.0, principal balance remaining =29400.0]
+2019-11-12 23:55:45 TRACE EmpOracle:209 - Car Details [name = , plate=676, availability =true, selling price =33400.0, down payment =4000.0, total payments =4000.0, financing deal package =1, monthly payments =677.0, principal balance remaining =29400.0]
+2019-11-12 23:55:45 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-12 23:55:45 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-12 23:55:45 TRACE EmpOracle:258 - other offers rejected in caroffer table
+2019-11-12 23:55:55 TRACE EmpOracle:111 - Retrieve all payments from database where customers are still paying loan.
+2019-11-12 23:55:55 TRACE EmpOracle:121 - payments from customers found.
+2019-11-12 23:55:55 TRACE EmpOracle:121 - payments from customers found.
+2019-11-12 23:55:55 TRACE EmpOracle:121 - payments from customers found.
+2019-11-12 23:55:55 TRACE EmpOracle:121 - payments from customers found.
+2019-11-12 23:55:55 TRACE EmpOracle:121 - payments from customers found.
+2019-11-12 23:56:15 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:56:15 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:56:18 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-12 23:56:32 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-12 23:56:39 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-12 23:56:57 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:56:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-12 23:57:03 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-12 23:59:34 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-12 23:59:35 TRACE UserInfoOracle:50 - User found.
+2019-11-12 23:59:38 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-12 23:59:47 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-12 23:59:47 TRACE CustomerOracle:144 - available cars found.
+2019-11-12 23:59:59 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 00:00:14 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:00:14 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:09 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:36:10 TRACE UserInfoOracle:50 - User found.
+2019-11-13 00:36:13 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 00:36:13 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:19 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:36:44 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6166e06f
+2019-11-13 00:36:44 TRACE CustomerOracle:86 - entities.CarOffer@6166e06f
+2019-11-13 00:36:44 TRACE CustomerOracle:105 - offer created.
+2019-11-13 00:36:51 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 00:36:51 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:36:51 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:37:22 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:37:22 TRACE UserInfoOracle:50 - User found.
+2019-11-13 00:37:27 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:27 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:37:48 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-13 00:37:48 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-13 00:37:48 TRACE CustomerOracle:105 - offer created.
+2019-11-13 00:38:08 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:38:21 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:38:22 TRACE UserInfoOracle:50 - User found.
+2019-11-13 00:38:28 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:28 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 00:38:55 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:38:56 TRACE UserInfoOracle:50 - User found.
+2019-11-13 00:39:06 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:06 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 00:39:41 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 00:39:42 TRACE UserInfoOracle:50 - User found.
+2019-11-13 00:39:45 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 00:39:45 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 00:39:45 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 00:39:45 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 00:39:59 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 00:39:59 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-13 00:39:59 TRACE EmpOracle:190 - Car Status updated
+2019-11-13 00:39:59 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=105, availability =true, selling price =31515.0, down payment =900.0, total payments =900.0, financing deal package =1, monthly payments =705.0, principal balance remaining =30615.0]
+2019-11-13 00:39:59 TRACE EmpOracle:209 - Car Details [name = , plate=105, availability =true, selling price =31515.0, down payment =900.0, total payments =900.0, financing deal package =1, monthly payments =705.0, principal balance remaining =30615.0]
+2019-11-13 00:40:00 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-13 00:40:00 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-13 00:40:00 TRACE EmpOracle:258 - other offers rejected in caroffer table
+2019-11-13 00:40:05 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 00:40:05 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:01:27 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:01:28 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:01:31 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:31 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:35 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 01:01:35 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:01:35 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:01:39 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:01:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:01:39 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:01:45 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:01 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@1c72da34
+2019-11-13 01:02:01 TRACE CustomerOracle:86 - entities.CarOffer@1c72da34
+2019-11-13 01:02:01 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:02:20 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:02:21 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:02:26 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:26 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:02:45 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-13 01:02:45 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-13 01:02:45 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:02:48 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:02:48 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:02 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:03:24 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:03:25 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:03:27 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:03:27 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:03:27 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:03:27 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:04:04 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:04:05 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:04:07 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:07 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:17 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:45 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:04:45 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:04:49 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:04:49 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:05:04 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-13 01:05:04 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-13 01:05:04 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:05:08 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:08 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:05:22 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:05:23 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:05:25 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:05:25 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:05:25 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:05:25 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:05:25 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:05:42 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 01:05:42 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-13 01:05:42 TRACE EmpOracle:190 - Car Status updated
+2019-11-13 01:05:42 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=92, availability =true, selling price =77000.0, down payment =20000.0, total payments =20000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-13 01:05:42 TRACE EmpOracle:209 - Car Details [name = , plate=92, availability =true, selling price =77000.0, down payment =20000.0, total payments =20000.0, financing deal package =2, monthly payments =1102.0, principal balance remaining =57000.0]
+2019-11-13 01:05:42 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-13 01:05:42 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-13 01:05:42 TRACE EmpOracle:258 - other offers rejected in caroffer table
+2019-11-13 01:05:42 TRACE EmpOracle:308 - adding a car to the ownership tableapril may
+2019-11-13 01:05:42 TRACE EmpOracle:309 - april may
+2019-11-13 01:05:42 ERROR EmpOracle:14 - class java.sql.SQLException: operation not allowed
+2019-11-13 01:05:42 WARN  EmpOracle:16 - 5487: oracle.jdbc.driver.OracleStatement
+2019-11-13 01:05:42 WARN  EmpOracle:16 - 380: oracle.jdbc.driver.OracleStatementWrapper
+2019-11-13 01:05:42 WARN  EmpOracle:16 - 321: carDAOs.EmpOracle
+2019-11-13 01:05:42 WARN  EmpOracle:16 - 64: services.EmpServiceOracle
+2019-11-13 01:05:42 WARN  EmpOracle:16 - 282: driver.CarDriver
+2019-11-13 01:11:53 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:11:54 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:11:59 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:11:59 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:12:29 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6166e06f
+2019-11-13 01:12:29 TRACE CustomerOracle:86 - entities.CarOffer@6166e06f
+2019-11-13 01:12:29 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:12:34 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:12:34 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:12:34 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:12:34 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:12:34 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:12:59 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:12:59 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:13:04 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:04 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:13:13 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@6b67034
+2019-11-13 01:13:13 TRACE CustomerOracle:86 - entities.CarOffer@6b67034
+2019-11-13 01:13:13 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:13:17 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:17 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:13:35 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:13:35 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:13:43 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:13:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:13:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:13:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:13:43 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:13:55 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 01:13:55 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-13 01:13:55 TRACE EmpOracle:190 - Car Status updated
+2019-11-13 01:13:55 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=721, availability =true, selling price =14000.0, down payment =200.0, total payments =200.0, financing deal package =1, monthly payments =318.0, principal balance remaining =13800.0]
+2019-11-13 01:13:55 TRACE EmpOracle:209 - Car Details [name = , plate=721, availability =true, selling price =14000.0, down payment =200.0, total payments =200.0, financing deal package =1, monthly payments =318.0, principal balance remaining =13800.0]
+2019-11-13 01:13:55 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-13 01:13:55 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-13 01:13:55 TRACE EmpOracle:258 - other offers rejected in caroffer table
+2019-11-13 01:13:55 TRACE EmpOracle:308 - adding a car to the ownership tableapril may
+2019-11-13 01:13:55 TRACE EmpOracle:309 - april may
+2019-11-13 01:13:55 ERROR EmpOracle:14 - class java.sql.SQLException: operation not allowed
+2019-11-13 01:13:55 WARN  EmpOracle:16 - 5487: oracle.jdbc.driver.OracleStatement
+2019-11-13 01:13:55 WARN  EmpOracle:16 - 380: oracle.jdbc.driver.OracleStatementWrapper
+2019-11-13 01:13:55 WARN  EmpOracle:16 - 321: carDAOs.EmpOracle
+2019-11-13 01:13:55 WARN  EmpOracle:16 - 64: services.EmpServiceOracle
+2019-11-13 01:13:55 WARN  EmpOracle:16 - 282: driver.CarDriver
+2019-11-13 01:26:16 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:26:17 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:26:21 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:26:21 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:26:21 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:26:34 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 01:26:34 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-13 01:27:36 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:35:48 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:35:49 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:35:57 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:35:57 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:36:14 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-13 01:36:14 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-13 01:36:14 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:36:23 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:36:23 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:23 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:23 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:23 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:23 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:42 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 01:36:42 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:36:42 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:36:42 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:36:55 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:36:55 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:55 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:55 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:55 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:36:55 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:37:21 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:37:21 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:37:25 TRACE EmpOracle:144 - Retrieve all offers from database where status is pending
+2019-11-13 01:37:25 TRACE EmpOracle:153 - pending offers from customers found.
+2019-11-13 01:37:32 TRACE EmpOracle:176 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 01:37:32 TRACE EmpOracle:177 - entities.CarOffer@6b67034
+2019-11-13 01:37:32 TRACE EmpOracle:190 - Car Status updated
+2019-11-13 01:37:32 TRACE EmpOracle:208 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=159, availability =true, selling price =12000.0, down payment =333.0, total payments =333.0, financing deal package =2, monthly payments =226.0, principal balance remaining =11667.0]
+2019-11-13 01:37:32 TRACE EmpOracle:209 - Car Details [name = , plate=159, availability =true, selling price =12000.0, down payment =333.0, total payments =333.0, financing deal package =2, monthly payments =226.0, principal balance remaining =11667.0]
+2019-11-13 01:37:32 TRACE EmpOracle:228 - Car Status updated in Cardetail table
+2019-11-13 01:37:32 TRACE EmpOracle:245 - update car offer table to reject other offers after a bid accepted
+2019-11-13 01:37:32 TRACE EmpOracle:308 - adding a car to the ownership tableapril may
+2019-11-13 01:37:32 TRACE EmpOracle:309 - april may
+2019-11-13 01:37:32 ERROR EmpOracle:14 - class java.sql.SQLException: operation not allowed
+2019-11-13 01:37:32 WARN  EmpOracle:16 - 5487: oracle.jdbc.driver.OracleStatement
+2019-11-13 01:37:32 WARN  EmpOracle:16 - 380: oracle.jdbc.driver.OracleStatementWrapper
+2019-11-13 01:37:32 WARN  EmpOracle:16 - 321: carDAOs.EmpOracle
+2019-11-13 01:37:32 WARN  EmpOracle:16 - 64: services.EmpServiceOracle
+2019-11-13 01:37:32 WARN  EmpOracle:16 - 282: driver.CarDriver
+2019-11-13 01:59:11 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 01:59:12 TRACE UserInfoOracle:50 - User found.
+2019-11-13 01:59:21 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:21 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 01:59:44 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-13 01:59:44 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-13 01:59:44 TRACE CustomerOracle:105 - offer created.
+2019-11-13 01:59:52 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:52 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 01:59:59 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 01:59:59 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:59:59 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 01:59:59 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:00:26 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:00:27 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:00:29 TRACE EmpOracle:146 - Retrieve all offers from database where status is pending
+2019-11-13 02:00:29 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-13 02:00:36 TRACE EmpOracle:178 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 02:00:36 TRACE EmpOracle:179 - entities.CarOffer@6b67034
+2019-11-13 02:00:36 TRACE EmpOracle:192 - Car Status updated
+2019-11-13 02:00:36 TRACE EmpOracle:210 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=572, availability =true, selling price =21999.0, down payment =1000.0, total payments =1000.0, financing deal package =2, monthly payments =406.0, principal balance remaining =20999.0]
+2019-11-13 02:00:36 TRACE EmpOracle:211 - Car Details [name = , plate=572, availability =true, selling price =21999.0, down payment =1000.0, total payments =1000.0, financing deal package =2, monthly payments =406.0, principal balance remaining =20999.0]
+2019-11-13 02:00:36 TRACE EmpOracle:230 - Car Status updated in Cardetail table
+2019-11-13 02:00:36 TRACE EmpOracle:247 - update car offer table to reject other offers after a bid accepted
+2019-11-13 02:00:36 TRACE EmpOracle:310 - adding a car to the ownership table april may
+2019-11-13 02:00:36 TRACE EmpOracle:311 - april may
+2019-11-13 02:00:36 TRACE EmpOracle:330 - Successful insertion of customer
+2019-11-13 02:01:37 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:01:38 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:01:41 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 02:01:41 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:01:41 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:01:41 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:01:41 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:02:28 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:02:29 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:02:34 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:34 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:02:52 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-13 02:02:52 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-13 02:02:52 TRACE CustomerOracle:105 - offer created.
+2019-11-13 02:03:10 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:03:11 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:03:15 TRACE CustomerOracle:55 - Retrieve available cars from database.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:15 TRACE CustomerOracle:64 - availabe cars found.
+2019-11-13 02:03:29 TRACE CustomerOracle:85 - adding a car bid into the database entities.CarOffer@442675e1
+2019-11-13 02:03:29 TRACE CustomerOracle:86 - entities.CarOffer@442675e1
+2019-11-13 02:03:29 TRACE CustomerOracle:105 - offer created.
+2019-11-13 02:03:46 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:03:46 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:03:49 TRACE EmpOracle:146 - Retrieve all offers from database where status is pending
+2019-11-13 02:03:49 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-13 02:03:49 TRACE EmpOracle:155 - pending offers from customers found.
+2019-11-13 02:03:56 TRACE EmpOracle:178 - update status of a car offer in the database entities.CarOffer@6b67034
+2019-11-13 02:03:56 TRACE EmpOracle:179 - entities.CarOffer@6b67034
+2019-11-13 02:03:56 TRACE EmpOracle:192 - Car Status updated
+2019-11-13 02:03:56 TRACE EmpOracle:210 - update table cardetail where an owner was just accepted on his or her offer Car Details [name = , plate=145, availability =true, selling price =23000.0, down payment =2000.0, total payments =2000.0, financing deal package =1, monthly payments =484.0, principal balance remaining =21000.0]
+2019-11-13 02:03:56 TRACE EmpOracle:211 - Car Details [name = , plate=145, availability =true, selling price =23000.0, down payment =2000.0, total payments =2000.0, financing deal package =1, monthly payments =484.0, principal balance remaining =21000.0]
+2019-11-13 02:03:56 TRACE EmpOracle:230 - Car Status updated in Cardetail table
+2019-11-13 02:03:56 TRACE EmpOracle:247 - update car offer table to reject other offers after a bid accepted
+2019-11-13 02:03:56 TRACE EmpOracle:260 - other offers rejected in caroffer table
+2019-11-13 02:03:56 TRACE EmpOracle:310 - adding a car to the ownership table robert gan
+2019-11-13 02:03:56 TRACE EmpOracle:311 - robert gan
+2019-11-13 02:03:56 TRACE EmpOracle:330 - Successful insertion of customer
+2019-11-13 02:04:03 TRACE EmpOracle:146 - Retrieve all offers from database where status is pending
+2019-11-13 02:04:28 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:04:29 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:04:31 TRACE CustomerOracle:25 - Retrieve my cars from database.
+2019-11-13 02:04:31 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:04:31 TRACE CustomerOracle:34 - availabe cars found.
+2019-11-13 02:04:50 TRACE UserInfoOracle:39 - Retrieve user from database.
+2019-11-13 02:04:51 TRACE UserInfoOracle:50 - User found.
+2019-11-13 02:04:56 TRACE CustomerOracle:135 - Retrieve all of my bids from database.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.
+2019-11-13 02:04:56 TRACE CustomerOracle:144 - available cars found.

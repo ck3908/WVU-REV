@@ -158,4 +158,6 @@ public class CustomerOracle implements CustomerDAO {
 		return cBids; //return all cars available for viewing
 	}
 
+	
+
 }

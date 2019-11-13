@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.revature.data.CustomerOracle;
+
 import carUtils.ConnectionUtil;
 import carUtils.LogUtil;
 import entities.CarDetail;
@@ -300,7 +302,50 @@ public class EmpOracle implements EmpDAO {
 		
 		return allCars; //return all cars available for viewing
 	}
+	
+	@Override
+	public int updateTableOwner(String username, int platenum) {
+		// TODO Auto-generated method stub
+		int key = 0;
+		log.trace("adding a car to the ownership table "+username);
+		log.trace(username);
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "insert into ownercars (username,carplate) values(?,?)";
+			
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			
+			pstm.setString(1, username);
+			pstm.setInt(2, platenum);
+				
+			int result = pstm.executeUpdate();
+			key = result;
+			if(result!=1)
+			{
+				log.warn("Insertion of customer failed.");
+				conn.rollback();
+			}
+			else {
+				log.trace("Successful insertion of customer");
+				conn.commit();
+			}
+		}
+		catch(SQLException e)
+		{
+			LogUtil.rollback(e,conn,CustomerOracle.class);
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e,CustomerOracle.class);
+			}
+		}
+		return key;	
+	}
 
+	
 }
 
 

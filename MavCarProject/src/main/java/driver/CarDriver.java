@@ -276,7 +276,16 @@ public class CarDriver {
 										EmpService rejUpdate = new EmpServiceOracle();
 										int rejResult = rejUpdate.rejOffers(acceptName, acceptPlate, rejStatus);  //update offers to rejected status
 										if (rejResult >= 0) {
-											System.out.println("successful update");
+											
+											// now update the owner car table which is the bridge table
+											EmpService OwnUpdate = new EmpServiceOracle();
+											int own = OwnUpdate.upDateOwnT(acceptName, acceptPlate);
+											if(own == 1) {
+												System.out.println("successful update");
+											}
+											else {
+												System.out.println("owner table didn't update");
+											}
 										}
 										else {
 											System.out.println("update not done");

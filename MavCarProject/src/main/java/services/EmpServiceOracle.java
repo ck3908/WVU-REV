@@ -58,4 +58,12 @@ public class EmpServiceOracle implements EmpService {
 		return ed.getAllCars();
 	}
 
+	@Override
+	public int upDateOwnT(String name, int plate) {
+		// TODO Auto-generated method stub
+		return ed.updateTableOwner(name, plate);
+	}
+
+
+
 }

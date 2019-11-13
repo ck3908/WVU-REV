@@ -42,6 +42,8 @@ public class CustomerServiceOracle implements CustomerService {
 		//System.out.println(myBids);
 		return myBids;
 	}
+	
+
 
 
 	
