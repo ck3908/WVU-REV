@@ -34,6 +34,15 @@ public class CustomerServiceOracle implements CustomerService {
 		return cd.enterBid(myBid);
 	}
 
+	@Override
+	public List<CarOffer> seeMyBids(String username) {
+		// TODO Auto-generated method stub
+		List<CarOffer> myBids = new ArrayList<CarOffer>();
+		myBids = cd.getMyBids(username);
+		//System.out.println(myBids);
+		return myBids;
+	}
+
 
 	
 	

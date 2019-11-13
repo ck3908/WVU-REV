@@ -13,4 +13,5 @@ public interface EmpDAO {
 	public int updateCarStatus(CarOffer cS);
 	public int updateOwnStatus(CarDetail car);
 	public int rejOtherOffers(String accName, int platenum, String status);
+	public List<CarDetail> getAllCars();
 }

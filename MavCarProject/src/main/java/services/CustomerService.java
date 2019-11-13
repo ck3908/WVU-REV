@@ -12,5 +12,6 @@ public interface CustomerService {
 	public List<CarDetail> getCarsAvail();
 	public List<CarDetail> getMyCars(String username);
 	public int putBid(CarOffer myBid);
+	public List<CarOffer> seeMyBids(String username);
 	
 }

@@ -271,6 +271,36 @@ public class EmpOracle implements EmpDAO {
 		
 }
 
+	@Override
+	public List<CarDetail> getAllCars() {
+		// TODO Auto-generated method stub
+		List<CarDetail> allCars = new ArrayList<CarDetail>();
+		
+		log.trace("Retrieve all cars from database.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select * from cardetails";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("availabe cars found.");
+				CarDetail c = new CarDetail();
+				c.setCarName(rs.getString("carname"));
+				c.setPlate(rs.getInt("plate"));
+				c.setSelling_price(rs.getFloat("offersold"));
+				c.setOwned(rs.getString("owned"));
+				allCars.add(c);  //add into list of cars
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, EmpOracle.class);
+		}
+		
+		return allCars; //return all cars available for viewing
+	}
+
 }
 
 

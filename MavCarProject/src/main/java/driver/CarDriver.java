@@ -43,7 +43,7 @@ public class CarDriver {
 		System.out.println();
 		System.out.println();
 		System.out.println("Please choose from the following");
-		System.out.println("1. Login");
+		System.out.println("1. Login for customer and employees");
 		System.out.println("2. View Cars on the Lot as a guest");
 		System.out.println("3. Register into the System as Customer or Employee");
 		System.out.println("4. Use the loan calculator");
@@ -78,10 +78,11 @@ public class CarDriver {
 						System.out.println("2. Make an offer for a car");
 						System.out.println("3. View cars you own");
 						System.out.println("4. View remaining payments for a car");
-						System.out.println("5. Use the loan calculator");
-						System.out.println("6. Logout");
+						System.out.println("5. View cars you are bidding for");
+						System.out.println("6. Use the loan calculator");
+						System.out.println("7. Logout");
 						int selection = Integer.parseInt(input.nextLine());
-						if (selection == 6) {
+						if (selection == 7) {
 							System.out.println("good bye");
 							keepSession = false;
 							break;
@@ -106,7 +107,18 @@ public class CarDriver {
 							}
 
 						}
-						else if(selection == 5) {  //use loan calculator
+						else if(selection == 5) { // see cars you are bidding
+							List <CarOffer> e = new ArrayList<>();
+							CustomerService cOffers = new CustomerServiceOracle();
+							e = cOffers.seeMyBids(userName);
+							System.out.println("  car   plate   bidder   offer price    status ");
+							for (int t =0; t < e.size(); ++t) {
+								System.out.println(t+1+ "   "+e.get(t).getVehName()+"   "+e.get(t).getPlateNum() +"   "+
+										e.get(t).getBuyer() +"   "+e.get(t).getOfferPrice()+ "  " +e.get(t).getStatus());
+							}
+							
+						}
+						else if(selection == 6) {  //use loan calculator
 							useMonthlyCalc(input);  //pass in the Scanner input
 						}
 						else if (selection == 2) {  // make an offer for a car
@@ -180,7 +192,7 @@ public class CarDriver {
 					while (empSession) {
 						System.out.println("please select from following options");
 						System.out.println("1. Add a car to the lot");
-						System.out.println("2. View all cars in the lot");
+						System.out.println("2. View all cars in the lot sold and available");
 						System.out.println("3. Accept or reject a pending offer");
 						System.out.println("4. Remove a car from the lot");
 						System.out.println("5. View all payments");
@@ -206,9 +218,15 @@ public class CarDriver {
 							EmpService addVeh = new EmpServiceOracle();
 							int r = addVeh.addCar(nCar);							
 
-						} // selection == 1
+						} // selection == 2  see all cars in the system
 						else if (sc == 2) {
-							carsToSeeHelper();
+							List<CarDetail> b = new ArrayList<>();
+							EmpService atc = new EmpServiceOracle();
+							b = atc.seeAllCars();
+							System.out.println("carname    platenum    selling price    owned status");
+							for (int w = 0; w < b.size(); ++w) {
+								System.out.println(w+1+" "+b.get(w).getCarName() +" "+b.get(w).getPlate() +" "+b.get(w).getSelling_price()+" "+b.get(w).getOwned());
+							}			
 						}
 						else if (sc == 3) { //accept or reject a pending offer
 							List <CarOffer> g = new ArrayList<>();
@@ -360,7 +378,7 @@ public class CarDriver {
 				int ok = 0;
 				ok = u.inputUser(newU);
 				if (ok > 0) {
-					System.out.println("success new user registered");
+					System.out.println("success new user registered, please start again to log in");
 				}
 				else {
 					System.out.println("user not created");
@@ -379,7 +397,7 @@ public class CarDriver {
 			 useMonthlyCalc(input);  //pass in the Scanner input
 			
 		}
-		else {  //assume option chosen
+		else {  //assume 7 option chosen
 			System.out.println(" goodbye, no option chosen or logging out");
 			// anything else just exit -- assume logout
 		}

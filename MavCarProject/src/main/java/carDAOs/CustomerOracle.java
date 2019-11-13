@@ -128,4 +128,34 @@ public class CustomerOracle implements CustomerDAO {
 		return key;
 	}
 
+	@Override
+	public List<CarOffer> getMyBids(String username) {
+		List<CarOffer> cBids = new ArrayList<CarOffer>();
+		System.out.println("user name is "+username);
+		log.trace("Retrieve all of my bids from database.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select nameperson, platenum, carname, offerprice, status from caroffer where nameperson = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setString(1, username);
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("available cars found.");
+				CarOffer c = new CarOffer();
+				c.setBuyer(rs.getString("nameperson"));
+				c.setPlateNum(rs.getInt("platenum"));
+				c.setVehName(rs.getString("carname"));
+				c.setOfferPrice(rs.getFloat("offerprice"));
+				c.setStatus(rs.getString("status"));
+				cBids.add(c);  //add into list of cars
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, CustomerOracle.class);
+		}
+		return cBids; //return all cars available for viewing
+	}
+
 }

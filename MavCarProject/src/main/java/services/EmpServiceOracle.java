@@ -52,4 +52,10 @@ public class EmpServiceOracle implements EmpService {
 		return ed.rejOtherOffers(acName, platen, status);
 	}
 
+	@Override
+	public List<CarDetail> seeAllCars() {
+		// TODO Auto-generated method stub
+		return ed.getAllCars();
+	}
+
 }

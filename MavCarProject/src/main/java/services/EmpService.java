@@ -13,6 +13,7 @@ public interface EmpService {
 	public int updateStatus(CarOffer car);
 	public int carOwnedUpdate(CarDetail car);
 	public int rejOffers(String acName, int platen, String status);
+	public List<CarDetail> seeAllCars();
 	
 
 }
