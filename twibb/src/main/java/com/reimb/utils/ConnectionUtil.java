@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
 
 
 public class ConnectionUtil {
@@ -12,6 +13,7 @@ public class ConnectionUtil {
 	// Singleton Connection Factory
 			private static ConnectionUtil cu = null;
 			private static Properties prop;
+			private static Logger log = Logger.getLogger(ConnectionUtil.class);
 			
 			private ConnectionUtil() {
 				prop = new Properties();
