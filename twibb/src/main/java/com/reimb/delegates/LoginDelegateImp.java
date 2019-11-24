@@ -10,16 +10,15 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.beans.Employee;
-import com.revature.services.CustomerService;
-import com.revature.services.CustomerServiceOracle;
-import com.revature.services.EmployeeService;
-import com.revature.services.EmployeeServiceOracle;
+import com.reimb.entities.Employee;
+import com.reimb.services.EmplServImp;
+import com.reimb.services.EmplService;
+
 
 public class LoginDelegateImp implements FrontControllerDelegate{
 	
 	private Logger log = Logger.getLogger(LoginDelegateImp.class);
-	private EmployeeService es = new EmployeeServiceOracle();
+	private EmplService es = new EmplServImp();
 	private ObjectMapper om = new ObjectMapper();
 
 	@Override
@@ -33,8 +32,8 @@ public class LoginDelegateImp implements FrontControllerDelegate{
 		case "POST":
 			// logging in
 			Employee emp = (Employee) session.getAttribute("loggedEmployee");
-			if (emp != null || cust != null) {
-				respondWithUser(resp, emp, cust);
+			if (emp != null) {
+				respondWithUser(resp, emp);
 			} else {
 				checkLogin(req, resp);
 			}
@@ -54,10 +53,9 @@ public class LoginDelegateImp implements FrontControllerDelegate{
 	private void checkLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		log.trace("Logging in!");
 		HttpSession session = req.getSession();
-		Customer c = (Customer) session.getAttribute("loggedCustomer");
 		Employee e = (Employee) session.getAttribute("loggedEmployee");
-		if (c != null || e != null) {
-			respondWithUser(resp, e, c);
+		if (e != null) {
+			respondWithUser(resp, e);
 		} else {
 
 			// Need to see if we are an employee. Then we need to see if we are a customer.
@@ -65,35 +63,31 @@ public class LoginDelegateImp implements FrontControllerDelegate{
 			String username = req.getParameter("user");
 			String password = req.getParameter("pass");
 			log.trace((username + " " + password));
-			c = cs.getCustomer(username, password);
 			e = es.getEmployee(username, password);
 
-			if (c != null) {
-				log.trace("cust being added to session me");
-				session.setAttribute("loggedCustomer", c);
-			}
+//			if (c != null) {
+//				log.trace("cust being added to session me");
+//				session.setAttribute("loggedCustomer", c);
+//			}
 			if (e != null) {
 				log.trace("empl being added to session you");
 				session.setAttribute("loggedEmployee", e);
 			}
 			log.trace("checking the other if statements after employee added to session");
-			if (c == null && e == null) {
+			if (e == null) {
 				resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "No user found with those credentials");
 			} else {
 				log.trace("preparing response back to xmlhttrequest");
-				respondWithUser(resp, e, c);
+				respondWithUser(resp, e);
 			}
 		}
 	}
 
-	private void respondWithUser(HttpServletResponse resp, Employee emp, Customer cust) throws IOException {
+	private void respondWithUser(HttpServletResponse resp, Employee emp) throws IOException {
 		resp.setStatus(HttpServletResponse.SC_OK);
 		log.trace("building string response");
-		String c = om.writeValueAsString(cust);
 		String e = om.writeValueAsString(emp);
-		StringBuilder sb = new StringBuilder("{\"customer\":");
-		sb.append(c);
-		sb.append(", \"employee\":");
+		StringBuilder sb = new StringBuilder("{\"employee\":");
 		sb.append(e);
 		sb.append("}");
 		log.trace(sb);
