@@ -21,8 +21,7 @@ public class EmplOracle implements EmplDAO{
 		Employee em = new Employee();
 		log.trace("Retrieve empl from database.");
 		try(Connection conn = cu.getConnection()){
-			String sql = "select id, empname, empdept, empsupid, empdeptid"
-					+ "from logemp where empname=? and emppass = ?";
+			String sql = "select id, empname, emppass, empdept, empsupid, empdeptid from logemp where empname=? and emppass = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, username);
 			pstm.setString(2, password);
@@ -34,6 +33,7 @@ public class EmplOracle implements EmplDAO{
 				em = new Employee();
 				em.setId(rs.getInt("id"));
 				em.setName(rs.getString("empname"));
+				em.setPass(rs.getString("emppass"));
 				em.setDept(rs.getInt("empdept"));
 				em.setSupId(rs.getInt("empsupid"));
 				em.setDeptHId(rs.getInt("empdeptid"));

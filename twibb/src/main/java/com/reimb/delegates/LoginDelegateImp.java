@@ -70,7 +70,7 @@ public class LoginDelegateImp implements FrontControllerDelegate{
 //				session.setAttribute("loggedCustomer", c);
 //			}
 			if (e != null) {
-				log.trace("empl being added to session you");
+				log.trace("empl being added to session");
 				session.setAttribute("loggedEmployee", e);
 			}
 			log.trace("checking the other if statements after employee added to session");
