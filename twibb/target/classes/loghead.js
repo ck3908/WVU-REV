@@ -63,21 +63,19 @@ function authenticate() {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             let data = JSON.parse(xhttp.responseText);
             console.log(data);
-            employee = data.employee;
-            customer = data.customer;
+            let employee = data.employee;
+            localStorage.setItem("empl",JSON.stringify(employee));
+           
+          //  customer = data.customer;
             document.getElementById("authent").innerHTML = authenticated;
-            document.getElementById('logout').addEventListener('click', logout);
-            if (customer) {
-                document.getElementById("authUserName").innerHTML = customer.first + " " + customer.last;
+            document.getElementById('logout').addEventListener('click', logout);    
                 if (employee) {
-                    document.getElementById("authUserName").innerHTML = employee.first + " " + employee.last +
-                        ", " + employee.title;
+                    document.getElementById("authUserName").innerHTML = employee.name + " of dept " + employee.dept;
                     let btns = document.getElementsByClassName("emp-btn");
                     for (let i = 0; i < btns.length; i++) {
                         btns[i].disabled = false;
                     }
                 }
-            }
         }
     }
 }
