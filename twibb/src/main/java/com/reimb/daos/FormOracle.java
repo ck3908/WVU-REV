@@ -33,6 +33,7 @@ public class FormOracle implements FormDAO {
 		log.trace(formSub);
 		Connection conn = cu.getConnection();
 		
+		
 		try{
 			conn.setAutoCommit(false);
 			String sql = "insert into finfo (submitter,submitdate,location,reqamount, reimbamount, gradingfmtid) values(?,?,?,?,?,?)";
@@ -548,29 +549,89 @@ public class FormOracle implements FormDAO {
 		return atc; //return status code
 	}
 
-	@Override
-	public int updateAttach(Integer empId, Integer formId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int updateAttach(Integer empId, Integer formId) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 	@Override
 	public int insFormRev(FormReview fRev) {
 		// TODO Auto-generated method stub
-		return 0;
+		int key = 0;
+		log.trace("inserting form reviewer info "+fRev);
+		log.trace(fRev);
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "insert into fRev (formid,reviewid) values(?,?)";
+			String[] keys = {"id"};
+			PreparedStatement pstm = conn.prepareStatement(sql, keys);
+			pstm.setInt(1, fRev.getFormId());
+			pstm.setInt(2, fRev.getFormId());
+			pstm.executeUpdate();
+			ResultSet rs = pstm.getGeneratedKeys();
+			
+			if(rs.next())
+			{
+				log.trace("form reviewer create.");
+				key = rs.getInt(1);
+				fRev.setId(key);
+				conn.commit();
+			}
+			else
+			{
+				log.trace("form reviewer not created.");
+				conn.rollback();
+			}
+		}
+		catch(SQLException e)
+		{
+			LogUtil.rollback(e,conn,FormOracle.class);
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e,FormOracle.class);
+			}
+		}
+		
+		return key;
 	}
 
 	@Override
-	public FormReview getReview(Integer empId, Integer formId) {
-		// TODO Auto-generated method stub
-		return null;
+	public FormReview getReview(Integer revId, Integer formId) {
+		log.trace("Retrieve form review from database.");
+		FormReview fr = new FormReview();
+		try(Connection conn = cu.getConnection()){
+			String sql = "select formid, reviewid from freviewer where reviewid = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, revId);
+			
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("getting attachment form object");
+				fr.setId(rs.getInt("id"));  //might as well pick up user's
+				fr.setFormId(rs.getInt("formid"));
+				fr.setReviewId(rs.getInt("reviewid"));
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, FormOracle.class);
+		}
+		
+		return fr; //return status code
 	}
 
-	@Override
-	public int updateReview(Integer empId, Integer formId) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int updateReview(Integer empId, Integer formId) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 
 
 }

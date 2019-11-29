@@ -32,9 +32,61 @@ Last name: <input type="text" name="lastname" value="Mouse"><br><br>
         </table>
        </div>
 -->
+<div class="container">
+<form id="form">
+    <div class="formgroup">
+			<label>submitter id:</label> <input class="form-control"
+				type="number" id="f_submitter" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>supervisor id:</label> <input class="form-control"
+				type="number" id="f_supervisor" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>departhead id:</label> <input class="form-control"
+				type="number" id="f_deptheadid" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>department id:</label> <input class="form-control"
+				type="number" id="f_deptid" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>date:</label> <input class="form-control"
+				type="date" id="f_date" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>Location</label> 
+				<select id = "state" name="f_location">
+					<option>California</option>
+					<option>New York</option>
+					<option>Texas</option>
+				</select>
+	</div>
+	<div class="formgroup">
+			<label>requestamt:</label> <input class="form-control"
+				type="number" id="f_reqamt" min = "1" max = "1000"/> <br>
+	</div>
+	<div class="formgroup">
+			<label>reimbamt:</label> <input class="form-control"
+				type="number" id="f_reimbamt" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>Purpose </label> 
+				<select id = "purpose" name="f_gradefmt">
+					<option value = 1>Certifications Preparation</option>
+					<option value = 2>Certifications</option>
+					<option value = 3>Technical Training</option>
+					<option value = 4>Seminars</option>
+					<option value = 5>University Courses</option>
+					<option value = 6>Others</option>
+				</select>
+	</div>	
+	
+    <input type="button" id="submitnow" value="submitnow"/>
+</form>
+</div>
 
-
-	<div class="container">
+<!--  	<div class="container">
 		<div class="formgroup">
 			<label>submitter id:</label> <input class="form-control"
 				type="number" id="f_submitter" /> <br>
@@ -86,11 +138,11 @@ Last name: <input type="text" name="lastname" value="Mouse"><br><br>
 		<button type="submit" class="btn btn-primary emp-btn" id="submitbtn">Submit</button>
 		<button type="submit" class="btn btn-danger" id="backbtn">Cancel</button>
 	</div>
-
+-->
 	
 	<script type="text/javascript" src="/twib/static/js/loghead.js"></script>
 	<script type="text/javascript" src="/twib/static/js/login.js"></script>
-<!--  	<script type="text/javascript" src="/twib/static/js/newform.js"></script>  -->
+	<script type="text/javascript" src="/twib/static/js/newform.js"></script>  
 
 
 </body>

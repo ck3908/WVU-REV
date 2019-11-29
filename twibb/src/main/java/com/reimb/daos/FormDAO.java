@@ -31,11 +31,11 @@ public interface FormDAO {
 	
 	public int insAttach(Attachments atch);
 	public Attachments getAttach(Integer empId, Integer formId);
-	public int updateAttach(Integer empId, Integer formId);
+//	public int updateAttach(Integer empId, Integer formId);
 	
 	public int insFormRev(FormReview fRev);
-	public FormReview getReview(Integer empId, Integer formId);
-	public int updateReview(Integer empId, Integer formId);
+	public FormReview getReview(Integer revId, Integer formId);
+//	public int updateReview(Integer revId, Integer formId);
 	
 	
 

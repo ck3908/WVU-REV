@@ -8,6 +8,16 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
+	
+	<script type="text/javascript">
+    function goToNewPage()
+    {
+        var url = document.getElementById('menu').value;
+        if(url != 'none') {
+            window.location = url;
+        }
+    }
+</script>
 </head>
 
 <body>
@@ -18,14 +28,16 @@
 
 		<p align="center">
 		<form name="jump" class="center">
-			<select name="menu">
+			<select name="menu" id = "menu">
 				<option value="#">Select an option</option>
 				<option value="/twib/static/newform.html">Get New Form </option>
 				<option value="/link2.shtml">Link 2</option>
 				<option value="/link3.shtml">Link 3</option>
-			</select> <input type="button"
+	<!--  	</select> <input type="button"
 				onClick="location=document.jump.menu.options[document.jump.menu.selectedIndex].value;"
-				value="GO">
+				value="GO"> -->
+			</select>
+			<input type=button value="Go" onclick="goToNewPage()" />
 		</form>
 		</p>
 		<!--   <form>
