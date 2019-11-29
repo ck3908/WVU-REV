@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.reimb.entities.FormInfo;
+import com.reimb.entities.FormReview;
+import com.reimb.entities.FormStatus;
 import com.reimb.services.FormService;
 import com.reimb.services.FormServiceImp;
 
@@ -30,7 +32,21 @@ public class FsubmitDelegateImp implements FrontControllerDelegate{
 		Finfo.setGradeFmt(Integer.parseInt(req.getParameter("gradefmt")));
 		FormService fs = new FormServiceImp();
 		log.trace("in fsubmit delegate, preparing form info object to be inserted");
-		int done = fs.submitForm(Finfo);
+		int fID = fs.submitForm(Finfo);  //formID number is the primary key
+		
+		//prepare to update the form reviewer table
+		if (fID >= 1) {
+			FormReview fr = new FormReview();
+			fr.setFormId(fID);
+			fr.setReviewId(Integer.parseInt(req.getParameter("supervisor")));
+			int k = fs.insertFrev(fr);
+		//also update form status to pending automatically	
+			FormStatus fst = new FormStatus();
+			fst.setEmpId(Integer.parseInt(req.getParameter("submitter")));
+			fst.setStatus(4);  //set to pending status which is 4
+			fst.setFormId(fID);  //again set the formid
+			int j = fs.insFStatus(fst);			
+		}
 		
 	}
 

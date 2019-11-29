@@ -5,6 +5,8 @@ import org.apache.log4j.Logger;
 import com.reimb.daos.FormDAO;
 import com.reimb.daos.FormOracle;
 import com.reimb.entities.FormInfo;
+import com.reimb.entities.FormReview;
+import com.reimb.entities.FormStatus;
 
 public class FormServiceImp implements FormService{
 	private Logger log = Logger.getLogger(FormServiceImp.class);
@@ -16,5 +18,25 @@ public class FormServiceImp implements FormService{
 		int res = fd.submitF(formSub);
 		return res;
 	}
+
+	@Override
+	public int insertFrev(FormReview fRev) {
+		// TODO Auto-generated method stub
+		int res = fd.insFormRev(fRev);
+		return 0;
+	}
+
+	@Override
+	public int insFStatus(FormStatus fStat) {
+		// TODO Auto-generated method stub
+		int res = fd.insFormStatus(fStat);
+		return 0;
+	}
+
+
+
+	
+
+
 
 }
