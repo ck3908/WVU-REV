@@ -83,7 +83,7 @@ public class FormOracle implements FormDAO {
 		log.trace("Retrieve grading requirements from database.");
 		String gReq = " ";
 		try(Connection conn = cu.getConnection()){
-			String sql = "select gradingreq from fgrade where gradingid = ?)";
+			String sql = "select gradingreq from fgrade where gradingid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, num);
 			ResultSet rs = pstm.executeQuery();  // this implies password matches here
@@ -153,7 +153,7 @@ public class FormOracle implements FormDAO {
 		log.trace("Retrieve form status from database.");
 		int fstatus = 0;
 		try(Connection conn = cu.getConnection()){
-			String sql = "select status from fstatus where submitter = ? and formid = ?)";
+			String sql = "select status from fstatus where submitter = ? and formid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, empId);
 			pstm.setInt(1, formId);
@@ -263,7 +263,7 @@ public class FormOracle implements FormDAO {
 		log.trace("Retrieve form approved from database.");
 		FormAppr fa = new FormAppr();
 		try(Connection conn = cu.getConnection()){
-			String sql = "select submitter, formid, approvedate, override from fstatus where submitter = ? and formid = ?)";
+			String sql = "select submitter, formid, approvedate, override from fstatus where submitter = ? and formid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, empId);
 			pstm.setInt(2, formId);
@@ -340,7 +340,7 @@ public class FormOracle implements FormDAO {
 		log.trace("Retrieve form approved from database.");
 		FormRej fj = new FormRej();
 		try(Connection conn = cu.getConnection()){
-			String sql = "select formid, rejecterid, reason from freject where formid = ? and rejecterid = ?)";
+			String sql = "select formid, rejecterid, reason from freject where formid = ? and rejecterid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, rejId);
 			pstm.setInt(2, formId);
@@ -420,7 +420,7 @@ public class FormOracle implements FormDAO {
 		log.trace("Retrieve form form request for comment from database.");
 		ReqFC rfc = new ReqFC();
 		try(Connection conn = cu.getConnection()){
-			String sql = "select question, answer from reqfc where askerid = ? and formid = ?)";
+			String sql = "select question, answer from reqfc where askerid = ? and formid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, askerId);
 			pstm.setInt(2, formId);
@@ -479,13 +479,73 @@ public class FormOracle implements FormDAO {
 	@Override
 	public int insAttach(Attachments atch) {
 		// TODO Auto-generated method stub
-		return 0;
+		int key = 0;
+		log.trace("inserting attachment in the database "+atch);
+		log.trace(atch);
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "insert into fattach (formid,urlstring) values(?,?)";
+			String[] keys = {"id"};
+			PreparedStatement pstm = conn.prepareStatement(sql, keys);
+			pstm.setInt(1, atch.getFormId());
+			pstm.setString(2, atch.getUrlStr());
+			pstm.executeUpdate();
+			ResultSet rs = pstm.getGeneratedKeys();
+			
+			if(rs.next())
+			{
+				log.trace("form attachment create.");
+				key = rs.getInt(1);
+				atch.setId(key);
+				conn.commit();
+			}
+			else
+			{
+				log.trace("form attachment not created.");
+				conn.rollback();
+			}
+		}
+		catch(SQLException e)
+		{
+			LogUtil.rollback(e,conn,FormOracle.class);
+		}
+		finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e,FormOracle.class);
+			}
+		}
+		
+		return key;
 	}
 
 	@Override
 	public Attachments getAttach(Integer empId, Integer formId) {
-		// TODO Auto-generated method stub
-		return null;
+		log.trace("Retrieve attachment form from database.");
+		Attachments atc = new Attachments();
+		try(Connection conn = cu.getConnection()){
+			String sql = "select formid, urlstring from fattach where formid = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, formId);
+			
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("getting attachment form object");
+				atc.setId(rs.getInt("id"));  //might as well pick up user's
+				atc.setFormId(rs.getInt("formid"));
+				atc.setUrlStr(rs.getString("urlstring"));
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, FormOracle.class);
+		}
+		
+		return atc; //return status code
 	}
 
 	@Override
