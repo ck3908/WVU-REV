@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.reimb.delegates.FrontControllerDelegate;
+import com.reimb.delegates.FsubmitDelegateImp;
 import com.reimb.delegates.LoginDelegateImp;
 
 
@@ -23,6 +24,7 @@ public class ReqDispatcher {
 		delegateMap = new HashMap<String, FrontControllerDelegate>();
 		
 		delegateMap.put("login", new LoginDelegateImp());
+		delegateMap.put("formSubmit", new FsubmitDelegateImp());
 		
 		
 		delegateMap.put("getBook",
