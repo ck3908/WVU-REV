@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.text.SimpleDateFormat;
 
 import org.apache.log4j.Logger;
 
@@ -24,6 +24,7 @@ import com.reimb.utils.LogUtil;
 public class FormOracle implements FormDAO {
 	private static Logger log = Logger.getLogger(EmplOracle.class);
 	private static ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
+	
 
 	@Override
 	public int submitF(FormInfo formSub) {
@@ -31,6 +32,8 @@ public class FormOracle implements FormDAO {
 		int key = 0;
 		log.trace("adding new form db "+formSub);
 		log.trace(formSub);
+		Date sqlDate = new Date(formSub.getSubDate().getDate());	//need to fix this
+		
 		Connection conn = cu.getConnection();
 		
 		
@@ -40,7 +43,8 @@ public class FormOracle implements FormDAO {
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
 			pstm.setInt(1, formSub.getEmpId());
-			pstm.setDate(2, (Date) formSub.getSubDate());
+			//pstm.setDate(2, (Date) formSub.getSubDate());
+			pstm.setDate(2, sqlDate);
 			pstm.setString(3, formSub.getEmpLoc());
 			pstm.setInt(4, formSub.getReqAmt());
 			pstm.setInt(5, formSub.getReimbAmt());

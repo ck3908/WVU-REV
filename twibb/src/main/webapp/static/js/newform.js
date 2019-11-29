@@ -57,7 +57,8 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
         if (xhttp.readyState === 4 && xhttp.status === 200) {
 //            let data = JSON.parse(xhttp.responseText);
 //            console.log(data);
-            console.log("successful submission")
+            console.log("successful submission");
+            window.location.href = 'emplogin.html';
 //            let employee = data.employee;
 //            localStorage.setItem("empl",JSON.stringify(employee));
 //           
