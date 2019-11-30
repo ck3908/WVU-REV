@@ -30,6 +30,10 @@ function gotInfo() {
        console.log("got info, now do something with it");
        let fdata = [];
        fdata = JSON.parse(xhttp.responseText);
+       // set storage in case need fdata in another page
+//       localStorage.setItem("fobjs",JSON.stringify(fdata));
+//       console.log("printing fobjs");
+//       console.log(fobjs);
        console.log(fdata);
        console.log(fdata[0]);
 //       fdata.forEach(item => {
@@ -68,6 +72,8 @@ function gotInfo() {
 	  }
 	}
 	
+	// generate the table of data
+	
 	let table = document.querySelector("table");
 //	let data = Object.keys(mountains[0]);
 //	console.log(mountains[0]);
@@ -76,5 +82,36 @@ function gotInfo() {
 //	generateTable(table, mountains);
 //	console.log(mountains);
 	generateTable(table, fdata);
+	
+	 var x = document.createElement("INPUT");
+	  x.setAttribute("type", "number");
+	  x.setAttribute("id", "getfid")
+	  document.body.appendChild(x)
+	  document.getElementById('getfid').onkeydown = checkfidEnter;
+	  
+	  function checkfidEnter() {
+		    if (event.which === 13)
+		        processfid();
+		}
+	
+	 function processfid(){
+		 let fid = document.getElementById('getfid').value
+		 console.log("fid is ");
+		 console.log(fid);
+//		 let result = fobjs.filter(obj => {
+//			 return obj.id === fid
+//		 });
+//		 console.log(result);
+	 }
+	
+//	let inputbox = document.createElement('input');
+//	input.setAttribute("type","number");
+//	input.setAttribute("id","input1")
+//	document.body.appendChild(x)
+//	inputbox.innerHTML = "<input type = 'button' id='inputbox'>";
+//	document.getElementById("input1").appendChild(inputbox);
+	
+	  
+	
 	 }
 }
