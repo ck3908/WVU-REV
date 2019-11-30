@@ -11,5 +11,7 @@ public interface FormService {
 	public int insertFrev(FormReview fRev);
 	public int insFStatus(FormStatus fStat);
 	public List<FormReview> getRevs(Integer revId);
+	public List<FormInfo> getFormsR(Integer revId);
+	
 
 }

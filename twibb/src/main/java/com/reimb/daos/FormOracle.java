@@ -659,7 +659,42 @@ public class FormOracle implements FormDAO {
 			LogUtil.logException(e, FormOracle.class);
 		}
 		
-		return allRev; //return all cars available for viewing
+		return allRev; //return all formids for viewing
+	}
+
+	@Override
+	public List<FormInfo> getFmtoRev(Integer revId) {
+		// TODO Auto-generated method stub
+		List<FormInfo> allFmRev = new ArrayList<FormInfo>();
+		log.trace("Retrieve full form reviews from database for a reviewer.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select * from finfo where id in (select formid from freviewer where reviewid = ?)";  // nested select
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, revId);  //retrieve by reviewer id
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("available full form reviews found");
+				FormInfo fi = new FormInfo();
+				fi.setId(rs.getInt("id"));
+				fi.setEmpId(rs.getInt("submitter"));
+				fi.setSubDate(rs.getDate("submitdate"));
+				System.out.println(" date is "+fi.getSubDate());  //date is not getting in
+				fi.setEmpLoc(rs.getString("location"));
+				fi.setReqAmt(rs.getInt("reqamount"));
+				fi.setReimbAmt(rs.getInt("reimbamount"));
+				fi.setGradeFmt(rs.getInt("gradingfmtid"));
+				
+				allFmRev.add(fi);  //add list to review
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, FormOracle.class);
+		}
+		
+		return allFmRev; //return all forms available for reviewing
 	}
 
 

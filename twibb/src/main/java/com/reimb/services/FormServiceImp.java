@@ -41,6 +41,12 @@ public class FormServiceImp implements FormService{
 		return fd.getAllrevs(revId);
 	}
 
+	@Override
+	public List<FormInfo> getFormsR(Integer revId) {
+		// TODO Auto-generated method stub
+		return fd.getFmtoRev(revId);
+	}
+
 
 
 

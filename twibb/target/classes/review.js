@@ -20,26 +20,33 @@ let reviewerId = employee.id;
 
 //send the request
 
-xhttp.send('reviwerId=' + reviewerId ); // x-www-form-urlencoded
+xhttp.send('reviewerId=' + reviewerId ); // x-www-form-urlencoded
+
 
 function gotInfo() {
 	 if (xhttp.readyState === 4 && xhttp.status === 200) {
 //       let data = JSON.parse(xhttp.responseText);
 //       console.log(data);
        console.log("got info, now do something with it");
-	
-	 }
-}
+       let fdata = [];
+       fdata = JSON.parse(xhttp.responseText);
+       console.log(fdata);
+       console.log(fdata[0]);
+//       fdata.forEach(item => {
+//          console.log(item.empId);
+//       });
+//	 } 
+//}
 
 
 
-	let mountains = [
-	  { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
-	  { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
-	  { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
-	  { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
-	  { name: "Monte Amiata", height: 1738, place: "Siena" }
-	];
+//	let mountains = [
+//	  { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
+//	  { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
+//	  { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
+//	  { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
+//	  { name: "Monte Amiata", height: 1738, place: "Siena" }
+//	];
 	function generateTableHead(table, data) {
 	  let thead = table.createTHead();
 	  let row = thead.insertRow();
@@ -62,6 +69,12 @@ function gotInfo() {
 	}
 	
 	let table = document.querySelector("table");
-	let data = Object.keys(mountains[0]);
+//	let data = Object.keys(mountains[0]);
+//	console.log(mountains[0]);
+	let data = Object.keys(fdata[0]);
 	generateTableHead(table, data);
-	generateTable(table, mountains);
+//	generateTable(table, mountains);
+//	console.log(mountains);
+	generateTable(table, fdata);
+	 }
+}

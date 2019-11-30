@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class FormInfo {
 	
+	private Integer id;
 	private Integer empId;
 	private Date subDate;
 	private String empLoc;
@@ -14,6 +15,7 @@ public class FormInfo {
 	
 	public FormInfo() {
 		super();
+		this.id = 0;
 		this.empId = 0;
 		this.subDate = new Date();
 		this.empLoc = " ";
@@ -23,15 +25,25 @@ public class FormInfo {
 	}	
 
 
-	public FormInfo(Integer empId, Date subDate, String empLoc, Integer reqAmt, Integer reimbAmt,
+	public FormInfo(Integer id, Integer empId, Date subDate, String empLoc, Integer reqAmt, Integer reimbAmt,
 			Integer gradeFmt) {
 		super();
+		this.id = id;
 		this.empId = empId;
 		this.subDate = subDate;
 		this.empLoc = empLoc;
 		this.ReqAmt = reqAmt;
 		this.ReimbAmt = reimbAmt;
 		this.GradeFmt = gradeFmt;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	
@@ -71,12 +83,14 @@ public class FormInfo {
 	public void setGradeFmt(Integer gradeFmt) {
 		GradeFmt = gradeFmt;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "FormInfo [empId=" + empId + ", subDate=" + subDate + ", empLoc=" + empLoc + ", ReqAmt="
+		return "FormInfo [id=" + id + ", empId=" + empId + ", subDate=" + subDate + ", empLoc=" + empLoc + ", ReqAmt="
 				+ ReqAmt + ", ReimbAmt=" + ReimbAmt + ", GradeFmt=" + GradeFmt + "]";
 	}
+	
+	
 
 }
