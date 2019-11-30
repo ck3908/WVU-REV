@@ -1,5 +1,7 @@
 package com.reimb.daos;
 
+import java.util.List;
+
 import com.reimb.entities.Attachments;
 import com.reimb.entities.FormAppr;
 import com.reimb.entities.FormInfo;
@@ -35,6 +37,7 @@ public interface FormDAO {
 	
 	public int insFormRev(FormReview fRev);
 	public FormReview getReview(Integer revId, Integer formId);
+	public List<FormReview> getAllrevs(Integer revId);
 //	public int updateReview(Integer revId, Integer formId);
 	
 	

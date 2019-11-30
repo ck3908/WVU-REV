@@ -5,6 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -17,6 +19,8 @@ import com.reimb.entities.FormStatus;
 import com.reimb.entities.ReqFC;
 import com.reimb.utils.ConnectionUtil;
 import com.reimb.utils.LogUtil;
+
+
 
 
 
@@ -119,7 +123,7 @@ public class FormOracle implements FormDAO {
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
 			pstm.setInt(1, fStat.getEmpId());
-			pstm.setInt(2, fStat.getEmpId());
+			pstm.setInt(2, fStat.getFormId());
 			pstm.setInt(3, fStat.getStatus());		
 			pstm.executeUpdate();
 			ResultSet rs = pstm.getGeneratedKeys();
@@ -567,11 +571,11 @@ public class FormOracle implements FormDAO {
 		Connection conn = cu.getConnection();
 		try{
 			conn.setAutoCommit(false);
-			String sql = "insert into fRev (formid,reviewid) values(?,?)";
+			String sql = "insert into freviewer (formid,reviewid) values(?,?)";
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
 			pstm.setInt(1, fRev.getFormId());
-			pstm.setInt(2, fRev.getFormId());
+			pstm.setInt(2, fRev.getReviewId());
 			pstm.executeUpdate();
 			ResultSet rs = pstm.getGeneratedKeys();
 			
@@ -629,6 +633,36 @@ public class FormOracle implements FormDAO {
 		
 		return fr; //return status code
 	}
+
+	@Override
+	public List<FormReview> getAllrevs(Integer revId) {
+		// TODO Auto-generated method stub
+		List<FormReview> allRev = new ArrayList<FormReview>();
+		log.trace("Retrieve reviews from database for a reviewer.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select * from freviewer where reviewid = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, revId);  //retrieve by reviewer id
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("available reviews found");
+				FormReview fr = new FormReview();
+				fr.setFormId(rs.getInt("formid"));
+				fr.setReviewId(rs.getInt("reviewid")); //probably don't need this, set it anyway
+				allRev.add(fr);  //add list to review
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, FormOracle.class);
+		}
+		
+		return allRev; //return all cars available for viewing
+	}
+
+
 
 //	@Override
 //	public int updateReview(Integer empId, Integer formId) {

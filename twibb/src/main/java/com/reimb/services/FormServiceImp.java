@@ -1,5 +1,7 @@
 package com.reimb.services;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.reimb.daos.FormDAO;
@@ -33,9 +35,13 @@ public class FormServiceImp implements FormService{
 		return 0;
 	}
 
+	@Override
+	public List<FormReview> getRevs(Integer revId) {
+		// TODO Auto-generated method stub
+		return fd.getAllrevs(revId);
+	}
 
 
-	
 
 
 
