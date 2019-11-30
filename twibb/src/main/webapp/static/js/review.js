@@ -31,9 +31,9 @@ function gotInfo() {
        let fdata = [];
        fdata = JSON.parse(xhttp.responseText);
        // set storage in case need fdata in another page
-//       localStorage.setItem("fobjs",JSON.stringify(fdata));
-//       console.log("printing fobjs");
-//       console.log(fobjs);
+       	localStorage.setItem("fobjs",JSON.stringify(fdata));
+       	console.log("printing fobjs");
+       console.log(localStorage);
        console.log(fdata);
        console.log(fdata[0]);
 //       fdata.forEach(item => {
@@ -98,6 +98,8 @@ function gotInfo() {
 		 let fid = document.getElementById('getfid').value
 		 console.log("fid is ");
 		 console.log(fid);
+		 localStorage.setItem("formid",fid);
+		 window.location.href = 'fullreview.html';
 //		 let result = fobjs.filter(obj => {
 //			 return obj.id === fid
 //		 });

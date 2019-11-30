@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>In full Review Page</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+	
+</head>
+<body>
+	<h5>hello there in full review</h5>
+	
+	<div class="container">
+<form id="form">
+    <div class="formgroup">
+			<label>submitter id:</label> <input class="form-control"
+				type="number" id="f_submitter" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>submitter name:</label> <input class="form-control"
+				type="number" id="f_name" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>supervisor id:</label> <input class="form-control"
+				type="number" id="f_supervisor" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>departhead id:</label> <input class="form-control"
+				type="number" id="f_deptheadid" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>department id:</label> <input class="form-control"
+				type="number" id="f_deptid" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>date:</label> <input class="form-control"
+				type="date" id="f_date" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>Location</label> <input class="form-control"
+				type="text" id="f_location" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>requestamt:</label> <input class="form-control"
+				type="number" id="f_reqamt" min = "1" max = "1000"/> <br>
+	</div>
+	<div class="formgroup">
+			<label>reimbamt:</label> <input class="form-control"
+				type="number" id="f_reimbamt" /> <br>
+	</div>
+	<div class="formgroup">
+			<label>Purpose </label> <input class="form-control"
+				type="text" id="f_gradefmt" /> <br>
+				<select id = "purpose" name="f_gradefmt">
+					<option value = 1>Certifications Preparation</option>
+					<option value = 2>Certifications</option>
+					<option value = 3>Technical Training</option>
+					<option value = 4>Seminars</option>
+					<option value = 5>University Courses</option>
+					<option value = 6>Others</option>
+				</select>
+	</div>	
+		<div class="formgroup">
+			<label>status </label> 
+				<select id = "status" name="f_status">
+					<option value = 1>reject</option>
+					<option value = 2>approve</option>
+					<option value = 3>more info RFC</option>
+					<option value = 4>pending</option>
+				</select>
+	</div>
+	<div class="formgroup">>
+		<textarea name="askcom" id="askcom" style="font-family:sans-serif;font-size:1.2em;">
+			question box
+		</textarea>	
+	</div>
+		<div class="formgroup">>
+		<textarea name="anscom" id="anscom" style="font-family:sans-serif;font-size:1.2em;">
+			answer box
+		</textarea>	
+	</div>
+    <input type="button" id="submitnow" value="submitnow"/>
+</form>
+</div>
+
+
+	<script type="text/javascript" src="/twib/static/js/loghead.js"></script>
+	<script type="text/javascript" src="/twib/static/js/login.js"></script>
+	<script type="text/javascript" src="/twib/static/js/fullreview.js"></script>  
+</body>
+</html>

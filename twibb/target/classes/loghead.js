@@ -98,4 +98,5 @@ function logout() {
             document.getElementById("password").onkeydown = checkPasswordEnter;
         }
     }
+  //  window.location.href = 'emplogin.html';  //go back to login page not working yet
 }
