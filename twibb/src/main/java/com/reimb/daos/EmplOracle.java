@@ -48,4 +48,36 @@ public class EmplOracle implements EmplDAO{
 		return em;
 	}
 
+	@Override
+	public Employee getEmplbyId(Integer id) {
+		// TODO Auto-generated method stub
+		Employee em = new Employee();
+		log.trace("Retrieve empl from database.");
+		try(Connection conn = cu.getConnection()){
+			String sql = "select id, empname, emppass, empdept, empsupid, empdeptid from logemp where id=?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, id);
+			ResultSet rs = pstm.executeQuery();
+			//username is unique, this query can only ever return a single result, so if is ok.
+			if(rs.next())
+			{
+				log.trace("empl found.");
+				em = new Employee();
+				em.setId(rs.getInt("id"));
+				em.setName(rs.getString("empname"));
+				em.setPass(rs.getString("emppass"));
+				em.setDept(rs.getInt("empdept"));
+				em.setSupId(rs.getInt("empsupid"));
+				em.setDeptHId(rs.getInt("empdeptid"));
+		
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, EmplOracle.class);
+		}
+		
+		return em;
+	}
+
 }

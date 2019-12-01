@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import com.reimb.delegates.FrontControllerDelegate;
 import com.reimb.delegates.FsubmitDelegateImp;
+import com.reimb.delegates.GetEmpInfoDelegateImp;
 import com.reimb.delegates.GetFormsRevDelegateImp;
 import com.reimb.delegates.LoginDelegateImp;
 
@@ -27,7 +28,7 @@ public class ReqDispatcher {
 		delegateMap.put("login", new LoginDelegateImp());
 		delegateMap.put("formSubmit", new FsubmitDelegateImp());
 		delegateMap.put("getRevFormIds", new GetFormsRevDelegateImp());
-		
+		delegateMap.put("getEmpInfo", new GetEmpInfoDelegateImp());
 		
 		delegateMap.put("getBook",
 			(req, resp) -> {

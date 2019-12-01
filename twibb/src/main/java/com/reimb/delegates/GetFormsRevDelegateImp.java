@@ -33,6 +33,7 @@ public class GetFormsRevDelegateImp implements FrontControllerDelegate {
 		fir = fs.getFormsR(rid);
 		if (fir != null) {  //prepare to respond to user
 			log.trace("responding to user");
+			System.out.println("form info array object passed back "+fir);
 			buildFormsR(resp,fir);
 			
 		}

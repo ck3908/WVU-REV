@@ -30,4 +30,23 @@ public class EmplServImp implements EmplService {
 		return emp;
 	}
 
+	@Override
+	public Employee getEmpById(Integer id) {
+		// TODO Auto-generated method stub
+		Employee emp = new Employee();
+		
+		emp = ed.getEmplbyId(id);
+		if(emp.getId()==0)
+		{
+			log.trace("No employee found");
+			return null;
+		}
+//		if(emp.getSupervisor()!=null)
+//		{
+//			log.trace("Retrieving supervisor");
+//			emp.setSupervisor(getEmployeeById(emp.getSupervisor().getId()));
+//		}
+		return emp;
+	}
+
 }

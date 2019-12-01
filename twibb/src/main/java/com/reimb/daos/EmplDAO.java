@@ -12,5 +12,6 @@ public interface EmplDAO {
 	 * @return the user from the database that matches the username and password
 	 */	
 	public Employee getEmpl(String username, String password);
+	public Employee getEmplbyId(Integer id);
 
 }

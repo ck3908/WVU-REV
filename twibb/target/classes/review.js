@@ -14,7 +14,7 @@ baseURL = '/twib/';
 console.log("executing get all formsid to review in js");
 let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = gotInfo;
-xhttp.open('POST', baseURL + 'getRevFormIds');
+xhttp.open('POST', baseURL + 'getRevFormIds');  //go to servlet getRevFormIds
 xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 let reviewerId = employee.id;
 

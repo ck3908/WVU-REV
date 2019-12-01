@@ -25,7 +25,7 @@ import com.reimb.utils.LogUtil;
 
 
 public class FormOracle implements FormDAO {
-	private static Logger log = Logger.getLogger(EmplOracle.class);
+	private static Logger log = Logger.getLogger(FormOracle.class);
 	private static ConnectionUtil cu = ConnectionUtil.getConnectionUtil();
 	
 
