@@ -17,6 +17,34 @@ console.log(getfid);
 let fmarr = JSON.parse(localStorage.getItem("fobjs"));
 console.log(localStorage);
 
+// get form status first
+
+
+var baseURL = '/twib/';
+let xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = recStat;
+xhttp.open('POST', baseURL + 'getStatusInfo');  //go to servlet getStatusInfo in request dispatcher
+xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+xhttp.send('getfid=' + getfid ); // x-www-form-urlencoded
+
+function recStat(){ //make sure this function is within above function other xttp request undefined
+	if (xhttp.readyState === 4 && xhttp.status === 200) {
+        let stat = JSON.parse(xhttp.responseText);
+        console.log(stat);
+        document.getElementById("status").selectedIndex = stat-1;
+        
+	}
+}
+
+
+
+
+
+
+
+
+// get rest of form info 
+
 fmarr.forEach(item => {
 	if (item.id == getfid){ // get that object corresponding to formid number chosen
 		document.getElementById("f_formid").value = item.id;
@@ -29,6 +57,7 @@ fmarr.forEach(item => {
 		console.log("submit person is in local storage? ");
 		console.log(localStorage);
 		let sp = JSON.parse(localStorage.getItem('submitperson'));  //get access to local storage
+		console.log(sp);
 		let ep = JSON.parse(localStorage.getItem('empl'));  //get access to local storage
 		
 		document.getElementById("f_name").value = sp.name;  //need to fetch this
@@ -43,7 +72,7 @@ fmarr.forEach(item => {
 		document.getElementById("f_location").value = item.empLoc;
 		document.getElementById("f_reqamt").value = item.reqAmt;
 		document.getElementById("f_reimbamt").value = item.reimbAmt;
-		document.getElementById("f_gradefmt").selectedIndex = item.gradeFmt;
+		document.getElementById("purpose").selectedIndex = item.gradeFmt-1; //javascript or html drop down starts at 0
 		
 	}
 //console.log(item.empId);
@@ -51,7 +80,7 @@ fmarr.forEach(item => {
 
 
 function getEmpbyId(id){
-	baseURL = '/twib/';
+//	baseURL = '/twib/';
 	console.log("executing get employee info");
 	let xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = recEmp;

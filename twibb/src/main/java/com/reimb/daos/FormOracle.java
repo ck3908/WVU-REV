@@ -98,7 +98,7 @@ public class FormOracle implements FormDAO {
 			//username is unique, this query can only ever return a single result, so if is ok.
 			while (rs.next())
 			{
-				log.trace("availabe cars found.");
+				log.trace("availabe gradefmt found.");
 				gReq = rs.getString("gradingreq");
 			}
 		}
@@ -164,7 +164,7 @@ public class FormOracle implements FormDAO {
 			String sql = "select status from fstatus where submitter = ? and formid = ?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setInt(1, empId);
-			pstm.setInt(1, formId);
+			pstm.setInt(2, formId);
 			ResultSet rs = pstm.executeQuery();  // this implies password matches here
 			//username is unique, this query can only ever return a single result, so if is ok.
 			while (rs.next())
@@ -695,6 +695,31 @@ public class FormOracle implements FormDAO {
 		}
 		
 		return allFmRev; //return all forms available for reviewing
+	}
+
+	@Override
+	public int getFormStatbyFID(Integer formId) {
+		// TODO Auto-generated method stub
+		log.trace("Retrieve form status from database by formid");
+		int fstatus = 0;
+		try(Connection conn = cu.getConnection()){
+			String sql = "select status from fstatus where formid = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, formId);
+			ResultSet rs = pstm.executeQuery();  // this implies password matches here
+			//username is unique, this query can only ever return a single result, so if is ok.
+			while (rs.next())
+			{
+				log.trace("status available");
+				fstatus = rs.getInt("status");
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, FormOracle.class);
+		}
+		
+		return fstatus; //return status code
 	}
 
 

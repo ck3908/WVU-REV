@@ -43,7 +43,7 @@ public class FsubmitDelegateImp implements FrontControllerDelegate{
 		//also update form status to pending automatically	
 			FormStatus fst = new FormStatus();
 			fst.setEmpId(Integer.parseInt(req.getParameter("submitter")));
-			fst.setStatus(4);  //set to pending status which is 4
+			fst.setStatus(3);  //set all new form submissions to pending status which is 3
 			fst.setFormId(fID);  //again set the formid
 			int j = fs.insFStatus(fst);			
 		}

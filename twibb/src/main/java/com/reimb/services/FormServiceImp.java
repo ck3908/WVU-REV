@@ -25,14 +25,14 @@ public class FormServiceImp implements FormService{
 	public int insertFrev(FormReview fRev) {
 		// TODO Auto-generated method stub
 		int res = fd.insFormRev(fRev);
-		return 0;
+		return res;
 	}
 
 	@Override
 	public int insFStatus(FormStatus fStat) {
 		// TODO Auto-generated method stub
 		int res = fd.insFormStatus(fStat);
-		return 0;
+		return res;
 	}
 
 	@Override
@@ -45,6 +45,13 @@ public class FormServiceImp implements FormService{
 	public List<FormInfo> getFormsR(Integer revId) {
 		// TODO Auto-generated method stub
 		return fd.getFmtoRev(revId);
+	}
+
+	@Override
+	public int getStatInfo(Integer fid) {
+		// TODO Auto-generated method stub
+		int res = fd.getFormStatbyFID(fid);
+		return res;
 	}
 
 

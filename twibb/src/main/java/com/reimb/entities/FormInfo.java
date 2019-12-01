@@ -12,6 +12,7 @@ public class FormInfo {
 	private Integer ReqAmt;
 	private Integer ReimbAmt;
 	private Integer GradeFmt;
+
 	
 	public FormInfo() {
 		super();
@@ -36,6 +37,9 @@ public class FormInfo {
 		this.ReimbAmt = reimbAmt;
 		this.GradeFmt = gradeFmt;
 	}
+	
+	
+	
 	
 	public Integer getId() {
 		return id;
