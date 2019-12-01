@@ -8,7 +8,6 @@ window.onload = () => {
 }
 
 
-
 console.log("in full review js");
 employee = JSON.parse(localStorage.getItem("empl"));
 console.log(employee);  //reviewer's info here
@@ -36,13 +35,6 @@ function recStat(){ //make sure this function is within above function other xtt
 	}
 }
 
-
-
-
-
-
-
-
 // get rest of form info 
 
 fmarr.forEach(item => {
@@ -54,25 +46,22 @@ fmarr.forEach(item => {
 		let empobj = getEmpbyId(item.empId);  //get the return obj for employee - doesn't work
 //		console.log("empobj is ");
 //		console.log(empobj);
-		console.log("submit person is in local storage? ");
-		console.log(localStorage);
-		let sp = JSON.parse(localStorage.getItem('submitperson'));  //get access to local storage
-		console.log(sp);
-		let ep = JSON.parse(localStorage.getItem('empl'));  //get access to local storage
 		
-		document.getElementById("f_name").value = sp.name;  //need to fetch this
-		document.getElementById("f_supervisor").value = ep.id; //the employee reviewing this is the supervisor
-		document.getElementById("f_deptheadid").value = sp.deptHId; // this person reviews it next
-		document.getElementById("f_deptid").value = sp.dept;
-	
 		// date stuff - arrgghhh
 		let today = new Date();
-		let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+		let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+'0'+today.getDate(); //add the zero to make it 2 digits, fix later
 		document.getElementById("f_date").value = date;  //see if this works
 		document.getElementById("f_location").value = item.empLoc;
 		document.getElementById("f_reqamt").value = item.reqAmt;
 		document.getElementById("f_reimbamt").value = item.reimbAmt;
-		document.getElementById("purpose").selectedIndex = item.gradeFmt-1; //javascript or html drop down starts at 0
+		document.getElementById("purpose").selectedIndex = item.gradeFmt-1; //javascript or html drop down starts at 0		
+		
+//		console.log("submit person is in local storage? ");
+//		console.log(localStorage);
+//		let sp = JSON.parse(localStorage.getItem('submitperson'));  //get access to local storage
+//		console.log(sp);
+		let ep = JSON.parse(localStorage.getItem('empl'));  //get access to local storage
+		document.getElementById("f_supervisor").value = ep.id; //the employee reviewing this is the supervisor	
 		
 	}
 //console.log(item.empId);
@@ -94,9 +83,32 @@ function recEmp(){ //make sure this function is within above function other xttp
 	if (xhttp.readyState === 4 && xhttp.status === 200) {
         let data = JSON.parse(xhttp.responseText);
         console.log(data);
+        let sp = data   
+        document.getElementById("f_name").value = sp.name;  //need to fetch this	
+		document.getElementById("f_deptheadid").value = sp.deptHId; // this person reviews it next
+		document.getElementById("f_deptid").value = sp.dept;       
+        
  //       let submitter = data.employee;
-        localStorage.setItem("submitperson",JSON.stringify(data));
+ //       localStorage.setItem("submitperson",JSON.stringify(data));
  //       return submitter;
 	}
 }
 }
+
+document.getElementById('submitnow').addEventListener('click', function(submitForm){
+	console.log("executing submitform by a supervisor in js");
+	//check status change of form
+	 let stat = document.getElementById('status');
+	    let st = stat.options[stat.selectedIndex].value;
+	if (st == 1){
+		console.log("excuting rejection");
+	}
+	else if (st == 2){
+		console.log("executing more info require");
+	}
+	else {
+		console.log("executing something else");
+	}
+	
+	
+} );  //end event handler
