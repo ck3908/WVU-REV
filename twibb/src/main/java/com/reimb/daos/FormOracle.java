@@ -726,6 +726,37 @@ public class FormOracle implements FormDAO {
 		return fstatus; //return status code
 	}
 
+	@Override
+	public int updateReimbAmt(Integer fid, Integer amt) {
+		// TODO Auto-generated method stub
+		log.trace("update form info in the amount field only " +fid);
+		log.trace(fid);
+		int result = 0;
+		Connection conn = cu.getConnection();
+		try{
+			conn.setAutoCommit(false);
+			String sql = "update finfo set reimbamount = ? where id = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, amt);
+			pstm.setInt(2, fid);			
+			result = pstm.executeUpdate();
+			
+			if (result == 1) {
+				log.trace("amount in finfo updated");
+			}
+		} catch (SQLException e) {
+			LogUtil.rollback(e, conn, FormOracle.class);
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LogUtil.logException(e, FormOracle.class);
+			}
+		}
+
+		return result;
+	}
+
 
 
 //	@Override

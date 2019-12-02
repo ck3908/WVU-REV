@@ -85,6 +85,13 @@ public class FormServiceImp implements FormService{
 		return res;
 	}
 
+	@Override
+	public int upDateAmtReimb(Integer formId, Integer AmtReimb) {
+		// TODO Auto-generated method stub
+		int res = fd.updateReimbAmt(formId, AmtReimb);		
+		return res;
+	}
+
 
 
 }

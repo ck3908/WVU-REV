@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 
 import com.reimb.entities.Employee;
 import com.reimb.entities.FormAppr;
+
 import com.reimb.entities.FormReview;
 import com.reimb.services.EmplServImp;
 import com.reimb.services.EmplService;
@@ -67,8 +68,28 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 			// for any particular user, we can then sum up all of the submitter's approved amounts by 
 			// summing all the override values for that submitter to keep track of what is left over for the year
 			// where a $1000 is max per year
-			
+			int requestamt = Integer.parseInt(req.getParameter("reqamt"));
+			//add checks that request amount less than 1000 in total for year
+			int fmid = Integer.parseInt(req.getParameter("fmid"));
 			int gradingfmt = Integer.parseInt(req.getParameter("gfmt"));
+			int grantamt = 0;  // this amount is to present to HR person before approval
+			switch (gradingfmt) {  //need to check the business rules
+				case 1: grantamt = (int) Math.round(requestamt*0.80); //certifications prep
+				break;
+				case 2: grantamt = (int) Math.round(requestamt*1.00); // certifications
+				break;
+				case 3: grantamt = (int) Math.round(requestamt*0.90); 
+				break;
+				case 4: grantamt = (int) Math.round(requestamt*0.85); 
+				break;
+				case 5: grantamt = (int) Math.round(requestamt*0.90); 
+				break;
+				case 6: grantamt = (int) Math.round(requestamt*0.60); //others
+				break;
+			} 
+			System.out.println("grantamt is "+grantamt);
+			// prepare to update form info with the amount potentially granted
+			int updamt = fs.upDateAmtReimb(fmid, grantamt);		
 			
 			if (deptId != 2 ) {  //the person requesting approval is not in HR dept, so anyone in HR can approve now
 				// find a reviewer id in HR department
@@ -86,6 +107,6 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 				fr.setReviewId(hrHead.getId());
 				int doneAgain = fs.insertFrev(fr);				
 			}
-		}
+		} // end HRflag == 1
 	}
 }

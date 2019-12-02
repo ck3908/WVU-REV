@@ -12,6 +12,7 @@ import com.reimb.entities.ReqFC;
 
 public interface FormDAO {
 	public int submitF(FormInfo formSub);
+	public int updateReimbAmt(Integer fid, Integer amt);
 	public List<FormInfo> getFmtoRev(Integer revId);
 	public String getGradeReq(Integer num);
 	//public int setDept(Integer deptNum, String deptName, Integer deptHead);

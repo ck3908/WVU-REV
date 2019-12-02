@@ -135,7 +135,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let deptHeadId = document.getElementById("f_deptheadid").value;  //need this for the other table form reviewer table
 			let override = 0; //only HR can override
 			let gotoHR = 0;  // set this variable to zero so approval process doesn't search for HR table as reviewer
-			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt);
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
 		}
 		else if(st == 5 && document.getElementById("f_supervisor").value == document.getElementById("f_deptheadid").value){ //dept head reviewing do not have supervisors so id = 0
 			// dept head approving this, so next one to get it is HR
@@ -145,7 +145,10 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let deptHeadId = approveId;  // same person as this stage
 			let override = 0; //only HR can override
 			let gotoHR = 1;  // this is set to 1 so search for HR dept reviewer to insert to reviewer table next
-			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt);
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
+		}
+		else {  // HR approve  - update reimbamt in FINFO table now with the amount approved
+			
 		}
 
 	}
@@ -153,7 +156,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 		//nothing
 	}
 	
-	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt){
+	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt){
 		let xhttp = new XMLHttpRequest();
 	    xhttp.onreadystatechange = approveDone;
 	    xhttp.open('POST', baseURL + 'ThisStepApproved'); // used in the delegates for servlets
@@ -161,7 +164,8 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 	    xhttp.send('submitter=' + submitter + '&fmid=' + fmid 
 	    		+ '&approveId=' + approveId + '&approveDt=' + approveDt 
 	    		+ '&override=' + override + '&deptHeadId=' + deptHeadId 
-	    		+ '&deptid=' + deptid + '&gotoHR=' + gotoHR + '&gfmt=' + gfmt); // x-www-form-urlencoded
+	    		+ '&deptid=' + deptid + '&gotoHR=' + gotoHR + '&gfmt=' + gfmt 
+	    		+ '&reqamt=' + reqamt); // x-www-form-urlencoded
 		
 	    function approveDone(){
 	    	if (xhttp.readyState === 4 && xhttp.status === 200) {

@@ -20,6 +20,7 @@ public interface FormService {
 	public int insFormRej(FormRej fRej);
 	public int insertFormRFC(ReqFC fRFC);
 	public int insertFormAppr(FormAppr fAppr);
+	public int upDateAmtReimb(Integer formId, Integer AmtReimb);
 	
 
 }
