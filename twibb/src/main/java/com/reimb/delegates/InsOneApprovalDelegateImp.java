@@ -33,7 +33,7 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 		int HRflag = Integer.parseInt(req.getParameter("gotoHR"));  // 0 = go to Director next, 1 = HR next, 2 = done
 		int deptId = Integer.parseInt(req.getParameter("deptid"));
 		String dateStr = req.getParameter("approveDt");
-		DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+		DateFormat format = new SimpleDateFormat("yyy-MM-dd");
 		Date ldate = new Date();
 		try {
 			ldate = format.parse(dateStr);

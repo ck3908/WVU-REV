@@ -101,8 +101,12 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 	 let deptid = document.getElementById("f_deptid").value;
 	 let fmid = document.getElementById("f_formid").value;
 	 let submitter = document.getElementById("f_submitter").value;
-	 let st = stat.options[stat.selectedIndex].value;
+	 let st =  document.getElementById("status").selectedIndex;
+	 st = st + 1;  //html drop down indexes start at 0  - yes I know I can combine 2 lines to add 1 but now
+	 console.log("stat is");  // I'm trying to remember HTML indexes issue so hence more clarity for myself
+	 console.log(st);
 	 let gfmt = document.getElementById("purpose").selectedIndex;
+	 gfmt = gfmt + 1; //html drop down indexes start at 0
 	 let reqamt = document.getElementById("f_reqamt").value;
 	if (st != 3){ //pending state didn't change then don't do upstate status table
 		updateStaTable(fmid,submitter,st); //all others will update status table		
@@ -133,8 +137,9 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let gotoHR = 0;  // set this variable to zero so approval process doesn't search for HR table as reviewer
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt);
 		}
-		else if(st == 5 && document.getElementById("f_supervisor").value == 0){ //dept head reviewing do not have supervisors so id = 0
+		else if(st == 5 && document.getElementById("f_supervisor").value == document.getElementById("f_deptheadid").value){ //dept head reviewing do not have supervisors so id = 0
 			// dept head approving this, so next one to get it is HR
+			console.log("in status = 5 mode")
 			let approveId = document.getElementById("f_deptheadid").value;  //set the approver to depthead id
 			let approveDt = document.getElementById("f_date").value;
 			let deptHeadId = approveId;  // same person as this stage

@@ -192,13 +192,13 @@ public class FormOracle implements FormDAO {
 			conn.setAutoCommit(false);
 			String sql = "update fstatus set status=? where submitter=? and formid=?";
 			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, fstat.getStatus());
-			pstm.setInt(2, fstat.getFormId());			
-			pstm.setInt(3, fstat.getEmpId());  
+			pstm.setInt(1, fstat.getStatus());				
+			pstm.setInt(2, fstat.getEmpId());  
+			pstm.setInt(3, fstat.getFormId());	
 			result = pstm.executeUpdate();
 			
 			if (result == 1) {
-				log.trace("Car Status updated");
+				log.trace("Form Status updated");
 			}
 		} catch (SQLException e) {
 			LogUtil.rollback(e, conn, FormOracle.class);
@@ -218,16 +218,19 @@ public class FormOracle implements FormDAO {
 		int key = 0;
 		log.trace("adding new approval to db "+fAppr);
 		log.trace(fAppr);
+		Date sqlDate = new Date(fAppr.getApprovDt().getDate());	//need to fix this
 		Connection conn = cu.getConnection();
 		
 		try{
 			conn.setAutoCommit(false);
-			String sql = "insert into fapprove (submitter,formid,approve,override,approverid) values(?,?,?,?,?)";
+			String sql = "insert into fapprove (submitter,formid,approvedate,override,approverid) values(?,?,?,?,?)";
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
 			pstm.setInt(1, fAppr.getEmpId());
 			pstm.setInt(2, fAppr.getFormId());
-			pstm.setDate(3,(Date) fAppr.getApprovDt());
+//			pstm.setDate(3,(date) fAppr.getApprovDt());  //temp fix
+			
+			pstm.setDate(3, sqlDate);
 			pstm.setInt(4, fAppr.getOverride());
 			pstm.setInt(5, fAppr.getApproverId());	
 			pstm.executeUpdate();
