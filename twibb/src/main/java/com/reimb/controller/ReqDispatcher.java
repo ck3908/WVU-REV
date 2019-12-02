@@ -15,7 +15,11 @@ import com.reimb.delegates.FsubmitDelegateImp;
 import com.reimb.delegates.GetEmpInfoDelegateImp;
 import com.reimb.delegates.GetFormsRevDelegateImp;
 import com.reimb.delegates.GetStatusInfoDelegateImp;
+import com.reimb.delegates.InsOneApprovalDelegateImp;
+import com.reimb.delegates.InsertRFCDelegateImp;
+import com.reimb.delegates.InsertRejDelegateImp;
 import com.reimb.delegates.LoginDelegateImp;
+import com.reimb.delegates.UpdateStatusInfoDelegateImp;
 
 
 
@@ -31,6 +35,10 @@ public class ReqDispatcher {
 		delegateMap.put("getRevFormIds", new GetFormsRevDelegateImp());
 		delegateMap.put("getEmpInfo", new GetEmpInfoDelegateImp());
 		delegateMap.put("getStatusInfo", new GetStatusInfoDelegateImp());
+		delegateMap.put("updateStatus", new UpdateStatusInfoDelegateImp());
+		delegateMap.put("rejForm", new InsertRejDelegateImp());
+		delegateMap.put("rfcRequest", new InsertRFCDelegateImp());
+		delegateMap.put("ThisStepApproved", new InsOneApprovalDelegateImp());
 		
 		delegateMap.put("getBook",
 			(req, resp) -> {
@@ -76,7 +84,7 @@ public class ReqDispatcher {
 		}
 		log.trace("at dispatch, the switchString is  "+switchString);
 		log.trace("at dispatch, the to string of switchstring is "+switchString.toString());
-		return delegateMap.get(switchString.toString());
+		return delegateMap.get(switchString.toString());  //this lines calls the constructor of the delegate due to mapping which triggers all the action
 	}
 	private void addCorsHeader(String requestURI, HttpServletResponse resp) {
 		log.trace("adding headers");

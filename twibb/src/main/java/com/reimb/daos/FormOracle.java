@@ -214,34 +214,35 @@ public class FormOracle implements FormDAO {
 	}
 
 	@Override
-	public int insFormAppr(FormAppr fappr) {
+	public int insFormAppr(FormAppr fAppr) {
 		int key = 0;
-		log.trace("adding new approval to db "+fappr);
-		log.trace(fappr);
+		log.trace("adding new approval to db "+fAppr);
+		log.trace(fAppr);
 		Connection conn = cu.getConnection();
 		
 		try{
 			conn.setAutoCommit(false);
-			String sql = "insert into fapprove (submitter,formid,approve,override) values(?,?,?,?)";
+			String sql = "insert into fapprove (submitter,formid,approve,override,approverid) values(?,?,?,?,?)";
 			String[] keys = {"id"};
 			PreparedStatement pstm = conn.prepareStatement(sql, keys);
-			pstm.setInt(1, fappr.getEmpId());
-			pstm.setInt(2, fappr.getFormId());
-			pstm.setDate(3, (Date) fappr.getApprovDt());
-			pstm.setInt(4, fappr.getOverride());		
+			pstm.setInt(1, fAppr.getEmpId());
+			pstm.setInt(2, fAppr.getFormId());
+			pstm.setDate(3,(Date) fAppr.getApprovDt());
+			pstm.setInt(4, fAppr.getOverride());
+			pstm.setInt(5, fAppr.getApproverId());	
 			pstm.executeUpdate();
 			ResultSet rs = pstm.getGeneratedKeys();
 			
 			if(rs.next())
 			{
-				log.trace("form submitted");
+				log.trace("approval form submitted");
 				key = rs.getInt(1);
-				fappr.setEmpId(key);
+				fAppr.setEmpId(key);
 				conn.commit();
 			}
 			else
 			{
-				log.trace("form not submitted");
+				log.trace("approval form not submitted");
 				conn.rollback();
 			}
 		}

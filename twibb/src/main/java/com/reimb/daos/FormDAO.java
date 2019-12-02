@@ -21,7 +21,7 @@ public interface FormDAO {
 	public int getFormStatbyFID(Integer formId);
 	public int updateFormStatus(FormStatus fStat);
 	
-	public int insFormAppr(FormAppr fappr);
+	public int insFormAppr(FormAppr fAppr);
 //	public int updateFormAppr(Integer formId, Integer empId);
 	public FormAppr getFormApprov(Integer formId, Integer empId);
 	

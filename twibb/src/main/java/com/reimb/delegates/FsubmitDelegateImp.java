@@ -1,6 +1,9 @@
 package com.reimb.delegates;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -26,7 +29,18 @@ public class FsubmitDelegateImp implements FrontControllerDelegate{
 		//build the form object to submit
 		FormInfo Finfo = new FormInfo();
 		Finfo.setEmpId(Integer.parseInt(req.getParameter("submitter"))); //string arguments need to be converted
-		Finfo.setSubDate(new Date());
+		
+		String dateStr = req.getParameter("formdate");
+		DateFormat format = new SimpleDateFormat("dd-MMM-yy");
+		Date ldate = new Date(); //initial date somehow
+		try {
+			ldate = format.parse(dateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Finfo.setSubDate(ldate);
 		Finfo.setEmpLoc(req.getParameter("formloc"));
 		Finfo.setReqAmt(Integer.parseInt(req.getParameter("reqamt")));
 		Finfo.setGradeFmt(Integer.parseInt(req.getParameter("gradefmt")));

@@ -7,6 +7,7 @@ public class FormAppr {
 	private Integer id;
 	private Integer formId;
 	private Integer empId; //employee submitting the form
+	private Integer approverId; //person approving form
 	private Date approvDt; 
 	private Integer override;
 	
@@ -15,21 +16,35 @@ public class FormAppr {
 		super();
 		this.id = 0;
 		this.formId = 0;
+		this.approverId = 0;
 		this.empId = 0;
 		this.approvDt = new Date();
 		this.override = 0;
 	}
 	
 	
-	public FormAppr(Integer id, Integer formId, Integer empId, Date approvDt, Integer override) {
+	public FormAppr(Integer id, Integer formId, Integer approverId, Integer empId, Date approvDt, Integer override) {
 		super();
 		this.id = id;
 		this.formId = formId;
+		this.approverId = approverId;
 		this.empId = empId;
 		this.approvDt = approvDt;
 		this.override = override;
 	}
 	
+	
+	
+	public Integer getApproverId() {
+		return approverId;
+	}
+
+
+	public void setApproverId(Integer approverId) {
+		this.approverId = approverId;
+	}
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -60,13 +75,16 @@ public class FormAppr {
 	public void setOverride(Integer override) {
 		this.override = override;
 	}
+
+
 	@Override
 	public String toString() {
-		return "FormAppr [id=" + id + ", formId=" + formId + ", empId=" + empId + ", approvDt=" + approvDt
-				+ ", override=" + override + "]";
+		return "FormAppr [id=" + id + ", formId=" + formId + ", empId=" + empId + ", approverId=" + approverId
+				+ ", approvDt=" + approvDt + ", override=" + override + "]";
 	}
-	
-	
+
+
+
 	
 
 }

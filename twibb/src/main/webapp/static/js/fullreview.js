@@ -98,16 +98,135 @@ function recEmp(){ //make sure this function is within above function other xttp
 document.getElementById('submitnow').addEventListener('click', function(submitForm){
 	console.log("executing submitform by a supervisor in js");
 	//check status change of form
-	 let stat = document.getElementById('status');
-	    let st = stat.options[stat.selectedIndex].value;
+	 
+	 let fmid = document.getElementById("f_formid").value;
+	 let submitter = document.getElementById("f_submitter").value;
+	 let st = stat.options[stat.selectedIndex].value;
+	if (st != 3){ //pending state didn't change then don't do upstate status table
+		updateStaTable(fmid,submitter,st); //all others will update status table		
+	}
 	if (st == 1){
-		console.log("excuting rejection");
+		console.log("executing rejection");
+		let reason = document.getElementById('askcom').value;
+		console.log(reason);
+		let rejector = document.getElementById("f_supervisor").value;  //supervisor/depthead id rejecting the request
+		rejFormReq(fmid,rejector,reason);
 	}
 	else if (st == 2){
 		console.log("executing more info require");
+		let question = document.getElementById('askcom').value;  //save both questions and answers  
+		let answer = document.getElementById('anscom').value;  //probably need to append info
+		let askerid = document.getElementById("f_supervisor").value;
+		reqForCom(askid,fmid,question,answer);
 	}
-	else {
-		console.log("executing something else");
+	else if (st > 3 && st <= 6){
+		console.log("executing approval");
+		// check if current approver not a department head
+		if (st == 4 && document.getElementById("f_supervisor").value != document.getElementById("f_deptheadid").value) {
+			// set form approved by supervisor, set form to review for the department head
+			let approveId = document.getElementById("f_supervisor").value;
+			let approveDt = document.getElementById("f_date").value;
+			let deptHeadId = document.getElementById("f_deptheadid").value;  //need this for the other table form reviewer table
+			let override = 0; //only HR can override
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId);
+		}
+	}
+	else{
+		//nothing
+	}
+	
+	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId){
+		let xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = approveDone;
+	    xhttp.open('POST', baseURL + 'ThisStepApproved'); // used in the delegates for servlets
+	    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	    xhttp.send('submitter=' + submitter + '&fmid=' + fmid 
+	    		+ '&approveId=' + approveId + '&approveDt=' + approveDt 
+	    		+ '&override=' + override + '&deptHeadId=' + deptHeadId); // x-www-form-urlencoded
+		
+	    function approveDone(){
+	    	if (xhttp.readyState === 4 && xhttp.status === 200) {
+//	            let data = JSON.parse(xhttp.responseText);
+//	            console.log(data);
+	            console.log("successful request approval for this step");
+	           // window.location.href = 'emplogin.html';
+	    	 }
+	    	
+	    } //function approveDone 
+		
+		
+		
+	} // end function Approve
+	
+	function reqForCom(askid,fmid,question,answer){
+		let xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = rfcDone;
+	    xhttp.open('POST', baseURL + 'rfcRequest'); 
+	    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	    xhttp.send('askid=' + askid + '&fmid=' + fmid 
+	    		+ '&question=' + question + '&answer=' + answer); // x-www-form-urlencoded
+		
+	    function rejUpdated(){
+	    	if (xhttp.readyState === 4 && xhttp.status === 200) {
+//	            let data = JSON.parse(xhttp.responseText);
+//	            console.log(data);
+	            console.log("successful request for comment done");
+	           // window.location.href = 'emplogin.html';
+	    	 }
+	    	
+	    } //function rejUpdated done
+		
+		
+	}
+	
+	
+	function rejFormReq(fmid,rejector,reason){
+		let xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = rejUpdated;
+	    xhttp.open('POST', baseURL + 'rejForm'); 
+	    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	    xhttp.send('fmid=' + fmid + '&rejector=' + rejector 
+	    		+ '&reason=' + reason); // x-www-form-urlencoded
+	    
+	    
+	    function rejUpdated(){
+	    	if (xhttp.readyState === 4 && xhttp.status === 200) {
+//	            let data = JSON.parse(xhttp.responseText);
+//	            console.log(data);
+	            console.log("successful rejection");
+	           // window.location.href = 'emplogin.html';
+	    	 }
+	    	
+	    }
+		
+	}
+	
+	function updateStaTable(fmid,submitter,status){  //update status table
+		let xhttp = new XMLHttpRequest();
+	    xhttp.onreadystatechange = statUpdated;
+	    xhttp.open('POST', baseURL + 'updateStatus');  //this will get mapped to delegates - servlets
+	    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	    xhttp.send('submitter=' + submitter + '&fmid=' + fmid 
+	    		+ '&status=' + status); // x-www-form-urlencoded
+	    
+	    function statUpdated(){
+	    	
+	    	 if (xhttp.readyState === 4 && xhttp.status === 200) {
+//	            let data = JSON.parse(xhttp.responseText);
+//	            console.log(data);
+	            console.log("successful status code change");
+	           // window.location.href = 'emplogin.html';
+	    	 }
+	    	 else{
+	    		 if (xhttp.status >= 400) {
+	                    reject(Error("Status wasn't changed something wrong"));
+	                }
+	    	 }
+	    
+	    
+	    }  //end statupdated
+	
+	
 	}
 	
 	
