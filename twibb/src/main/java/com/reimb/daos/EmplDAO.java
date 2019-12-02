@@ -13,5 +13,7 @@ public interface EmplDAO {
 	 */	
 	public Employee getEmpl(String username, String password);
 	public Employee getEmplbyId(Integer id);
+	public Employee getAnyHR();
+	public Employee getTopHR();
 
 }

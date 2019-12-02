@@ -49,4 +49,20 @@ public class EmplServImp implements EmplService {
 		return emp;
 	}
 
+	@Override
+	public Employee getHREmpl() {
+		// TODO Auto-generated method stub
+		Employee emp = new Employee();
+		emp = ed.getAnyHR();
+		return emp;
+	}
+
+	@Override
+	public Employee getHRhead() {
+		// TODO Auto-generated method stub
+		Employee emp = new Employee();
+		emp = ed.getTopHR();		
+		return emp;
+	}
+
 }

@@ -98,10 +98,12 @@ function recEmp(){ //make sure this function is within above function other xttp
 document.getElementById('submitnow').addEventListener('click', function(submitForm){
 	console.log("executing submitform by a supervisor in js");
 	//check status change of form
-	 
+	 let deptid = document.getElementById("f_deptid").value;
 	 let fmid = document.getElementById("f_formid").value;
 	 let submitter = document.getElementById("f_submitter").value;
 	 let st = stat.options[stat.selectedIndex].value;
+	 let gfmt = document.getElementById("purpose").selectedIndex;
+	 let reqamt = document.getElementById("f_reqamt").value;
 	if (st != 3){ //pending state didn't change then don't do upstate status table
 		updateStaTable(fmid,submitter,st); //all others will update status table		
 	}
@@ -128,21 +130,33 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let approveDt = document.getElementById("f_date").value;
 			let deptHeadId = document.getElementById("f_deptheadid").value;  //need this for the other table form reviewer table
 			let override = 0; //only HR can override
-			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId);
+			let gotoHR = 0;  // set this variable to zero so approval process doesn't search for HR table as reviewer
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt);
 		}
+		else if(st == 5 && document.getElementById("f_supervisor").value == 0){ //dept head reviewing do not have supervisors so id = 0
+			// dept head approving this, so next one to get it is HR
+			let approveId = document.getElementById("f_deptheadid").value;  //set the approver to depthead id
+			let approveDt = document.getElementById("f_date").value;
+			let deptHeadId = approveId;  // same person as this stage
+			let override = 0; //only HR can override
+			let gotoHR = 1;  // this is set to 1 so search for HR dept reviewer to insert to reviewer table next
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt);
+		}
+
 	}
 	else{
 		//nothing
 	}
 	
-	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId){
+	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt){
 		let xhttp = new XMLHttpRequest();
 	    xhttp.onreadystatechange = approveDone;
 	    xhttp.open('POST', baseURL + 'ThisStepApproved'); // used in the delegates for servlets
 	    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	    xhttp.send('submitter=' + submitter + '&fmid=' + fmid 
 	    		+ '&approveId=' + approveId + '&approveDt=' + approveDt 
-	    		+ '&override=' + override + '&deptHeadId=' + deptHeadId); // x-www-form-urlencoded
+	    		+ '&override=' + override + '&deptHeadId=' + deptHeadId 
+	    		+ '&deptid=' + deptid + '&gotoHR=' + gotoHR + '&gfmt=' + gfmt); // x-www-form-urlencoded
 		
 	    function approveDone(){
 	    	if (xhttp.readyState === 4 && xhttp.status === 200) {

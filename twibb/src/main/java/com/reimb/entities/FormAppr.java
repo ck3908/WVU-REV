@@ -9,7 +9,7 @@ public class FormAppr {
 	private Integer empId; //employee submitting the form
 	private Integer approverId; //person approving form
 	private Date approvDt; 
-	private Integer override;
+	private Integer override;  //use as sum of approval amount to date
 	
 	
 	public FormAppr() {
