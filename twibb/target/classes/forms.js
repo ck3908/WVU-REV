@@ -4,6 +4,7 @@ window.onload = () => {
     getForms();
 }
 
+//not used this file in this application
 
 // let xhttp2 = new XMLHttpRequest();
 // xhttp2.onreadystatechange = parseEmployee;

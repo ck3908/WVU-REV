@@ -117,6 +117,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 		console.log(reason);
 		let rejector = document.getElementById("f_supervisor").value;  //supervisor/depthead id rejecting the request
 		rejFormReq(fmid,rejector,reason);
+		window.location.href = 'emplogin.html';
 	}
 	else if (st == 2){
 		console.log("executing more info require");
@@ -124,6 +125,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 		let answer = document.getElementById('anscom').value;  //probably need to append info
 		let askerid = document.getElementById("f_supervisor").value;
 		reqForCom(askid,fmid,question,answer);
+		window.location.href = 'emplogin.html';
 	}
 	else if (st > 3 && st <= 6){
 		console.log("executing approval");
@@ -136,6 +138,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let override = 0; //only HR can override
 			let gotoHR = 0;  // set this variable to zero so approval process doesn't search for HR table as reviewer
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
+			window.location.href = 'emplogin.html';
 		}
 		else if(st == 5 && document.getElementById("f_supervisor").value == document.getElementById("f_deptheadid").value){ //dept head reviewing do not have supervisors so id = 0
 			// dept head approving this, so next one to get it is HR
@@ -146,8 +149,9 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let override = 0; //only HR can override
 			let gotoHR = 1;  // this is set to 1 so search for HR dept reviewer to insert to reviewer table next
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
+			window.location.href = 'emplogin.html';
 		}
-		else {  // HR approve  - update reimbamt in FINFO table now with the amount approved
+		else if (document.getElementById("f_deptid").value = 2) {  // st = 6 so make sure HR approve so approver must be in dept 2 - HR  - update reimbamt in FINFO table now with the amount approved
 			console.log("in status 6 mode")
 			let approveDt = document.getElementById("f_date").value;
 			let approveId = document.getElementById("f_supervisor").value;  //this is the HR person now
@@ -157,6 +161,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let override = document.getElementById("f_reimbamt").value;  //!! using override in the fapprove tables to keep track of total approve for submitter
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
 			// next step in Java is insert fapprove table for HR person only since fstatus was updated above
+			window.location.href = 'emplogin.html';
 		}
 
 	}
