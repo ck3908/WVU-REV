@@ -46,7 +46,7 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 		fa.setApproverId(Integer.parseInt(req.getParameter("approveId")));
 		fa.setEmpId(Integer.parseInt(req.getParameter("submitter")));
 		fa.setFormId(Integer.parseInt(req.getParameter("fmid")));
-		fa.setOverride(Integer.parseInt(req.getParameter("override")));
+		fa.setOverride(Integer.parseInt(req.getParameter("override")));  //when HR = 2, this variable stores reimbamt from html which in last step is stored in override
 		FormService fs = new FormServiceImp();
 		int fadone = fs.insertFormAppr(fa);
 		
@@ -68,7 +68,26 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 			// for any particular user, we can then sum up all of the submitter's approved amounts by 
 			// summing all the override values for that submitter to keep track of what is left over for the year
 			// where a $1000 is max per year
+			
+			// first check how much many already granted to this submitter by summing up all of the 
+			//submitter's grants in fapprove table
+			int submitter = Integer.parseInt(req.getParameter("submitter"));
+			EmplService eg = new EmplServImp();
+			int sumGrant = eg.getEmpTotGrant(submitter);  // employee's total grant in the db				
 			int requestamt = Integer.parseInt(req.getParameter("reqamt"));
+			
+			// now check if requested amount 
+			final Integer maxGrant = 1000;  //can't change variable
+			if (sumGrant >= maxGrant) {  // already at 1000 max 
+				requestamt = 0;				
+			}
+			else if ((maxGrant - (sumGrant+requestamt) < 0)) {  //requested amt could exceed limit, reduce it down
+				requestamt = maxGrant - sumGrant;
+			}
+			else {
+				//leave it for now
+			}
+			
 			//add checks that request amount less than 1000 in total for year
 			int fmid = Integer.parseInt(req.getParameter("fmid"));
 			int gradingfmt = Integer.parseInt(req.getParameter("gfmt"));
@@ -108,5 +127,30 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 				int doneAgain = fs.insertFrev(fr);				
 			}
 		} // end HRflag == 1
+		
+		else { //HRflag should be == 2 here means HR has approved it, prepare to insert fapprove record
+			// remember status table was updated already so no need to do it here
+			// actually logic might look better in its own module since not doing anything with reviewer table
+			// but for simplicity stick it here and update fapprove table
+			FormAppr hra = new FormAppr();
+			
+			String dStr = req.getParameter("approveDt");
+			DateFormat fmt = new SimpleDateFormat("dd-MMM-yy");
+			Date ndate = new Date(); //initial date somehow
+			try {
+				ndate = format.parse(dStr);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			hra.setApprovDt(ndate);
+			hra.setApproverId(Integer.parseInt(req.getParameter("approveId")));
+			hra.setEmpId(Integer.parseInt(req.getParameter("submitter")));
+			hra.setFormId(Integer.parseInt(req.getParameter("fmid")));
+			hra.setOverride(Integer.parseInt(req.getParameter("override")));
+			FormService fshra = new FormServiceImp();
+			int hraDone = fshra.insertFormAppr(hra);		
+			
+		}
 	}
 }

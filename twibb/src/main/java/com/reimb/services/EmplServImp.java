@@ -65,4 +65,11 @@ public class EmplServImp implements EmplService {
 		return emp;
 	}
 
+	@Override
+	public Integer getEmpTotGrant(Integer empid) {
+		// TODO Auto-generated method stub
+		Integer sumGrants = ed.getSumEmplGrants(empid);
+		return sumGrants;
+	}
+
 }

@@ -140,4 +140,30 @@ public class EmplOracle implements EmplDAO{
 		return em;
 	}
 
+	
+	@Override
+	public Integer getSumEmplGrants(Integer id) {  //check how much funds been granted to an individual
+		// TODO Auto-generated method stub
+		Integer sumTotal = 0;
+		log.trace("In get employee's total grant from database.");
+		try(Connection conn = cu.getConnection()){  //select stmt to find the head  HR person
+			String sql = "SELECT SUM(override) as totalsum FROM fapprove WHERE submitter = ?";
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, id);
+			ResultSet rs = pstm.executeQuery();
+			//username is unique, this query can only ever return a single result, so if is ok.
+			if(rs.next())
+			{
+				log.trace("sum total found");
+				sumTotal = rs.getInt("totalsum");	
+			}
+		}
+		catch(Exception e)
+		{
+			LogUtil.logException(e, EmplOracle.class);
+		}
+		
+		return sumTotal;
+	}
+
 }

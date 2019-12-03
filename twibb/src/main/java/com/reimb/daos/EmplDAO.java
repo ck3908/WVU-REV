@@ -15,5 +15,6 @@ public interface EmplDAO {
 	public Employee getEmplbyId(Integer id);
 	public Employee getAnyHR();
 	public Employee getTopHR();
+	public Integer getSumEmplGrants(Integer id);
 
 }

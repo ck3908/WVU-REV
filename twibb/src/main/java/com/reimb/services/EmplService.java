@@ -7,5 +7,6 @@ public interface EmplService {
 	public Employee getEmpById(Integer id);
 	public Employee getHREmpl(); //get any HR employee to do approval
 	public Employee getHRhead();
+	public Integer  getEmpTotGrant(Integer empid);
 
 }

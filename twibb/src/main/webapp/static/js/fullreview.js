@@ -148,13 +148,21 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
 		}
 		else {  // HR approve  - update reimbamt in FINFO table now with the amount approved
-			
+			console.log("in status 6 mode")
+			let approveDt = document.getElementById("f_date").value;
+			let approveId = document.getElementById("f_supervisor").value;  //this is the HR person now
+		//	let submitter = document.getElementById("f_submitter").value
+			let gotoHR = 2;  //set flag so this is HR department approving it as final
+			let override = document.getElementById("f_reimbamt").value;  //!! using override in the fapprove tables to keep track of total approve for submitter
+			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
+			// next step in Java is insert fapprove table for HR person only since fstatus was updated above
 		}
 
 	}
 	else{
 		//nothing
 	}
+	
 	
 	function partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt){
 		let xhttp = new XMLHttpRequest();
