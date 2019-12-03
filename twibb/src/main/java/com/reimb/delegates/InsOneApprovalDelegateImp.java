@@ -23,7 +23,7 @@ import com.reimb.services.FormService;
 import com.reimb.services.FormServiceImp;
 
 public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
-	private Logger log = Logger.getLogger(InsertRFCDelegateImp.class);
+	private Logger log = Logger.getLogger(InsOneApprovalDelegateImp.class);
 
 	@Override
 	public void process(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException  {
@@ -48,7 +48,9 @@ public class InsOneApprovalDelegateImp implements FrontControllerDelegate {
 		fa.setFormId(Integer.parseInt(req.getParameter("fmid")));
 		fa.setOverride(Integer.parseInt(req.getParameter("override")));  //when HR = 2, this variable stores reimbamt from html which in last step is stored in override
 		FormService fs = new FormServiceImp();
-		int fadone = fs.insertFormAppr(fa);
+		if (HRflag != 2) {  // HR flag = 2 is handled differently checking amounts before setting the field.
+			int fadone = fs.insertFormAppr(fa);
+		}
 		
 		// now insert form review table
 		log.trace(" form approved step one completed, now update form reviewer table");

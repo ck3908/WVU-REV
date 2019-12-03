@@ -152,6 +152,7 @@ document.getElementById('submitnow').addEventListener('click', function(submitFo
 			let approveDt = document.getElementById("f_date").value;
 			let approveId = document.getElementById("f_supervisor").value;  //this is the HR person now
 		//	let submitter = document.getElementById("f_submitter").value
+			let deptHeadId = document.getElementById("f_deptheadid").value; // doesn't matter, not used here anyway
 			let gotoHR = 2;  //set flag so this is HR department approving it as final
 			let override = document.getElementById("f_reimbamt").value;  //!! using override in the fapprove tables to keep track of total approve for submitter
 			partApprove(submitter,fmid,approveId,approveDt,override,deptHeadId,deptid,gotoHR,gfmt,reqamt);
