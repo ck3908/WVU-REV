@@ -7,7 +7,7 @@ import entities.CarOffer;
 
 public interface CustomerDAO {
 	
-	public List<CarDetail> viewCarLot();  //Kitties can view cars available for all to see 4/8/2020
+	public List<CarDetail> viewCarLot();  //Mygirls can view cars available for all to see 4/8/2020
 	public List<CarDetail> viewMyCars(String username);
 	public int enterBid(CarOffer custBid);
 	public List<CarOffer> getMyBids(String username);
